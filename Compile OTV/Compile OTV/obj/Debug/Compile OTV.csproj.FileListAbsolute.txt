@@ -1,0 +1,9 @@
+C:\Users\Zach\Desktop\Projects\C#\Compile OTV\Compile OTV\bin\Debug\Compile OTV.exe.config
+C:\Users\Zach\Desktop\Projects\C#\Compile OTV\Compile OTV\obj\Debug\Compile OTV.csprojResolveAssemblyReference.cache
+C:\Users\Zach\Desktop\Projects\C#\Compile OTV\Compile OTV\obj\Debug\Compile_OTV.Form1.resources
+C:\Users\Zach\Desktop\Projects\C#\Compile OTV\Compile OTV\obj\Debug\Compile_OTV.Properties.Resources.resources
+C:\Users\Zach\Desktop\Projects\C#\Compile OTV\Compile OTV\obj\Debug\Compile OTV.csproj.GenerateResource.Cache
+C:\Users\Zach\Desktop\Projects\C#\Compile OTV\Compile OTV\bin\Debug\Compile OTV.exe
+C:\Users\Zach\Desktop\Projects\C#\Compile OTV\Compile OTV\bin\Debug\Compile OTV.pdb
+C:\Users\Zach\Desktop\Projects\C#\Compile OTV\Compile OTV\obj\Debug\Compile OTV.exe
+C:\Users\Zach\Desktop\Projects\C#\Compile OTV\Compile OTV\obj\Debug\Compile OTV.pdb

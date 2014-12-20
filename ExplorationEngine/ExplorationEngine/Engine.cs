@@ -439,10 +439,7 @@ namespace ExplorationEngine
 
 		}
 
-		protected override void UnloadContent()
-		{
-			
-		}
+		protected override void UnloadContent(){}
 
 		#endregion
 
@@ -472,16 +469,21 @@ namespace ExplorationEngine
 
 		public static void SetResolution(int width, int height, bool fullscreen)
 		{
+            GraphicsManager.PreferredBackBufferWidth = width;
+            GraphicsManager.PreferredBackBufferHeight = height;
+            GraphicsManager.IsFullScreen = fullscreen;
+            GraphicsManager.ApplyChanges();
+
+            CurrentScreenResolution = new Vector2(width, height);
+
+            /*
 			// If we aren't using a full screen mode, the height and width of the window can
 			// be set to anything equal to or smaller than the actual screen size.
 			if (fullscreen == false)
 			{
-				if ((width <= GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width)
-					&& (height <= GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height))
+				if ((width <= GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width) && (height <= GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height))
 				{
-					CurrentScreenResolution = new Vector2(width, height);
-
-					
+                    
 					//.Position = new Point(screen.Bounds.X, screen.Bounds.Y);
 					GraphicsManager.PreferredBackBufferWidth = width;
 					GraphicsManager.PreferredBackBufferHeight = height;
@@ -493,7 +495,7 @@ namespace ExplorationEngine
 			else
 			{
 				// If we are using full screen mode, we should check to make sure that the display
-				// adapter can handle the video mode we are trying to set.  To do this, we will
+				// adapter can handle the video mode we are trying to set. To do this, we will
 				// iterate through the display modes supported by the adapter and check them against
 				// the mode we want to set.
 				foreach (DisplayMode dm in GraphicsAdapter.DefaultAdapter.SupportedDisplayModes)
@@ -501,8 +503,6 @@ namespace ExplorationEngine
 					// Check the width and height of each mode against the passed values
 					if ((dm.Width == width) && (dm.Height == height))
 					{
-						CurrentScreenResolution = new Vector2(width, height);
-
 						// The mode is supported, so set the buffer formats, apply changes and return
 						GraphicsManager.PreferredBackBufferWidth = width;
 						GraphicsManager.PreferredBackBufferHeight = height;
@@ -513,7 +513,11 @@ namespace ExplorationEngine
 						GraphicsManager.ApplyChanges();
 					}
 				}
+             
+
 			}
+            
+            */
 
 
 			//Make menus fullscreen

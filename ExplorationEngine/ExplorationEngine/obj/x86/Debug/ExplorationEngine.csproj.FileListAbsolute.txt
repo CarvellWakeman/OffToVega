@@ -104,3 +104,101 @@ C:\Users\Arctures-user\Desktop\Off To Vega Project (Upload to desktop)\Off To Ve
 C:\Users\Arctures-user\Desktop\Off To Vega Project (Upload to desktop)\Off To Vega Project\Off To Vega\ExplorationEngine\ExplorationEngine\obj\x86\Debug\Off To Vega.pdb
 C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\obj\x86\Debug\Off To Vega.exe
 C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\obj\x86\Debug\Off To Vega.pdb
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\obj\x86\Debug\ExplorationEngine.csprojResolveAssemblyReference.cache
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\Debug\ERROR.png
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\Debug\Markers\MarkerBB.png
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\Debug\Markers\MarkerBC.png
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\Debug\Markers\MarkerBG.png
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\Debug\Markers\MarkerBO.png
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\Debug\Markers\MarkerBP.png
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\Debug\Markers\MarkerBR.png
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\Debug\Markers\MarkerBY.png
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\Debug\Planets\Planet_Debug.png
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\FX\BlackHole.fx
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\Galaxies\Spiral\1.png
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\GUI\Background\MainMenuBackground.jpg
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\GUI\Background\MapBackground.png
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\GUI\Buttons.png
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\GUI\Checkmark.png
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\GUI\Circle.png
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\GUI\DropDownArrow.png
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\GUI\MainMenu.png
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\GUI\MainMenuPlanet.png
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\GUI\Square.png
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\GUI\Underlay.png
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\GUI\Underlay2.png
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\GUI\Underlay3.png
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\Moons\Moon_Dusty_Medium.png
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\Particles\circle.png
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\Particles\diamond.png
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\Particles\square.png
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\Particles\star.png
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\Planets\ClassH\Delvor.png
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\Planets\ClassJ\Fash.png
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\Planets\ClassM\Etho.png
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\Planets\ClassO\Serine.png
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\Planets\ClassP\Antasia.png
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\Planets\ClassY\Voshnoy.png
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\Planets\Other\Shadow.png
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\Ships\Debug.png
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\Ships\Parts\Capasitor.png
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\Ships\Parts\Cargo.png
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\Ships\Parts\Chassis1.png
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\Ships\Parts\Chassis2.png
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\Ships\Parts\Generator.png
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\Ships\Parts\LifeSupport.png
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\Ships\Parts\Radiator.png
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\Ships\Parts\Thruster.png
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\Ships\Serenity.png
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\Starfields\StarField_1280X720.png
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\Starfields\StarField_1600X900.png
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\Starfields\StarField_Debug_1280X720.png
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\Starfields\WarpField.png
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\Stars\BlueGiant.png
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\Stars\RedGiant.png
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\Stars\WhiteDwarf.png
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\Stars\YellowMainSequence.png
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\Audio\Environment\Ships\Ping.xnb
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\Audio\GUI\Beeps\Beep1.xnb
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\Audio\GUI\Beeps\Beep2.xnb
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\Audio\GUI\Beeps\Beep3.xnb
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\Audio\GUI\Beeps\Beep4.xnb
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\Audio\GUI\Clicks\Click1.xnb
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\Audio\GUI\Clicks\Click2.xnb
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\Audio\GUI\Clicks\Click3.xnb
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\Audio\GUI\Clicks\Click4.xnb
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\Audio\GUI\Clicks\Click5.xnb
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\Audio\GUI\Clicks\Click6.xnb
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\Audio\Songs\Solarity.xnb
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\Fonts\Dolce_Large.xnb
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\Fonts\Dolce_Medium.xnb
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\Fonts\Dolce_MediumSmall.xnb
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\Fonts\Dolce_Small.xnb
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\Fonts\Dolce_VerySmall.xnb
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\Fonts\MainFont.xnb
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Off To Vega.exe.manifest
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Off To Vega.application
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Off To Vega.exe
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Off To Vega.pdb
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\MonoGame.Framework.dll
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\SharpDX.MediaFoundation.dll
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\SharpDX.dll
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\SharpDX.XAudio2.dll
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\SharpDX.Direct3D11.dll
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\SharpDX.DXGI.dll
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\SharpDX.Direct2D1.dll
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Lidgren.Network.dll
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\SharpDX.XInput.dll
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\SharpDX.RawInput.dll
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\SharpDX.Direct3D9.dll
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\SharpDX.MediaFoundation.xml
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\SharpDX.xml
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\SharpDX.XAudio2.xml
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\SharpDX.Direct3D11.xml
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\SharpDX.DXGI.xml
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\SharpDX.Direct2D1.xml
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\SharpDX.XInput.xml
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\SharpDX.RawInput.xml
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\SharpDX.Direct3D9.xml
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\obj\x86\Debug\Off To Vega.exe.manifest
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\obj\x86\Debug\Off To Vega.application

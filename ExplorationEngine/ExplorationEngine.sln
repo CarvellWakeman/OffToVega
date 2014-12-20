@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pipeline", "Pipeline\Pipeli
 EndProject
 Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "PipelineContent", "Pipeline\PipelineContent\PipelineContent.contentproj", "{5CF1FCB5-58AC-43E9-AE12-B438C82B9FC8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Compile OTV", "..\..\Compile OTV\Compile OTV\Compile OTV.csproj", "{D06D624D-9538-4968-B7F5-7748F701F08F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Compile OTV", "..\Compile OTV\Compile OTV\Compile OTV.csproj", "{D06D624D-9538-4968-B7F5-7748F701F08F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

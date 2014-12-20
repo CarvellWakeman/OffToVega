@@ -7,6 +7,3 @@ C:\Users\Zach\Desktop\Projects\C#\Compile OTV\Compile OTV\bin\Debug\Compile OTV.
 C:\Users\Zach\Desktop\Projects\C#\Compile OTV\Compile OTV\bin\Debug\Compile OTV.pdb
 C:\Users\Zach\Desktop\Projects\C#\Compile OTV\Compile OTV\obj\Debug\Compile OTV.exe
 C:\Users\Zach\Desktop\Projects\C#\Compile OTV\Compile OTV\obj\Debug\Compile OTV.pdb
-C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\Compile OTV\Compile OTV\bin\Debug\Compile OTV.exe.config
-C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\Compile OTV\Compile OTV\obj\Debug\Compile OTV.exe
-C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\Compile OTV\Compile OTV\obj\Debug\Compile OTV.pdb

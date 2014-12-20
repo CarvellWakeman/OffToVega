@@ -1,0 +1,681 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
+  <Asset Type="Pipeline:BuildItemCollection">
+    <Item>
+      <Source>Audio\Environment\Ships\Ping.wav</Source>
+      <Name>Audio\Environment\Ships\Ping</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zach\Desktop\Projects\C#\Off To Vega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\Audio\Environment\Ships\Ping.xnb</Output>
+      <Time>2014-11-30T22:21:01.7935195-08:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\GUI\Beeps\Beep1.wav</Source>
+      <Name>Audio\GUI\Beeps\Beep1</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zach\Desktop\Projects\C#\Off To Vega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\Audio\GUI\Beeps\Beep1.xnb</Output>
+      <Time>2014-11-30T22:21:09.3109792-08:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\GUI\Beeps\Beep2.wav</Source>
+      <Name>Audio\GUI\Beeps\Beep2</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zach\Desktop\Projects\C#\Off To Vega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\Audio\GUI\Beeps\Beep2.xnb</Output>
+      <Time>2014-11-30T22:21:09.3109792-08:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\GUI\Beeps\Beep3.wav</Source>
+      <Name>Audio\GUI\Beeps\Beep3</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zach\Desktop\Projects\C#\Off To Vega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\Audio\GUI\Beeps\Beep3.xnb</Output>
+      <Time>2014-11-30T22:21:09.3266042-08:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\GUI\Beeps\Beep4.wav</Source>
+      <Name>Audio\GUI\Beeps\Beep4</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zach\Desktop\Projects\C#\Off To Vega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\Audio\GUI\Beeps\Beep4.xnb</Output>
+      <Time>2014-11-30T22:21:09.3266042-08:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\GUI\Clicks\Click1.wav</Source>
+      <Name>Audio\GUI\Clicks\Click1</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zach\Desktop\Projects\C#\Off To Vega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\Audio\GUI\Clicks\Click1.xnb</Output>
+      <Time>2014-11-30T22:21:13.7182541-08:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\GUI\Clicks\Click2.wav</Source>
+      <Name>Audio\GUI\Clicks\Click2</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zach\Desktop\Projects\C#\Off To Vega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\Audio\GUI\Clicks\Click2.xnb</Output>
+      <Time>2014-11-30T22:21:13.7026301-08:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\GUI\Clicks\Click3.wav</Source>
+      <Name>Audio\GUI\Clicks\Click3</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zach\Desktop\Projects\C#\Off To Vega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\Audio\GUI\Clicks\Click3.xnb</Output>
+      <Time>2014-11-30T22:21:13.7026301-08:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\GUI\Clicks\Click4.wav</Source>
+      <Name>Audio\GUI\Clicks\Click4</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zach\Desktop\Projects\C#\Off To Vega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\Audio\GUI\Clicks\Click4.xnb</Output>
+      <Time>2014-11-30T22:21:13.7182541-08:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\GUI\Clicks\Click5.wav</Source>
+      <Name>Audio\GUI\Clicks\Click5</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zach\Desktop\Projects\C#\Off To Vega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\Audio\GUI\Clicks\Click5.xnb</Output>
+      <Time>2014-11-30T22:21:13.7182541-08:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\GUI\Clicks\Click6.wav</Source>
+      <Name>Audio\GUI\Clicks\Click6</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zach\Desktop\Projects\C#\Off To Vega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\Audio\GUI\Clicks\Click6.xnb</Output>
+      <Time>2014-11-30T22:21:13.7182541-08:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\Songs\Solarity.wav</Source>
+      <Name>Audio\Songs\Solarity</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zach\Desktop\Projects\C#\Off To Vega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\Audio\Songs\Solarity.xnb</Output>
+      <Time>2014-11-30T22:21:23.0646222-08:00</Time>
+    </Item>
+    <Item>
+      <Source>Debug\Markers\MarkerBB.png</Source>
+      <Name>Debug\Markers\MarkerBB</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zach\Desktop\Projects\C#\Off To Vega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\Debug\Markers\MarkerBB.xnb</Output>
+      <Time>2014-11-30T22:22:07.310097-08:00</Time>
+    </Item>
+    <Item>
+      <Source>Debug\Markers\MarkerBC.png</Source>
+      <Name>Debug\Markers\MarkerBC</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zach\Desktop\Projects\C#\Off To Vega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\Debug\Markers\MarkerBC.xnb</Output>
+      <Time>2014-11-30T22:22:07.310097-08:00</Time>
+    </Item>
+    <Item>
+      <Source>Debug\Markers\MarkerBG.png</Source>
+      <Name>Debug\Markers\MarkerBG</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zach\Desktop\Projects\C#\Off To Vega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\Debug\Markers\MarkerBG.xnb</Output>
+      <Time>2014-11-30T22:22:07.310097-08:00</Time>
+    </Item>
+    <Item>
+      <Source>Debug\Markers\MarkerBO.png</Source>
+      <Name>Debug\Markers\MarkerBO</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zach\Desktop\Projects\C#\Off To Vega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\Debug\Markers\MarkerBO.xnb</Output>
+      <Time>2014-11-30T22:22:07.325722-08:00</Time>
+    </Item>
+    <Item>
+      <Source>Debug\Markers\MarkerBP.png</Source>
+      <Name>Debug\Markers\MarkerBP</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zach\Desktop\Projects\C#\Off To Vega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\Debug\Markers\MarkerBP.xnb</Output>
+      <Time>2014-11-30T22:22:07.325722-08:00</Time>
+    </Item>
+    <Item>
+      <Source>Debug\Markers\MarkerBR.png</Source>
+      <Name>Debug\Markers\MarkerBR</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zach\Desktop\Projects\C#\Off To Vega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\Debug\Markers\MarkerBR.xnb</Output>
+      <Time>2014-11-30T22:22:07.325722-08:00</Time>
+    </Item>
+    <Item>
+      <Source>Debug\Markers\MarkerBY.png</Source>
+      <Name>Debug\Markers\MarkerBY</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zach\Desktop\Projects\C#\Off To Vega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\Debug\Markers\MarkerBY.xnb</Output>
+      <Time>2014-11-30T22:22:07.341347-08:00</Time>
+    </Item>
+    <Item>
+      <Source>Debug\Planets\Planet_Debug.png</Source>
+      <Name>Debug\Planets\Planet_Debug</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zach\Desktop\Projects\C#\Off To Vega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\Debug\Planets\Planet_Debug.xnb</Output>
+      <Time>2014-11-30T22:25:51.6986496-08:00</Time>
+    </Item>
+    <Item>
+      <Source>Galaxies\Spiral\1.png</Source>
+      <Name>Galaxies\Spiral\1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zach\Desktop\Projects\C#\Off To Vega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\Galaxies\Spiral\1.xnb</Output>
+      <Time>2014-11-30T22:26:21.3269006-08:00</Time>
+    </Item>
+    <Item>
+      <Source>GUI\Buttons.png</Source>
+      <Name>GUI\Buttons</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zach\Desktop\Projects\C#\Off To Vega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\GUI\Buttons.xnb</Output>
+      <Time>2014-11-30T22:26:35.7119259-08:00</Time>
+    </Item>
+    <Item>
+      <Source>GUI\Checkmark.png</Source>
+      <Name>GUI\Checkmark</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zach\Desktop\Projects\C#\Off To Vega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\GUI\Checkmark.xnb</Output>
+      <Time>2014-11-30T22:26:35.7119259-08:00</Time>
+    </Item>
+    <Item>
+      <Source>GUI\Circle.png</Source>
+      <Name>GUI\Circle</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zach\Desktop\Projects\C#\Off To Vega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\GUI\Circle.xnb</Output>
+      <Time>2014-11-30T22:26:35.7275509-08:00</Time>
+    </Item>
+    <Item>
+      <Source>GUI\DropDownArrow.png</Source>
+      <Name>GUI\DropDownArrow</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zach\Desktop\Projects\C#\Off To Vega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\GUI\DropDownArrow.xnb</Output>
+      <Time>2014-11-30T22:26:35.7275509-08:00</Time>
+    </Item>
+    <Item>
+      <Source>GUI\MainMenu.png</Source>
+      <Name>GUI\MainMenu</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zach\Desktop\Projects\C#\Off To Vega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\GUI\MainMenu.xnb</Output>
+      <Time>2014-11-30T22:26:35.7275509-08:00</Time>
+    </Item>
+    <Item>
+      <Source>GUI\MainMenuPlanet.png</Source>
+      <Name>GUI\MainMenuPlanet</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zach\Desktop\Projects\C#\Off To Vega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\GUI\MainMenuPlanet.xnb</Output>
+      <Time>2014-11-30T22:26:35.7275509-08:00</Time>
+    </Item>
+    <Item>
+      <Source>GUI\Square.png</Source>
+      <Name>GUI\Square</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zach\Desktop\Projects\C#\Off To Vega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\GUI\Square.xnb</Output>
+      <Time>2014-11-30T22:26:35.7431781-08:00</Time>
+    </Item>
+    <Item>
+      <Source>GUI\Underlay.png</Source>
+      <Name>GUI\Underlay</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zach\Desktop\Projects\C#\Off To Vega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\GUI\Underlay.xnb</Output>
+      <Time>2014-11-30T22:26:35.7431781-08:00</Time>
+    </Item>
+    <Item>
+      <Source>GUI\Underlay2.png</Source>
+      <Name>GUI\Underlay2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zach\Desktop\Projects\C#\Off To Vega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\GUI\Underlay2.xnb</Output>
+      <Time>2014-11-30T22:26:35.7431781-08:00</Time>
+    </Item>
+    <Item>
+      <Source>GUI\Underlay3.png</Source>
+      <Name>GUI\Underlay3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zach\Desktop\Projects\C#\Off To Vega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\GUI\Underlay3.xnb</Output>
+      <Time>2014-11-30T22:26:35.6963031-08:00</Time>
+    </Item>
+    <Item>
+      <Source>GUI\Background\MainMenuBackground.jpg</Source>
+      <Name>GUI\Background\MainMenuBackground</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zach\Desktop\Projects\C#\Off To Vega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\GUI\Background\MainMenuBackground.xnb</Output>
+      <Time>2014-11-30T22:26:39.8064674-08:00</Time>
+    </Item>
+    <Item>
+      <Source>GUI\Background\MapBackground.png</Source>
+      <Name>GUI\Background\MapBackground</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zach\Desktop\Projects\C#\Off To Vega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\GUI\Background\MapBackground.xnb</Output>
+      <Time>2014-11-30T22:26:39.8220927-08:00</Time>
+    </Item>
+    <Item>
+      <Source>Moons\Moon_Dusty_Medium.png</Source>
+      <Name>Moons\Moon_Dusty_Medium</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zach\Desktop\Projects\C#\Off To Vega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\Moons\Moon_Dusty_Medium.xnb</Output>
+      <Time>2014-11-30T22:26:45.8079158-08:00</Time>
+    </Item>
+    <Item>
+      <Source>Particles\circle.png</Source>
+      <Name>Particles\circle</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zach\Desktop\Projects\C#\Off To Vega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\Particles\circle.xnb</Output>
+      <Time>2014-11-30T22:26:52.2157751-08:00</Time>
+    </Item>
+    <Item>
+      <Source>Particles\diamond.png</Source>
+      <Name>Particles\diamond</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zach\Desktop\Projects\C#\Off To Vega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\Particles\diamond.xnb</Output>
+      <Time>2014-11-30T22:26:52.2157751-08:00</Time>
+    </Item>
+    <Item>
+      <Source>Particles\square.png</Source>
+      <Name>Particles\square</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zach\Desktop\Projects\C#\Off To Vega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\Particles\square.xnb</Output>
+      <Time>2014-11-30T22:26:52.2157751-08:00</Time>
+    </Item>
+    <Item>
+      <Source>Particles\star.png</Source>
+      <Name>Particles\star</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zach\Desktop\Projects\C#\Off To Vega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\Particles\star.xnb</Output>
+      <Time>2014-11-30T22:26:52.2157751-08:00</Time>
+    </Item>
+    <Item>
+      <Source>Planets\Other\Shadow.png</Source>
+      <Name>Planets\Other\Shadow</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zach\Desktop\Projects\C#\Off To Vega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\Planets\Other\Shadow.xnb</Output>
+      <Time>2014-11-30T22:27:45.2812495-08:00</Time>
+    </Item>
+    <Item>
+      <Source>Planets\ClassH\Delvor.png</Source>
+      <Name>Planets\ClassH\Delvor</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zach\Desktop\Projects\C#\Off To Vega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\Planets\ClassH\Delvor.xnb</Output>
+      <Time>2014-11-30T22:27:48.9224959-08:00</Time>
+    </Item>
+    <Item>
+      <Source>Planets\ClassJ\Fash.png</Source>
+      <Name>Planets\ClassJ\Fash</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zach\Desktop\Projects\C#\Off To Vega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\Planets\ClassJ\Fash.xnb</Output>
+      <Time>2014-11-30T22:27:52.0951045-08:00</Time>
+    </Item>
+    <Item>
+      <Source>Planets\ClassM\Etho.png</Source>
+      <Name>Planets\ClassM\Etho</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zach\Desktop\Projects\C#\Off To Vega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\Planets\ClassM\Etho.xnb</Output>
+      <Time>2014-11-30T22:27:55.2206748-08:00</Time>
+    </Item>
+    <Item>
+      <Source>Planets\ClassO\Serine.png</Source>
+      <Name>Planets\ClassO\Serine</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zach\Desktop\Projects\C#\Off To Vega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\Planets\ClassO\Serine.xnb</Output>
+      <Time>2014-11-30T22:27:58.8465786-08:00</Time>
+    </Item>
+    <Item>
+      <Source>Planets\ClassP\Antasia.png</Source>
+      <Name>Planets\ClassP\Antasia</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zach\Desktop\Projects\C#\Off To Vega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\Planets\ClassP\Antasia.xnb</Output>
+      <Time>2014-11-30T22:28:02.1910154-08:00</Time>
+    </Item>
+    <Item>
+      <Source>Planets\ClassY\Voshnoy.png</Source>
+      <Name>Planets\ClassY\Voshnoy</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zach\Desktop\Projects\C#\Off To Vega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\Planets\ClassY\Voshnoy.xnb</Output>
+      <Time>2014-11-30T22:28:07.160673-08:00</Time>
+    </Item>
+    <Item>
+      <Source>Ships\Debug.png</Source>
+      <Name>Ships\Debug</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zach\Desktop\Projects\C#\Off To Vega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\Ships\Debug.xnb</Output>
+      <Time>2014-11-30T22:28:21.0877715-08:00</Time>
+    </Item>
+    <Item>
+      <Source>Ships\Serenity.png</Source>
+      <Name>Ships\Serenity</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zach\Desktop\Projects\C#\Off To Vega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\Ships\Serenity.xnb</Output>
+      <Time>2014-11-30T22:28:21.1033968-08:00</Time>
+    </Item>
+    <Item>
+      <Source>Ships\Parts\Capasitor.png</Source>
+      <Name>Ships\Parts\Capasitor</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zach\Desktop\Projects\C#\Off To Vega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\Ships\Parts\Capasitor.xnb</Output>
+      <Time>2014-11-30T22:28:26.6040049-08:00</Time>
+    </Item>
+    <Item>
+      <Source>Ships\Parts\Cargo.png</Source>
+      <Name>Ships\Parts\Cargo</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zach\Desktop\Projects\C#\Off To Vega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\Ships\Parts\Cargo.xnb</Output>
+      <Time>2014-11-30T22:28:26.6196288-08:00</Time>
+    </Item>
+    <Item>
+      <Source>Ships\Parts\Chassis1.png</Source>
+      <Name>Ships\Parts\Chassis1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zach\Desktop\Projects\C#\Off To Vega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\Ships\Parts\Chassis1.xnb</Output>
+      <Time>2014-11-30T22:28:26.6196288-08:00</Time>
+    </Item>
+    <Item>
+      <Source>Ships\Parts\Chassis2.png</Source>
+      <Name>Ships\Parts\Chassis2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zach\Desktop\Projects\C#\Off To Vega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\Ships\Parts\Chassis2.xnb</Output>
+      <Time>2014-11-30T22:28:26.6196288-08:00</Time>
+    </Item>
+    <Item>
+      <Source>Ships\Parts\Generator.png</Source>
+      <Name>Ships\Parts\Generator</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zach\Desktop\Projects\C#\Off To Vega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\Ships\Parts\Generator.xnb</Output>
+      <Time>2014-11-30T22:28:26.6196288-08:00</Time>
+    </Item>
+    <Item>
+      <Source>Ships\Parts\LifeSupport.png</Source>
+      <Name>Ships\Parts\LifeSupport</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zach\Desktop\Projects\C#\Off To Vega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\Ships\Parts\LifeSupport.xnb</Output>
+      <Time>2014-11-30T22:28:26.6196288-08:00</Time>
+    </Item>
+    <Item>
+      <Source>Ships\Parts\Radiator.png</Source>
+      <Name>Ships\Parts\Radiator</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zach\Desktop\Projects\C#\Off To Vega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\Ships\Parts\Radiator.xnb</Output>
+      <Time>2014-11-30T22:28:26.6356788-08:00</Time>
+    </Item>
+    <Item>
+      <Source>Ships\Parts\Thruster.png</Source>
+      <Name>Ships\Parts\Thruster</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zach\Desktop\Projects\C#\Off To Vega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\Ships\Parts\Thruster.xnb</Output>
+      <Time>2014-11-30T22:28:26.6356788-08:00</Time>
+    </Item>
+    <Item>
+      <Source>Starfields\StarField_1280X720.png</Source>
+      <Name>Starfields\StarField_1280X720</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zach\Desktop\Projects\C#\Off To Vega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\Starfields\StarField_1280X720.xnb</Output>
+      <Time>2014-11-30T22:28:33.2301325-08:00</Time>
+    </Item>
+    <Item>
+      <Source>Starfields\StarField_1600X900.png</Source>
+      <Name>Starfields\StarField_1600X900</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zach\Desktop\Projects\C#\Off To Vega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\Starfields\StarField_1600X900.xnb</Output>
+      <Time>2014-11-30T22:28:33.2301325-08:00</Time>
+    </Item>
+    <Item>
+      <Source>Starfields\StarField_Debug_1280X720.png</Source>
+      <Name>Starfields\StarField_Debug_1280X720</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zach\Desktop\Projects\C#\Off To Vega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\Starfields\StarField_Debug_1280X720.xnb</Output>
+      <Time>2014-11-30T22:28:33.2457565-08:00</Time>
+    </Item>
+    <Item>
+      <Source>Starfields\WarpField.png</Source>
+      <Name>Starfields\WarpField</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zach\Desktop\Projects\C#\Off To Vega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\Starfields\WarpField.xnb</Output>
+      <Time>2014-11-30T22:28:33.2457565-08:00</Time>
+    </Item>
+    <Item>
+      <Source>Stars\BlueGiant.png</Source>
+      <Name>Stars\BlueGiant</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zach\Desktop\Projects\C#\Off To Vega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\Stars\BlueGiant.xnb</Output>
+      <Time>2014-11-30T22:28:42.9345187-08:00</Time>
+    </Item>
+    <Item>
+      <Source>Stars\RedGiant.png</Source>
+      <Name>Stars\RedGiant</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zach\Desktop\Projects\C#\Off To Vega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\Stars\RedGiant.xnb</Output>
+      <Time>2014-11-30T22:28:42.9345187-08:00</Time>
+    </Item>
+    <Item>
+      <Source>Stars\WhiteDwarf.png</Source>
+      <Name>Stars\WhiteDwarf</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zach\Desktop\Projects\C#\Off To Vega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\Stars\WhiteDwarf.xnb</Output>
+      <Time>2014-11-30T22:28:42.9345187-08:00</Time>
+    </Item>
+    <Item>
+      <Source>Stars\YellowMainSequence.png</Source>
+      <Name>Stars\YellowMainSequence</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zach\Desktop\Projects\C#\Off To Vega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\Stars\YellowMainSequence.xnb</Output>
+      <Time>2014-11-30T22:28:42.9345187-08:00</Time>
+    </Item>
+    <Item>
+      <Source>Fonts\Dolce_Large.spritefont</Source>
+      <Name>Fonts\Dolce_Large</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zach\Desktop\Projects\C#\Off To Vega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\Fonts\Dolce_Large.xnb</Output>
+      <Time>2014-11-30T22:25:58.6690107-08:00</Time>
+    </Item>
+    <Item>
+      <Source>Fonts\Dolce_Medium.spritefont</Source>
+      <Name>Fonts\Dolce_Medium</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zach\Desktop\Projects\C#\Off To Vega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\Fonts\Dolce_Medium.xnb</Output>
+      <Time>2014-11-30T22:25:58.6690107-08:00</Time>
+    </Item>
+    <Item>
+      <Source>Fonts\Dolce_MediumSmall.spritefont</Source>
+      <Name>Fonts\Dolce_MediumSmall</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zach\Desktop\Projects\C#\Off To Vega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\Fonts\Dolce_MediumSmall.xnb</Output>
+      <Time>2014-11-30T22:25:58.6846333-08:00</Time>
+    </Item>
+    <Item>
+      <Source>Fonts\Dolce_Small.spritefont</Source>
+      <Name>Fonts\Dolce_Small</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zach\Desktop\Projects\C#\Off To Vega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\Fonts\Dolce_Small.xnb</Output>
+      <Time>2014-11-30T22:25:58.6846333-08:00</Time>
+    </Item>
+    <Item>
+      <Source>Fonts\Dolce_VerySmall.spritefont</Source>
+      <Name>Fonts\Dolce_VerySmall</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zach\Desktop\Projects\C#\Off To Vega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\Fonts\Dolce_VerySmall.xnb</Output>
+      <Time>2014-11-30T22:25:58.6846333-08:00</Time>
+    </Item>
+    <Item>
+      <Source>Fonts\MainFont.spritefont</Source>
+      <Name>Fonts\MainFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zach\Desktop\Projects\C#\Off To Vega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\Fonts\MainFont.xnb</Output>
+      <Time>2014-11-30T22:25:58.6846333-08:00</Time>
+    </Item>
+    <Item>
+      <Source>FX\BlackHole.fx</Source>
+      <Name>FX\BlackHole</Name>
+      <Importer>EffectImporter</Importer>
+      <Processor>EffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zach\Desktop\Projects\C#\Off To Vega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\FX\BlackHole.xnb</Output>
+      <Time>2014-11-30T22:26:06.0933037-08:00</Time>
+    </Item>
+    <BuildSuccessful>true</BuildSuccessful>
+    <Settings>
+      <ContentProjectGUID>{5CF1FCB5-58AC-43E9-AE12-B438C82B9FC8}</ContentProjectGUID>
+      <TargetPlatform>Windows</TargetPlatform>
+      <TargetProfile>HiDef</TargetProfile>
+      <BuildConfiguration>PSM</BuildConfiguration>
+      <CompressContent>false</CompressContent>
+      <RootDirectory>C:\Users\Zach\Desktop\Projects\C#\Off To Vega\ExplorationEngine\Pipeline\PipelineContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Zach\Desktop\Projects\C#\Off To Vega\ExplorationEngine\Pipeline\Pipeline\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Zach\Desktop\Projects\C#\Off To Vega\ExplorationEngine\Pipeline\Pipeline\obj\PSM\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Zach\Desktop\Projects\C#\Off To Vega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\</OutputDirectory>
+    </Settings>
+    <Assemblies>
+      <Assembly>
+        <Key>C:\Program Files (x86)\MSBuild\MonoGame\v3.0\MonoGameContentProcessors.dll</Key>
+        <Value>2014-04-05T14:56:18-07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2011-09-01T16:22:30-07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Value>2011-09-01T16:22:30-07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2011-09-01T16:22:30-07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2011-09-01T16:22:30-07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2011-09-01T16:22:30-07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2011-09-01T16:22:30-07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\WINDOWS\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2014-10-24T12:08:59.5245894-07:00</Value>
+      </Assembly>
+    </Assemblies>
+  </Asset>
+</XnaContent>

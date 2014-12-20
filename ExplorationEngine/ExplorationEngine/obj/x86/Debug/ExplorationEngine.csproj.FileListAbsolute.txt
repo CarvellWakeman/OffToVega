@@ -102,3 +102,5 @@ C:\Users\Zach\Desktop\Off To Vega Project\Off To Vega\ExplorationEngine\Explorat
 C:\Users\Zach\Desktop\Off To Vega Project\Off To Vega\ExplorationEngine\ExplorationEngine\obj\x86\Debug\Off To Vega.pdb
 C:\Users\Arctures-user\Desktop\Off To Vega Project (Upload to desktop)\Off To Vega Project\Off To Vega\ExplorationEngine\ExplorationEngine\obj\x86\Debug\Off To Vega.exe
 C:\Users\Arctures-user\Desktop\Off To Vega Project (Upload to desktop)\Off To Vega Project\Off To Vega\ExplorationEngine\ExplorationEngine\obj\x86\Debug\Off To Vega.pdb
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\obj\x86\Debug\Off To Vega.exe
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\obj\x86\Debug\Off To Vega.pdb

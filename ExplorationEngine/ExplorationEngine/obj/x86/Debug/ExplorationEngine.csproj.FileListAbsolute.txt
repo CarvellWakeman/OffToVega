@@ -187,7 +187,6 @@ C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\E
 C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\SharpDX.Direct3D11.dll
 C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\SharpDX.DXGI.dll
 C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\SharpDX.Direct2D1.dll
-C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Lidgren.Network.dll
 C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\SharpDX.XInput.dll
 C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\SharpDX.RawInput.dll
 C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\SharpDX.Direct3D9.dll
@@ -202,3 +201,4 @@ C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\E
 C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\SharpDX.Direct3D9.xml
 C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\obj\x86\Debug\Off To Vega.exe.manifest
 C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\obj\x86\Debug\Off To Vega.application
+C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\MonoGame.Framework.xml

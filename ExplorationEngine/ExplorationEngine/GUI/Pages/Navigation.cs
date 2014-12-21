@@ -119,7 +119,7 @@ namespace ExplorationEngine.GUI
 
 
 			//Lastly, move the form to the center of the screen
-			Form_Main.position = Engine.CurrentScreenResolution / 2 - Form_Main.size / 2;
+			Form_Main.position = Engine.CurrentGameResolution / 2 - Form_Main.size / 2;
 		}
 
 

@@ -24,7 +24,7 @@ namespace ExplorationEngine.GUI
 			Engine.Pages.Add(this);
 
 			//Main Form
-			Form_Main = new dForm("ShipBuilding", new Rectangle(0, 0, (int)Engine.CurrentScreenResolution.X, (int)Engine.CurrentScreenResolution.Y), Engine.MapBackground, null, false, false);
+			Form_Main = new dForm("ShipBuilding", new Rectangle(0, 0, (int)Engine.CurrentGameResolution.X, (int)Engine.CurrentGameResolution.Y), Engine.MapBackground, null, false, false);
 			Form_Main.OriginalColor = Color.Black;
 			//Form_Main.IsDragable = true;
 

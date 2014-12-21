@@ -72,7 +72,7 @@ namespace ExplorationEngine.GUI
 
 		public virtual void Reset()
 		{
-			Form_Main.size = Engine.CurrentScreenResolution;
+			Form_Main.size = Engine.CurrentGameResolution;
 		}
 
 		public virtual void Update()

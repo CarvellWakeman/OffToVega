@@ -36,7 +36,7 @@ namespace ExplorationEngine.GUI
 			Engine.Pages.Add(this);
 
 			//Main form
-			Form_Main = new dForm("MainMenu", new Rectangle(0, 0, (int)Engine.CurrentScreenResolution.X, (int)Engine.CurrentScreenResolution.Y), Engine.MainMenuBackground, null, false, false);
+			Form_Main = new dForm("MainMenu", new Rectangle(0, 0, (int)Engine.CurrentGameResolution.X, (int)Engine.CurrentGameResolution.Y), Engine.MainMenuBackground, null, false, false);
 				//Form_Main.IsDragable = true;
 
 			//My Name

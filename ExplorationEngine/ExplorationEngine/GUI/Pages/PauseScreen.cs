@@ -34,7 +34,7 @@ namespace ExplorationEngine.GUI
 			Engine.Pages.Add(this);
 
 			//Main Form
-			Form_Main = new dForm("PauseScreen", new Rectangle(0, 0, (int)Engine.CurrentScreenResolution.X, (int)Engine.CurrentScreenResolution.Y), Engine.Square, null, false, false);
+			Form_Main = new dForm("PauseScreen", new Rectangle(0, 0, (int)Engine.CurrentGameResolution.X, (int)Engine.CurrentGameResolution.Y), Engine.Square, null, false, false);
 			Form_Main.OriginalColor = new Color(0, 0, 0, 150);
 			Form_Main.Color = new Color(0, 0, 0, 150);
 			Form_Main.DrawOnDebug = false;

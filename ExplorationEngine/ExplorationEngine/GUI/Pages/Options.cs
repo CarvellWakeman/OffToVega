@@ -36,7 +36,7 @@ namespace ExplorationEngine.GUI
 			Engine.Pages.Add(this);
 
 			//Main Form
-			Form_Main = new dForm("Options", new Rectangle(0, 0, (int)Engine.CurrentScreenResolution.X, (int)Engine.CurrentScreenResolution.Y), Engine.StarField, null, false, false);
+			Form_Main = new dForm("Options", new Rectangle(0, 0, (int)Engine.CurrentGameResolution.X, (int)Engine.CurrentGameResolution.Y), Engine.StarField, null, false, false);
 				//Form_Main.IsDragable = true;
 
 			//Form logo
@@ -99,7 +99,7 @@ namespace ExplorationEngine.GUI
 				List<Vector2> res = new List<Vector2>();
 				foreach (DisplayMode dm in GraphicsAdapter.DefaultAdapter.SupportedDisplayModes)
 				{
-					if (!res.Contains(new Vector2(dm.Width, dm.Height)))
+					if (!res.Contains(new Vector2(dm.Width, dm.Height)) && dm.Width >= Engine.MinimumSupportedResolution.X && dm.Height >= Engine.MinimumSupportedResolution.Y)
 					{
 						res.Add(new Vector2(dm.Width, dm.Height));
 					}
@@ -111,7 +111,7 @@ namespace ExplorationEngine.GUI
 					Listbox_Resolutions.Items.Add(lbl);
 
 					//Set the selected resolution as the current one.
-					if (v.X == Engine.CurrentScreenResolution.X && v.Y == Engine.CurrentScreenResolution.Y)
+					if (v.X == Engine.CurrentGameResolution.X && v.Y == Engine.CurrentGameResolution.Y)
 					{
 						Listbox_Resolutions.Selected = lbl;
 					}
@@ -204,13 +204,14 @@ namespace ExplorationEngine.GUI
 		{
 			base.Update();
 
-			//if (Listbox_Resolutions.Selected != null)
-			//{
-				Button_Apply.Clickable = (Listbox_Resolutions.Selected != null && (
-					Engine.IsFullscreen() != Checkbox_Fullscreen.Checked || 
-					Listbox_Resolutions.Selected.name != Engine.CurrentScreenResolution.X + " X " + Engine.CurrentScreenResolution.Y)
-					);
-			//}
+
+            //PROBLEM: Listbox_Resolutions.Selected.name != Engine.CurrentGameResolution.X + " X " + Engine.CurrentGameResolution.Y)  <- Returns false after the first time apply is clicked when
+            //Coming out of fullscreen.
+            //Button_Apply.Clickable = (Engine.IsFullscreen() ?
+            //                          Engine.IsFullscreen() != Checkbox_Fullscreen.Checked :
+            //                          (Checkbox_Fullscreen.Checked ? true : 
+            //                                Listbox_Resolutions.Selected != null && Listbox_Resolutions.Selected.name != Engine.CurrentGameResolution.X + " X " + Engine.CurrentGameResolution.Y));
+
 		}
 
 		public override void Draw(SpriteBatch spritebatch)

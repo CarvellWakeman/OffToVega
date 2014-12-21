@@ -102,7 +102,7 @@ namespace ExplorationEngine.GUI
 				Label_NotInOrbit = new dLabel("Sensors_NotInOrbit", Vector2.Zero, null, Listbox_Warnings, Engine.Font_Small, "Not In Orbit", Color.Red, false, false, false);
 
 			//Lastly, move the form to the center of the screen
-			Form_Main.position = Engine.CurrentScreenResolution / 2 - Form_Main.size / 2;
+			Form_Main.position = Engine.CurrentGameResolution / 2 - Form_Main.size / 2;
 		}
 
 

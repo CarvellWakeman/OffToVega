@@ -29,7 +29,7 @@ namespace ExplorationEngine
             DebugState = Engine.DebugState;
 			DebugGUI = Engine.DebugGUI;
 
-			ScreenResolution = Engine.CurrentScreenResolution;
+			ScreenResolution = Engine.CurrentGameResolution;
 			FullScreen = Engine.IsFullscreen();
 		}
 	}

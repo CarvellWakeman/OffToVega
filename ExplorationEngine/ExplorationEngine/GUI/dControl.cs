@@ -240,7 +240,7 @@ namespace ExplorationEngine.GUI
 		{
 			//Update scale resolution change
 			WindowScale = offset / new Vector2(1280, 720);
-			_offset = (parent != null ? (parent.parent != null ? offset : parent.size * WindowScale) : Engine.CurrentScreenResolution * WindowScale);
+			_offset = (parent != null ? (parent.parent != null ? offset : parent.size * WindowScale) : Engine.CurrentGameResolution * WindowScale);
 
 			//Fade windows in or out
 			alpha += (alpha < 1f && !IsClosing && Active ? 0.01f : (IsClosing || !Active ? -0.01f : 0f));

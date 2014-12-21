@@ -16,7 +16,7 @@ namespace ExplorationEngine
 {
 	public static class Camera
 	{
-		public static Matrix Transform = Matrix.CreateTranslation(Engine.CurrentScreenResolution.X * 0.5f, Engine.CurrentScreenResolution.Y * 0.5f, 0);
+		public static Matrix Transform = Matrix.CreateTranslation(Engine.CurrentGameResolution.X * 0.5f, Engine.CurrentGameResolution.Y * 0.5f, 0);
 		//public static Matrix GameTransform = Matrix.CreateTranslation(Engine.CurrentScreenResolution.X * 0.5f, Engine.CurrentScreenResolution.Y * 0.5f, 0);
 		//public static Matrix MapTransform = Matrix.CreateTranslation(Engine.CurrentScreenResolution.X * 0.5f, Engine.CurrentScreenResolution.Y * 0.5f, 0);
 
@@ -72,7 +72,7 @@ namespace ExplorationEngine
 		{
 			if (TrapMouse)
 			{
-				Mouse.SetPosition((int)Engine.CurrentScreenResolution.X / 2, (int)Engine.CurrentScreenResolution.Y / 2);
+				Mouse.SetPosition((int)Engine.CurrentGameResolution.X / 2, (int)Engine.CurrentGameResolution.Y / 2);
 				previousMouseState = Mouse.GetState();
 			}
 
@@ -166,7 +166,7 @@ namespace ExplorationEngine
 			
 			Transform = Matrix.CreateScale(new Vector3((float)Zoom, (float)Zoom, 1)) *
 				//Matrix.CreateTranslation(new Vector3((float)-Position.X, (float)-Position.Y, 0)) *
-				Matrix.CreateTranslation(new Vector3(Engine.CurrentScreenResolution.X * 0.5f, Engine.CurrentScreenResolution.Y * 0.5f, 0));
+				Matrix.CreateTranslation(new Vector3(Engine.CurrentGameResolution.X * 0.5f, Engine.CurrentGameResolution.Y * 0.5f, 0));
 
 
 			previousMouseState = Mouse.GetState();

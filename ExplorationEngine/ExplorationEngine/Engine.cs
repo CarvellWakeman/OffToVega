@@ -25,8 +25,10 @@ namespace ExplorationEngine
 		public static GraphicsDeviceManager GraphicsManager;
 		public SpriteBatch spriteBatch;
 		public static ContentManager content;
-		public static Vector2 CurrentScreenResolution;
+		public static Vector2 CurrentGameResolution;
+        public static Vector2I CurrentScreenResolution;
 		public static Vector2 VirtualScreenResolution = new Vector2(1280, 720);
+        public static Vector2 MinimumSupportedResolution = new Vector2(800, 600);
 		
 		//Audio
 
@@ -245,6 +247,11 @@ namespace ExplorationEngine
 			static_this = this;
 
 
+            //Find the resolution of the monitor the window is on.
+            CurrentScreenResolution = new Vector2I(System.Windows.Forms.Screen.FromControl(System.Windows.Forms.Control.FromHandle(static_this.Window.Handle)).Bounds.Width,
+                System.Windows.Forms.Screen.FromControl(System.Windows.Forms.Control.FromHandle(static_this.Window.Handle)).Bounds.Height);
+
+
 			//Cap the framerate. -1 for no limit, 0 for vsync default, int for anything else
 			SetFrameRate(GraphicsManager, 300);
 			//static_this.IsFixedTimeStep = false;
@@ -445,6 +452,8 @@ namespace ExplorationEngine
 
 
 		#region "Other"
+        public static void print(string message) { System.Windows.Forms.MessageBox.Show(message); }
+
 		public void SetFrameRate(GraphicsDeviceManager manager, int frames)
 		{
 			switch (frames)
@@ -469,55 +478,62 @@ namespace ExplorationEngine
 
 		public static void SetResolution(int width, int height, bool fullscreen)
 		{
-            GraphicsManager.PreferredBackBufferWidth = width;
-            GraphicsManager.PreferredBackBufferHeight = height;
-            GraphicsManager.IsFullScreen = fullscreen;
-            GraphicsManager.ApplyChanges();
+            //Fullscreen and resolution management
+            if (fullscreen == true)
+            {
+                //Set resolution to monitor resolution
+                GraphicsManager.PreferredBackBufferWidth = CurrentScreenResolution.X;
+                GraphicsManager.PreferredBackBufferHeight = CurrentScreenResolution.Y;
 
-            CurrentScreenResolution = new Vector2(width, height);
+                //Apply changes the first time (to avoid window.IsBorderless from not working properly)
+                GraphicsManager.ApplyChanges();
 
-            /*
-			// If we aren't using a full screen mode, the height and width of the window can
-			// be set to anything equal to or smaller than the actual screen size.
-			if (fullscreen == false)
-			{
-				if ((width <= GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width) && (height <= GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height))
-				{
+                //Set borderless to true
+                static_this.Window.IsBorderless = true;
+                //Set window position to upper left corner
+                System.Windows.Forms.Control.FromHandle(static_this.Window.Handle).Location = new System.Drawing.Point(0, 0);
+
+                //Set our current resolution
+                CurrentGameResolution = CurrentScreenResolution;
+            }
+            else
+            {
+                if ((width <= CurrentScreenResolution.X) && (height <= CurrentScreenResolution.Y))
+                {
+                    //Set resolution to supplied resolution
+                    GraphicsManager.PreferredBackBufferWidth = width;
+                    GraphicsManager.PreferredBackBufferHeight = height;
+
+                    //Apply changes the first time (to avoid window.IsBorderless from not working properly)
+                    GraphicsManager.ApplyChanges();
+
+                    //Set borderless to false
+                    static_this.Window.IsBorderless = false;
+
+
+                    //Set our current resolution
+                    CurrentGameResolution = new Vector2(width, height);
+                }
+                else
+                {
+                    //Set resolution to current monitor resolution
+                    GraphicsManager.PreferredBackBufferWidth = CurrentScreenResolution.X;
+                    GraphicsManager.PreferredBackBufferHeight = CurrentScreenResolution.Y;
+
+                    //Apply changes the first time (to avoid window.IsBorderless from not working properly)
+                    GraphicsManager.ApplyChanges();
+
+                    //Set borderless to false
+                    static_this.Window.IsBorderless = false;
                     
-					//.Position = new Point(screen.Bounds.X, screen.Bounds.Y);
-					GraphicsManager.PreferredBackBufferWidth = width;
-					GraphicsManager.PreferredBackBufferHeight = height;
-					//static_this.Window.Position = Microsoft.Xna.Framework.Point.Zero;
-					static_this.Window.IsBorderless = fullscreen;
-					GraphicsManager.ApplyChanges();
-				}
-			}
-			else
-			{
-				// If we are using full screen mode, we should check to make sure that the display
-				// adapter can handle the video mode we are trying to set. To do this, we will
-				// iterate through the display modes supported by the adapter and check them against
-				// the mode we want to set.
-				foreach (DisplayMode dm in GraphicsAdapter.DefaultAdapter.SupportedDisplayModes)
-				{
-					// Check the width and height of each mode against the passed values
-					if ((dm.Width == width) && (dm.Height == height))
-					{
-						// The mode is supported, so set the buffer formats, apply changes and return
-						GraphicsManager.PreferredBackBufferWidth = width;
-						GraphicsManager.PreferredBackBufferHeight = height;
-
-						static_this.Window.IsBorderless = fullscreen;
-						System.Windows.Forms.Control.FromHandle(static_this.Window.Handle).Location = new System.Drawing.Point(0, 0);
-
-						GraphicsManager.ApplyChanges();
-					}
-				}
-             
-
-			}
+                    //Set our current resolution
+                    CurrentGameResolution = CurrentScreenResolution;
+                }
             
-            */
+            }
+            
+            //Apply changes
+            GraphicsManager.ApplyChanges();
 
 
 			//Make menus fullscreen
@@ -534,7 +550,7 @@ namespace ExplorationEngine
 		}
 		public static bool IsFullscreen()
 		{
-			return GraphicsManager.IsFullScreen;
+			return static_this.Window.IsBorderless;
 		}
 
 
@@ -675,15 +691,15 @@ namespace ExplorationEngine
 		{
 			//Things to update
 			this.IsMouseVisible = MouseVisible;
-			CurrentScreenResolution = new Vector2(GraphicsManager.PreferredBackBufferWidth, GraphicsManager.PreferredBackBufferHeight);
-
-			//static_this.Window.Title = "CLIENTBOUNDS:" + static_this.Window.ClientBounds.ToString() + "    VIEWPORT:" + GraphicsManager.GraphicsDevice.Viewport.Bounds.ToString() +"    SET INTERNAL:" + CurrentScreenResolution.ToString();
-
+			CurrentGameResolution = new Vector2(GraphicsManager.PreferredBackBufferWidth, GraphicsManager.PreferredBackBufferHeight);
+            CurrentScreenResolution = new Vector2I(System.Windows.Forms.Screen.FromControl(System.Windows.Forms.Control.FromHandle(static_this.Window.Handle)).Bounds.Width,
+                    System.Windows.Forms.Screen.FromControl(System.Windows.Forms.Control.FromHandle(static_this.Window.Handle)).Bounds.Height);
 
 			//Only update things when the program is active
 			if (this.IsActive)
 			{
 				//Input
+
 				Input.Update();
 				
 
@@ -995,7 +1011,7 @@ namespace ExplorationEngine
 
 
 				//FPS / Debug drawing
-					spriteBatch.DrawString(Font_Small, FPS.ToString(), new Vector2(CurrentScreenResolution.X - 40, 15), Color.Green);
+					spriteBatch.DrawString(Font_Small, FPS.ToString(), new Vector2(CurrentGameResolution.X - 40, 15), Color.Green);
 
 					if (DebugState)
 					{

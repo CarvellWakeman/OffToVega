@@ -153,7 +153,7 @@ namespace ExplorationEngine.Components
 								r = 0;
 
 								dImage img = new dImage("WarpImage", -_entity.Orbit.Difference * WarpStars.Count, Engine.WarpField, Engine.StarBackground.Form_Main, false, false);
-								img.size = Engine.CurrentScreenResolution;
+								img.size = Engine.CurrentGameResolution;
 								Engine.StarBackground.Form_Main.AddControl(img);
 								img.SetActive(true, true, false);
 

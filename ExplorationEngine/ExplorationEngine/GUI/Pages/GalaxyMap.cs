@@ -38,14 +38,14 @@ namespace ExplorationEngine.GUI
 			Engine.Pages.Add(this);
 
 			//Main Form
-			Form_Main = new dForm("Galaxy_Map", new Rectangle(0, 0, (int)Engine.CurrentScreenResolution.X, (int)Engine.CurrentScreenResolution.Y), Engine.MapBackground, null, false, false);
+			Form_Main = new dForm("Galaxy_Map", new Rectangle(0, 0, (int)Engine.CurrentGameResolution.X, (int)Engine.CurrentGameResolution.Y), Engine.MapBackground, null, false, false);
 			Form_Main.OriginalColor = Color.Black;
 			//Form_Main.IsDragable = true;
 
 			//Galaxy Image
 			Image_Galaxy = new dImage("Map_Galaxy", new Vector2(640, 360), Engine.Galaxy_Spiral1, Form_Main, true, true);
 				Form_Main.AddControl(Image_Galaxy);
-				MapPosition = Engine.CurrentScreenResolution / 2;
+				MapPosition = Engine.CurrentGameResolution / 2;
 
 			//Galaxy Name
 			//spriteBatch.DrawString(Engine.Font_Large, Galaxy.Name, new Vector2(-Engine.Font_Small.MeasureString(Galaxy.Name).X * 1.5f, -550), Color.White);
@@ -172,7 +172,7 @@ namespace ExplorationEngine.GUI
 
 				//Update Galaxy Image location
 				Image_Galaxy.scale = new Vector2d(Camera.Zoom, Camera.Zoom);
-				ZoomOffset = (MapPosition - (Engine.CurrentScreenResolution / 2f));// *Image_Galaxy.scale;
+				ZoomOffset = (MapPosition - (Engine.CurrentGameResolution / 2f));// *Image_Galaxy.scale;
 				Image_Galaxy.position = Form_Main.position + MapPosition - (Image_Galaxy.size * Image_Galaxy._scale)/2;
 
 				Label_GalaxyName.scale = Image_Galaxy.scale;

@@ -69,7 +69,7 @@ namespace ExplorationEngine.GUI
 
 			}
 
-			PrevResolution = Engine.CurrentScreenResolution;
+			PrevResolution = Engine.CurrentGameResolution;
 
 			//Up and down buttons
 			if (Texture != null && OriginalTexture != null)

@@ -226,7 +226,7 @@ namespace ExplorationEngine.GUI
 					else
 					{
 						Engine.Navigation.Show(this, false);
-						Engine.Navigation.Form_Main.position = Engine.CurrentScreenResolution / 2 - Engine.Navigation.Form_Main.size / 2;
+						Engine.Navigation.Form_Main.position = Engine.CurrentGameResolution / 2 - Engine.Navigation.Form_Main.size / 2;
 					}
 					break;
 				case "HUD_Sense":
@@ -241,7 +241,7 @@ namespace ExplorationEngine.GUI
 					else
 					{
 						Engine.Sensors.Show(this, false);
-						Engine.Sensors.Form_Main.position = Engine.CurrentScreenResolution / 2 - Engine.Sensors.Form_Main.size / 2;
+						Engine.Sensors.Form_Main.position = Engine.CurrentGameResolution / 2 - Engine.Sensors.Form_Main.size / 2;
 					}
 					break;
 				case "HUD_GalaxyMap":
@@ -256,7 +256,7 @@ namespace ExplorationEngine.GUI
 					else
 					{
 						Engine.LocalMap.Show(this, false);
-						Engine.LocalMap.Form_Main.position = Engine.CurrentScreenResolution / 2 - Engine.LocalMap.Form_Main.size / 2;
+						Engine.LocalMap.Form_Main.position = Engine.CurrentGameResolution / 2 - Engine.LocalMap.Form_Main.size / 2;
 					}
 					break;
 
@@ -382,7 +382,7 @@ namespace ExplorationEngine.GUI
 		{
 			if (!Engine.IsPaused)
 			{
-				Form_Main.size = Engine.CurrentScreenResolution;
+				Form_Main.size = Engine.CurrentGameResolution;
 
 				//Set entities list position
 				Groupbox_Entities.offset = new Vector2(1280, 0);

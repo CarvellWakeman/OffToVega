@@ -30,7 +30,7 @@ namespace ExplorationEngine.GUI
 			Engine.Pages.Add(this);
 
 			//Main Form
-			Form_Main = new dForm("LoadGame", new Rectangle(0, 0, (int)Engine.CurrentScreenResolution.X, (int)Engine.CurrentScreenResolution.Y), Engine.StarField, null, false, false);
+			Form_Main = new dForm("LoadGame", new Rectangle(0, 0, (int)Engine.CurrentGameResolution.X, (int)Engine.CurrentGameResolution.Y), Engine.StarField, null, false, false);
 				//Form_Main.IsDragable = true;
 			
 			//LoadGame logo

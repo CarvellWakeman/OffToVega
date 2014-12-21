@@ -19,7 +19,7 @@ namespace ExplorationEngine.GUI
 		{
 			//Engine.Pages.Add(this);
 
-			Form_Main = new dForm("Stars", new Rectangle(0, 0, (int)Engine.CurrentScreenResolution.X, (int)Engine.CurrentScreenResolution.Y), Engine.StarField, null, false, false);
+			Form_Main = new dForm("Stars", new Rectangle(0, 0, (int)Engine.CurrentGameResolution.X, (int)Engine.CurrentGameResolution.Y), Engine.StarField, null, false, false);
 			Form_Main.DrawOnDebug = false;
 			Form_Main.ActiveToWork = false;
 			Form_Main.CanFocus = false;
@@ -53,7 +53,7 @@ namespace ExplorationEngine.GUI
 
 		public override void Update()
 		{
-			Form_Main.size = Engine.CurrentScreenResolution;
+			Form_Main.size = Engine.CurrentGameResolution;
 			base.Update();
 		}
 

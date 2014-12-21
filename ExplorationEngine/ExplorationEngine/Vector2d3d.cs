@@ -390,6 +390,387 @@ namespace ExplorationEngine
 			}
 		}
 
+    public struct Vector2I
+    {
+        public int X;
+        public int Y;
+
+        public int this[int index]
+        {
+            get
+            {
+                switch (index)
+                {
+                    case 0:
+                        return this.X;
+                    case 1:
+                        return this.Y;
+                    default:
+                        throw new IndexOutOfRangeException("Invalid Vector2I index!");
+                }
+            }
+            set
+            {
+                switch (index)
+                {
+                    case 0:
+                        this.X = value;
+                        break;
+                    case 1:
+                        this.Y = value;
+                        break;
+                    default:
+                        throw new IndexOutOfRangeException("Invalid Vector2I index!");
+                }
+            }
+        }
+
+
+        static public implicit operator Microsoft.Xna.Framework.Vector2(Vector2I value)
+        {
+            return new Vector2((int)value.X, (int)value.Y);
+        }
+
+        static public implicit operator Vector2I(Microsoft.Xna.Framework.Vector2 value)
+        {
+            return new Vector2I((int)value.X, (int)value.Y);
+        }
+
+
+        public Vector2I Normalized
+        {
+            get
+            {
+                Vector2I vector2i = new Vector2I(this.X, this.Y);
+                vector2i.Normalize();
+                return vector2i;
+            }
+        }
+
+        public int Magnitude
+        {
+            get
+            {
+                return (int)Math.Sqrt(this.X * this.X + this.Y * this.Y);
+            }
+        }
+
+        public static Vector2I Zero
+        {
+            get
+            {
+                return new Vector2I(0, 0);
+            }
+        }
+
+        public static Vector2I One
+        {
+            get
+            {
+                return new Vector2I(1, 1);
+            }
+        }
+
+        public static Vector2I Up
+        {
+            get
+            {
+                return new Vector2I(0, 1);
+            }
+        }
+
+        public static Vector2I Right
+        {
+            get
+            {
+                return new Vector2I(1, 0);
+            }
+        }
+
+        public Vector2I(int X, int Y)
+        {
+            this.X = X;
+            this.Y = Y;
+        }
+
+        //public static implicit operator Vector2I(Vector3d v) {
+        //     return new Vector2d(v.X, v.Y);
+        //}
+
+        //public static implicit operator Vector3d(Vector2d v) {
+        //     return new Vector3d(v.X, v.Y, 0.0d);
+        //}
+
+        public static Vector2I operator +(Vector2I a, Vector2I b)
+        {
+            return new Vector2I(a.X + b.X, a.Y + b.Y);
+        }
+
+        public static Vector2I operator -(Vector2I a, Vector2I b)
+        {
+            return new Vector2I(a.X - b.X, a.Y - b.Y);
+        }
+
+        public static Vector2I operator -(Vector2I a)
+        {
+            return new Vector2I(-a.X, -a.Y);
+        }
+
+        public static Vector2I operator *(Vector2I a, double d)
+        {
+            return new Vector2I(a.X * (int)d, a.Y * (int)d);
+        }
+
+        public static Vector2I operator *(float d, Vector2I a)
+        {
+            return new Vector2I(a.X * (int)d, a.Y * (int)d);
+        }
+
+        public static Vector2I operator *(Vector2I a, Vector2I b)
+        {
+            return new Vector2I(a.X * b.X, a.Y * b.Y);
+        }
+
+        public static Vector2I operator /(Vector2I a, double d)
+        {
+            return new Vector2I(a.X / (int)d, a.Y / (int)d);
+        }
+
+        public static Vector2I operator /(Vector2I a, Vector2I b)
+        {
+            return new Vector2I(a.X / b.X, a.Y / b.Y);
+        }
+
+        public static bool operator ==(Vector2I lhs, Vector2I rhs)
+        {
+            return lhs == rhs;
+            //return Vector2d.SqrMagnitude(lhs - rhs) < 0.0 / 1.0;
+        }
+
+        public static bool operator !=(Vector2I lhs, Vector2I rhs)
+        {
+            return lhs != rhs;
+            //return (double)Vector2d.SqrMagnitude(lhs - rhs) >= 0.0 / 1.0;
+        }
+
+        public void Set(int new_x, int new_y)
+        {
+            this.X = new_x;
+            this.Y = new_y;
+        }
+
+        //May not work
+        public static Vector2I Lerp(Vector2I from, Vector2I to, int t)
+        {
+            //t = Mathd.Clamp01(t);
+            return new Vector2I(from.X + (to.X - from.X) * t, from.Y + (to.Y - from.Y) * t);
+        }
+
+        public static Vector2I MoveTowards(Vector2I current, Vector2I target, int maxDistanceDelta)
+        {
+            Vector2I vector2 = target - current;
+            double magnitude = vector2.Magnitude;
+            if (magnitude <= maxDistanceDelta || magnitude == 0.0d)
+                return target;
+            else
+                return current + vector2 / magnitude * maxDistanceDelta;
+        }
+
+        public static Vector2I Scale(Vector2I a, Vector2I b)
+        {
+            return new Vector2I(a.X * b.X, a.Y * b.Y);
+        }
+
+        public void Scale(Vector2I scale)
+        {
+            this.X *= scale.X;
+            this.Y *= scale.Y;
+        }
+
+        public void Normalize()
+        {
+            double magnitude = this.Magnitude;
+            if (magnitude > 9.99999974737875E-06)
+                this = this / magnitude;
+            else
+                this = Vector2I.Zero;
+        }
+
+        public static Vector2I Transform(Vector2I position, Matrix matrix)
+        {
+            Transform(ref position, ref matrix, out position);
+            return position;
+        }
+
+        public static void Transform(ref Vector2I position, ref Matrix matrix, out Vector2I result)
+        {
+            result = new Vector2I((position.X * (int)matrix.M11) + (position.Y * (int)matrix.M21) + (int)matrix.M41,
+                                 (position.X * (int)matrix.M12) + (position.Y * (int)matrix.M22) + (int)matrix.M42);
+        }
+
+        public static Vector2I Transform(Vector2I value, Quaternion rotation)
+        {
+            throw new NotImplementedException();
+        }
+
+        public static void Transform(ref Vector2I value, ref Quaternion rotation, out Vector2I result)
+        {
+            throw new NotImplementedException();
+        }
+
+        public static void Transform(Vector2I[] sourceArray, ref Matrix matrix, Vector2I[] destinationArray)
+        {
+            throw new NotImplementedException();
+        }
+
+        public static void Transform(Vector2I[] sourceArray, ref Quaternion rotation, Vector2I[] destinationArray)
+        {
+            throw new NotImplementedException();
+        }
+
+        public static void Transform(Vector2I[] sourceArray, int sourceIndex, ref Matrix matrix, Vector2I[] destinationArray, int destinationIndex, int length)
+        {
+            throw new NotImplementedException();
+        }
+
+        public static void Transform(Vector2I[] sourceArray, int sourceIndex, ref Quaternion rotation, Vector2I[] destinationArray, int destinationIndex, int length)
+        {
+            throw new NotImplementedException();
+        }
+
+        public static Vector2I TransformNormal(Vector2I normal, Matrix matrix)
+        {
+            Vector2I.TransformNormal(ref normal, ref matrix, out normal);
+            return normal;
+        }
+
+        public static void TransformNormal(ref Vector2I normal, ref Matrix matrix, out Vector2I result)
+        {
+            result = new Vector2I((normal.X * (int)matrix.M11) + (normal.Y * (int)matrix.M21),
+                                 (normal.X * (int)matrix.M12) + (normal.Y * (int)matrix.M22));
+        }
+
+        public static void TransformNormal(Vector2I[] sourceArray, ref Matrix matrix, Vector2I[] destinationArray)
+        {
+            throw new NotImplementedException();
+        }
+
+        public static void TransformNormal(Vector2I[] sourceArray, int sourceIndex, ref Matrix matrix, Vector2I[] destinationArray, int destinationIndex, int length)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder(24);
+            sb.Append("{X:");
+            sb.Append(this.X);
+            sb.Append(" Y:");
+            sb.Append(this.Y);
+            sb.Append("}");
+            return sb.ToString();
+        }
+
+        /* public override string ToString() 
+        {
+            string fmt = "({0:D1}, {1:D1})";
+            object[] objArray = new object[2];
+            int index1 = 0;
+            // ISSUE: variable of a boxed type
+            __Boxed<double> local1 = (ValueType) this.X;
+            objArray[index1] = (object) local1;
+            int index2 = 1;
+            // ISSUE: variable of a boxed type
+            __Boxed<double> local2 = (ValueType) this.Y;
+            objArray[index2] = (object) local2;
+			
+            return "not implemented";
+        }
+
+        public string ToString(string format) 
+        {
+             
+            string fmt = "({0}, {1})";
+            object[] objArray = new object[2];
+            int index1 = 0;
+            string str1 = this.X.ToString(format);
+            objArray[index1] = (object) str1;
+            int index2 = 1;
+            string str2 = this.Y.ToString(format);
+            objArray[index2] = (object) str2;
+			
+            return "not implemented";
+        }
+        */
+
+        public override int GetHashCode()
+        {
+            return this.X.GetHashCode() ^ this.Y.GetHashCode() << 2;
+        }
+
+        public override bool Equals(object other)
+        {
+            if (!(other is Vector2I))
+                return false;
+            Vector2I vector2i = (Vector2I)other;
+            if (this.X.Equals(vector2i.X))
+                return this.Y.Equals(vector2i.Y);
+            else
+                return false;
+        }
+
+        public static int Dot(Vector2I lhs, Vector2I rhs)
+        {
+            return lhs.X * rhs.X + lhs.Y * rhs.Y;
+        }
+
+        //public static double Angle(Vector2d from, Vector2d to) {
+        //    return Math.Acos(Math.Clamp(Vector2d.Dot(from.normalized, to.normalized), -1d, 1d)) * 57.29578d;
+        //}
+
+        public int Length()
+        {
+            return (int)Math.Sqrt((X * X + Y * Y));
+        }
+
+        public int LengthSquared()
+        {
+            return X * X + Y * Y;
+        }
+
+        public static int Distance(Vector2I a, Vector2I b)
+        {
+            return (a - b).Magnitude;
+        }
+
+        public static Vector2I ClampMagnitude(Vector2I vector, double maxLength)
+        {
+            if (vector.SqrMagnitude() > maxLength * maxLength)
+                return vector.Normalized * maxLength;
+            else
+                return vector;
+        }
+
+        public int SqrMagnitude()
+        {
+            return (this.X * this.X + this.Y * this.Y);
+        }
+
+        public static int SqrMagnitude(Vector2I a)
+        {
+            return (a.X * a.X + a.Y * a.Y);
+        }
+
+        public static Vector2I Min(Vector2I lhs, Vector2I rhs)
+        {
+            return new Vector2I(Math.Min(lhs.X, rhs.X), Math.Min(lhs.Y, rhs.Y));
+        }
+
+        public static Vector2I Max(Vector2I lhs, Vector2I rhs)
+        {
+            return new Vector2I(Math.Max(lhs.X, rhs.X), Math.Max(lhs.Y, rhs.Y));
+        }
+    }
 
 	public struct Vector3d
 		{

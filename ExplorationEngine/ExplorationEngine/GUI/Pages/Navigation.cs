@@ -154,38 +154,38 @@ namespace ExplorationEngine.GUI
 					//Find the entity associated with the selected GUI control
 					BaseEntity SelectedEnt = Galaxy.EntityLookup(Listbox_SolarBodies.Selected.name);
 
-					//If the camera's target has an orbit module and is a ship
-					if (Camera.TargetCanOrbit() && Camera.TargetIsShip())
+					//If the Engine.camera's target has an orbit module and is a ship
+                    if (Engine.camera.TargetCanOrbit() && Engine.camera.TargetIsShip())
 					{
-						//If the selected item is not the same as the camera target (just in case)
-						if (Listbox_SolarBodies.Selected.name != Camera.TargetObject.Name)
+						//If the selected item is not the same as the Engine.camera target (just in case)
+						if (Listbox_SolarBodies.Selected.name != Engine.camera.TargetObject.Name)
 						{
-							//Make the camera target object orbit the selected object
-							Camera.TargetObject.Orbit._parent = SelectedEnt;
+							//Make the Engine.camera target object orbit the selected object
+							Engine.camera.TargetObject.Orbit._parent = SelectedEnt;
 
-							float AngleToParent = (float)(Math.Atan2(Camera.TargetObject.Position.Y - SelectedEnt.Position.Y, Camera.TargetObject.Position.X - SelectedEnt.Position.X));
-							//float Dist = Vector2d.Distance(SelectedEnt.Position, Camera.TargetObject.Position);
+							float AngleToParent = (float)(Math.Atan2(Engine.camera.TargetObject.Position.Y - SelectedEnt.Position.Y, Engine.camera.TargetObject.Position.X - SelectedEnt.Position.X));
+							//float Dist = Vector2d.Distance(SelectedEnt.Position, Engine.cameraTargetObject.Position);
 
-							Camera.TargetObject.Orbit.OrbitSpeed = 4f; //Camera.TargetObject.Velocity.Length();
-							Camera.TargetObject.Orbit.ParentAng = (AngleToParent) * -1;
-							Camera.TargetObject.Orbit.OrbitRadius = (SelectedEnt.Renderer != null ? new Vector2d((SelectedEnt.Renderer._texture.Width / 2 * SelectedEnt.Scale), (SelectedEnt.Renderer._texture.Height / 2 * SelectedEnt.Scale)) : new Vector2d(1, 1));
-							//Camera.TargetObject.Orbit.OrbitRadius = new Vector2d(100, 100);
+							Engine.camera.TargetObject.Orbit.OrbitSpeed = 4f; //Engine.camera.TargetObject.Velocity.Length();
+							Engine.camera.TargetObject.Orbit.ParentAng = (AngleToParent) * -1;
+							Engine.camera.TargetObject.Orbit.OrbitRadius = (SelectedEnt.Renderer != null ? new Vector2d((SelectedEnt.Renderer._texture.Width / 2 * SelectedEnt.Scale), (SelectedEnt.Renderer._texture.Height / 2 * SelectedEnt.Scale)) : new Vector2d(1, 1));
+							//Engine.camera.TargetObject.Orbit.OrbitRadius = new Vector2d(100, 100);
 
-							Camera.TargetObject.Angle = AngleToParent - MathHelper.PiOver2;
+							Engine.camera.TargetObject.Angle = AngleToParent - MathHelper.PiOver2;
 
-							//Camera.TargetObject.Orbit.OrbitSpeed = 0f;
-							//Camera.TargetObject.Orbit.ParentAng = MathHelper.Pi;
-							//Camera.TargetObject.Orbit.OrbitRadius = new Vector2d(100, 100);
+							//Engine.camera.TargetObject.Orbit.OrbitSpeed = 0f;
+							//Engine.camera.TargetObject.Orbit.ParentAng = MathHelper.Pi;
+							//Engine.camera.TargetObject.Orbit.OrbitRadius = new Vector2d(100, 100);
 
 							//Hide(true);
 						}
 					}
 					break;
 				case "Navigation_DeOrbit":
-					//If the camera's target has an orbit module and is a ship
-					if (Camera.TargetCanOrbit() && Camera.TargetIsShip())
+					//If the Engine.camera's target has an orbit module and is a ship
+					if (Engine.camera.TargetCanOrbit() && Engine.camera.TargetIsShip())
 					{
-						Camera.TargetObject.Orbit._parent = null;
+						Engine.camera.TargetObject.Orbit._parent = null;
 					}
 					break;
 			}
@@ -216,15 +216,15 @@ namespace ExplorationEngine.GUI
 
 
 			//Can we set a course?
-			Button_SetCourse.Clickable = Camera.TargetIsShip() && Listbox_SolarBodies.Selected != null && Camera.TargetCanOrbit() && (Camera.TargetObject.Orbit._parent != null ? Camera.TargetObject.Orbit._parent.Name != Listbox_SolarBodies.Selected.name : true);
+			Button_SetCourse.Clickable = Engine.camera.TargetIsShip() && Listbox_SolarBodies.Selected != null && Engine.camera.TargetCanOrbit() && (Engine.camera.TargetObject.Orbit._parent != null ? Engine.camera.TargetObject.Orbit._parent.Name != Listbox_SolarBodies.Selected.name : true);
 			
 			//Should there even be a set course button?
-			if (Camera.TargetCanOrbit() && Listbox_SolarBodies.Selected != null && (Camera.TargetObject.Orbit._parent != null ? Camera.TargetObject.Orbit._parent.Name == Listbox_SolarBodies.Selected.name : false) && (Button_SetCourse.Active || !Button_DeOrbit.Active))
+			if (Engine.camera.TargetCanOrbit() && Listbox_SolarBodies.Selected != null && (Engine.camera.TargetObject.Orbit._parent != null ? Engine.camera.TargetObject.Orbit._parent.Name == Listbox_SolarBodies.Selected.name : false) && (Button_SetCourse.Active || !Button_DeOrbit.Active))
 			{
 				Button_SetCourse.SetActive(false, true, false);
 				Button_DeOrbit.SetActive(true, true, false);
 			}
-			else if (Camera.TargetCanOrbit() && Listbox_SolarBodies.Selected != null && (Camera.TargetObject.Orbit._parent != null ? Camera.TargetObject.Orbit._parent.Name != Listbox_SolarBodies.Selected.name : true) && (!Button_SetCourse.Active || Button_DeOrbit.Active))
+			else if (Engine.camera.TargetCanOrbit() && Listbox_SolarBodies.Selected != null && (Engine.camera.TargetObject.Orbit._parent != null ? Engine.camera.TargetObject.Orbit._parent.Name != Listbox_SolarBodies.Selected.name : true) && (!Button_SetCourse.Active || Button_DeOrbit.Active))
 			{
 				Button_SetCourse.SetActive(true, true, false);
 				Button_DeOrbit.SetActive(false, true, false);
@@ -241,8 +241,8 @@ namespace ExplorationEngine.GUI
 				}
 			}
 
-			//Camera target isn't a ship
-			if (!Camera.TargetIsShip())
+			//Engine.camera target isn't a ship
+			if (!Engine.camera.TargetIsShip())
 			{
 				if (!Listbox_Warnings.Items.Contains(Label_NoShip))
 				{
@@ -257,9 +257,9 @@ namespace ExplorationEngine.GUI
 			}
 
 			//Selected planet is already being orbited or is soon to be orbited
-			if (Listbox_SolarBodies.Selected != null && Camera.TargetCanOrbit() && Camera.TargetObject.Orbit._parent != null && Camera.TargetObject.Orbit._parent.Name.Equals(Listbox_SolarBodies.Selected.name))
+			if (Listbox_SolarBodies.Selected != null && Engine.camera.TargetCanOrbit() && Engine.camera.TargetObject.Orbit._parent != null && Engine.camera.TargetObject.Orbit._parent.Name.Equals(Listbox_SolarBodies.Selected.name))
 			{
-				if (Camera.TargetObject.Orbit.EnRoute == true)
+				if (Engine.camera.TargetObject.Orbit.EnRoute == true)
 				{
 					Listbox_Warnings.Items.Remove(Label_InOrbit);
 					Label_InOrbit.SetActive(false, false, true);
@@ -316,11 +316,11 @@ namespace ExplorationEngine.GUI
 					}
 				}
 
-				//select the camera target for this new solarsystem
+				//select the Engine.camera target for this new solarsystem
 				//if (Galaxy.CurrentSolarSystem != null)
 				//{
-				//	string cameraTarget = Galaxy.CurrentSolarSystem.CameraTargetObject;
-				//	BaseEntity entity = EntityManager.EntityLookup(cameraTarget);
+				//	string Engine.cameraTarget = Galaxy.CurrentSolarSystem.Engine.cameraTargetObject;
+				//	BaseEntity entity = EntityManager.EntityLookup(Engine.cameraTarget);
 				//	Listbox_SolarBodies.Selected = Listbox_SolarBodies.ControlLookup((entity != null ? entity.Name : ""));
 				//}
 			}

@@ -402,7 +402,7 @@ namespace ExplorationEngine
 				}
 
 
-				Camera.TargetObject = Ship.PositionalCenter;
+				Engine.camera.TargetObject = Ship.PositionalCenter;
 
 				Galaxy.TotalMass += mass;
 
@@ -519,11 +519,11 @@ namespace ExplorationEngine
 				GeneratedPlanets.Add(planet);
 			}
 
-			//Camera
+			//camera
 			TempSolarSystem.CameraTargetObject = Sun.Name;
-			TempSolarSystem.Zoom = Camera.ZoomValues.IndexOf(0.00015625d);
-			//Camera.TargetObject = Sun;
-			//Camera.SetZoom(Camera.ZoomValues.IndexOf(0.06f));
+            TempSolarSystem.Zoom = 0.00015625d;
+			//Engine.camera.TargetObject = Sun;
+			//Engine.camera.SetZoom(Engine.camera.ZoomValues.IndexOf(0.06f));
 
 
 			//Set this system to the current one if there are no other systems or the current system is null

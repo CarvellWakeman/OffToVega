@@ -114,7 +114,7 @@ namespace ExplorationEngine.GUI
 						if (Engine.saveLoad.Load(Listbox_Saves.Selected.name) == true)
 						{
 
-							//Camera.ResetMouse();
+							//Engine.camera.ResetMouse();
 							//Galaxy.CurrentSolarSystem = Galaxy.SolarSystems[0];
 
 							//Engine

@@ -25,7 +25,7 @@ namespace ExplorationEngine.Components
 
 		//Movement
 		public bool InertiaDamper = true;
-		private bool MoveKeyDown;
+		private bool MoveKeyDown = false;
 
 		public Vector2d Direction;
 
@@ -69,7 +69,7 @@ namespace ExplorationEngine.Components
 			if (_entity.SolarSystem.Name == Galaxy.CurrentSolarSystem.Name)
 			{
 
-				if (Camera.TargetObject == _entity) //_entity.Renderer.IsVisible
+                if (Engine.camera.TargetObject == _entity) //_entity.Renderer.IsVisible
 				{
 					//Is the ship being told to move at all
 					//MoveKeyDown = ((Input.KeyDown(Input.Move_Forward) || Input.KeyDown(Input.Move_Backward)));

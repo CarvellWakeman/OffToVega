@@ -22,9 +22,13 @@ namespace ExplorationEngine.GUI
 		public dButton Button_Back;
 
 
+        //Position and zoom
 		public Vector2 MapPosition = Vector2.Zero;
 		public Vector2 PrevMapPosition;
 		public Vector2 ZoomOffset = Vector2.Zero;
+
+        public Camera mapCamera;
+        public Camera lastEngineCamera;
 
 		public Matrix Transform;
 
@@ -63,6 +67,10 @@ namespace ExplorationEngine.GUI
 				Button_Back.OnMouseRelease += new Engine.Handler(ButtonRelease);
 				//Button_Back.EmulationKey = Input.Pause;
 
+
+            //Camera
+                mapCamera = new Camera();
+                mapCamera.SetZoom(0.5d);
 		}
 
 
@@ -121,20 +129,15 @@ namespace ExplorationEngine.GUI
 		{
 			base.Show(lastform, quick);
 
-			Camera.PrevGameZoom = Camera.ZoomIndex;
-
-			Camera.ZoomMax = Camera.ZoomValues.IndexOf(0.6d);
-			Camera.ZoomMin = Camera.ZoomValues.IndexOf(16d);
-			Camera.SetZoom(Camera.PrevMapZoom);
+            lastEngineCamera = Engine.camera;
+            Engine.camera = mapCamera;
 		}
 
 		public override void Hide(bool quick)
 		{
 			base.Hide(quick);
 
-			Camera.PrevMapZoom = Camera.ZoomIndex;
-			Camera.SetZoom(Camera.PrevGameZoom);
-			Camera.ResetMouse();
+            Engine.camera = lastEngineCamera;
 		}
 
 
@@ -142,8 +145,8 @@ namespace ExplorationEngine.GUI
 		{
 			base.Reset();
 
-			//Camera.PrevGamePosition = Vector2.Zero;
-			//Camera.Position = Vector2.Zero;
+			//Engine.camera.PrevGamePosition = Vector2.Zero;
+			//Engine.camera.Position = Vector2.Zero;
 		}
 
 		public override void Update()
@@ -171,7 +174,7 @@ namespace ExplorationEngine.GUI
 
 
 				//Update Galaxy Image location
-				Image_Galaxy.scale = new Vector2d(Camera.Zoom, Camera.Zoom);
+                Image_Galaxy.scale = new Vector2d(Engine.camera.GetZoomLevel(), Engine.camera.GetZoomLevel());
 				ZoomOffset = (MapPosition - (Engine.CurrentGameResolution / 2f));// *Image_Galaxy.scale;
 				Image_Galaxy.position = Form_Main.position + MapPosition - (Image_Galaxy.size * Image_Galaxy._scale)/2;
 
@@ -288,7 +291,7 @@ namespace ExplorationEngine.GUI
 				Engine.LocalMap.Hide(true);
 				
 
-				Camera.ResetMouse();
+				Engine.camera.ResetMouse();
 
 				//Solar System Stuff
 				SolarSystem NewSystem = Galaxy.SolarSystemLookup(Name);
@@ -304,30 +307,30 @@ namespace ExplorationEngine.GUI
 				}
 
 				//Transport ship
-				if (Camera.TargetIsShip())
+				if (Engine.camera.TargetIsShip())
 				{
-					//System.Windows.Forms.MessageBox.Show("Current:" + Camera.TargetObject.ShipLogic.ParentSolarSystem + " Target:" + Name);
-					Camera.TargetObject.SolarSystem.Name = NewSystem.Name; //Doing the lookup just to make sure the solar system exists
+					//System.Windows.Forms.MessageBox.Show("Current:" + Engine.cameraTargetObject.ShipLogic.ParentSolarSystem + " Target:" + Name);
+					Engine.camera.TargetObject.SolarSystem.Name = NewSystem.Name; //Doing the lookup just to make sure the solar system exists
 					
 					//Remove ship from current system
-					Galaxy.CurrentSolarSystem.RemoveEntity(Camera.TargetObject);
+					Galaxy.CurrentSolarSystem.RemoveEntity(Engine.camera.TargetObject);
 
 					//Add ship to new system
-					NewSystem.AddEntity(Camera.TargetObject);
-					NewSystem.CameraTargetObject = Camera.TargetObject.Name;
+					NewSystem.AddEntity(Engine.camera.TargetObject);
+					NewSystem.CameraTargetObject = Engine.camera.TargetObject.Name;
 
 					//Set position and velocity back to 0
-					Camera.TargetObject.Angle = Math.Atan2(CurrentDot.Position.Y - Position.Y, CurrentDot.Position.X - Position.X) - MathHelper.PiOver2;
-					Camera.TargetObject.Position = new Vector2d((CurrentDot.Position - Position).X,(CurrentDot.Position - Position).Y) * (Position - CurrentDot.Position).Length() * 1000d;
-					Camera.TargetObject.Velocity = Vector2.Zero;
+					Engine.camera.TargetObject.Angle = Math.Atan2(CurrentDot.Position.Y - Position.Y, CurrentDot.Position.X - Position.X) - MathHelper.PiOver2;
+					Engine.camera.TargetObject.Position = new Vector2d((CurrentDot.Position - Position).X,(CurrentDot.Position - Position).Y) * (Position - CurrentDot.Position).Length() * 1000d;
+					Engine.camera.TargetObject.Velocity = Vector2.Zero;
 
 					//Set orbit target to that of the sun
-					if (Camera.TargetCanOrbit())
+					if (Engine.camera.TargetCanOrbit())
 					{
 						BaseEntity Sun = NewSystem.Entities[0];
 
-						Camera.TargetObject.Orbit._parent = Sun;
-						Camera.TargetObject.Orbit.OrbitRadius = (Sun.Renderer != null ? new Vector2d(Sun.Renderer._texture.Width / 2 * Sun.Scale, Sun.Renderer._texture.Height / 2 * Sun.Scale) : Vector2d.Zero);
+						Engine.camera.TargetObject.Orbit._parent = Sun;
+						Engine.camera.TargetObject.Orbit.OrbitRadius = (Sun.Renderer != null ? new Vector2d(Sun.Renderer._texture.Width / 2 * Sun.Scale, Sun.Renderer._texture.Height / 2 * Sun.Scale) : Vector2d.Zero);
 					}
 				}
 

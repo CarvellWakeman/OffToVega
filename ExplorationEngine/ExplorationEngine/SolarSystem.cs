@@ -22,7 +22,7 @@ namespace ExplorationEngine
 		public List<BaseEntity> Entities = new List<BaseEntity>();
 
 		public string CameraTargetObject = string.Empty;
-		public int Zoom = -1;
+		public double Zoom = 0;
 
 		public Vector2d MapDotPosition = Vector2d.Zero;
 
@@ -87,22 +87,22 @@ namespace ExplorationEngine
 			{
 				if (Galaxy.CurrentSolarSystem != null)
 				{
-					Camera.TargetObject = Galaxy.EntityLookup(CameraTargetObject);
+                    Engine.camera.TargetObject = Galaxy.EntityLookup(CameraTargetObject);
 
 					if (Zoom >= 0)
 					{
-						//Camera.SetZoom(Zoom);
+						//Engine.camera.SetZoom(Zoom);
 					}
 				}
 			}
 			else
 			{
-				if (Camera.TargetExists())
+                if (Engine.camera.TargetExists())
 				{
-					CameraTargetObject = Camera.TargetObject.Name;
+                    CameraTargetObject = Engine.camera.TargetObject.Name;
 				}
 
-				Zoom = Camera.ZoomIndex;
+                Zoom = Engine.camera.GetZoomTarget();
 			}
 
 			for (int ii = 0; ii < Entities.Count; ii++)

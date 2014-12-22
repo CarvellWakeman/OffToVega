@@ -72,16 +72,16 @@ namespace ExplorationEngine.GUI
 				Button_HideShow.OnMouseEnter += new Engine.Handler(ButtonEnter);
 				Button_HideShow.OnMouseLeave += new Engine.Handler(ButtonLeave);
 
-			//Button Set Camera
-				Button_SetCamera = new dLabel("HUD_CameraSwitch", new Vector2(0, Listbox_Entities.position.Y + Listbox_Entities.size.Y), null, Listbox_Entities, Engine.Font_Small, "Set Camera", Color.Red, false, false, true);
+			//Button camera
+				Button_SetCamera = new dLabel("HUD_CameraSwitch", new Vector2(0, Listbox_Entities.position.Y + Listbox_Entities.size.Y), null, Listbox_Entities, Engine.Font_Small, "Set camera", Color.Red, false, false, true);
 				Button_SetCamera.PressColor = Color.Red;
 				Listbox_Entities.AddControl(Button_SetCamera);
 				Button_SetCamera.OnMouseEnter += new Engine.Handler(ButtonEnter);
 				Button_SetCamera.OnMouseLeave += new Engine.Handler(ButtonLeave);
 				Button_SetCamera.OnMouseRelease += new Engine.Handler(ButtonRelease);
 			
-			//Button Release Camera
-				Button_ReleaseCamera = new dLabel("HUD_CameraRelease", new Vector2(0, Listbox_Entities.position.Y + Listbox_Entities.size.Y + Button_SetCamera.size.Y), null, Listbox_Entities, Engine.Font_Small, "Release Camera", Color.Red, false, false, true);
+			//Button Release camera
+				Button_ReleaseCamera = new dLabel("HUD_CameraRelease", new Vector2(0, Listbox_Entities.position.Y + Listbox_Entities.size.Y + Button_SetCamera.size.Y), null, Listbox_Entities, Engine.Font_Small, "Release camera", Color.Red, false, false, true);
 				Button_ReleaseCamera.PressColor = Color.Red;
 				Listbox_Entities.AddControl(Button_ReleaseCamera);
 				Button_ReleaseCamera.OnMouseEnter += new Engine.Handler(ButtonEnter);
@@ -267,9 +267,9 @@ namespace ExplorationEngine.GUI
 					break;
 				case "HUD_CameraSwitch":
 					//Set old target (if it's a ship) to not be controlled
-					if (Camera.TargetIsShip())
+					if (Engine.camera.TargetIsShip())
 					{
-						Camera.TargetObject.ShipLogic.IsControlled = false;
+						Engine.camera.TargetObject.ShipLogic.IsControlled = false;
 					}
 
 					//If there's something selected
@@ -284,21 +284,21 @@ namespace ExplorationEngine.GUI
 						}
 
 						//Set camera target
-						Camera.TargetObject = ent;
+						Engine.camera.TargetObject = ent;
 					}
 					break;
 				case "HUD_CameraRelease":
 					//Set old target (if it's a ship) to not be controlled
-					if (Camera.TargetIsShip())
+					if (Engine.camera.TargetIsShip())
 					{
-						Camera.TargetObject.ShipLogic.IsControlled = false;
+						Engine.camera.TargetObject.ShipLogic.IsControlled = false;
 					}
 
-					Camera.TargetObject = null;
+					Engine.camera.TargetObject = null;
 					break;
 				case "HUD_Orbit": //Orbit or deorbit
 
-					if (Camera.TargetExists())
+					if (Engine.camera.TargetExists())
 					{
 						if (Listbox_Entities.Selected != null)
 						{
@@ -306,33 +306,33 @@ namespace ExplorationEngine.GUI
 							BaseEntity SelectedEnt = Galaxy.EntityLookup(Listbox_Entities.Selected.name);
 
 							//If the selected item is not the same as the camera target
-							if (Listbox_Entities.Selected.name != Camera.TargetObject.Name)
+							if (Listbox_Entities.Selected.name != Engine.camera.TargetObject.Name)
 							{
-								if (Camera.TargetObject.Orbit._parent == null || Listbox_Entities.Selected.name != Camera.TargetObject.Orbit._parent.Name)
+								if (Engine.camera.TargetObject.Orbit._parent == null || Listbox_Entities.Selected.name != Engine.camera.TargetObject.Orbit._parent.Name)
 								{
 									//Make the camera target object orbit the selected object
-									Camera.TargetObject.Orbit._parent = SelectedEnt;
+									Engine.camera.TargetObject.Orbit._parent = SelectedEnt;
 
-									float AngleToParent = (float)(Math.Atan2(Camera.TargetObject.Position.Y - SelectedEnt.Position.Y, Camera.TargetObject.Position.X - SelectedEnt.Position.X));
-									double Dist = Vector2d.Distance(SelectedEnt.Position, Camera.TargetObject.Position);
+									float AngleToParent = (float)(Math.Atan2(Engine.camera.TargetObject.Position.Y - SelectedEnt.Position.Y, Engine.camera.TargetObject.Position.X - SelectedEnt.Position.X));
+									double Dist = Vector2d.Distance(SelectedEnt.Position, Engine.camera.TargetObject.Position);
 
-									//Camera.TargetObject.Orbit.OrbitSpeed = Camera.TargetObject.Velocity.Length();
-									Camera.TargetObject.Orbit.ParentAng = (AngleToParent) * -1;
-									Camera.TargetObject.Orbit.OrbitRadius = new Vector2d(Dist, Dist);
+									//Engine.camera.TargetObject.Orbit.OrbitSpeed = Engine.cameraTargetObject.Velocity.Length();
+									Engine.camera.TargetObject.Orbit.ParentAng = (AngleToParent) * -1;
+									Engine.camera.TargetObject.Orbit.OrbitRadius = new Vector2d(Dist, Dist);
 									
 								}
 								else
 								{
 									//Deorbit the camera's object
-									Camera.TargetObject.Orbit._parent = null;
+									Engine.camera.TargetObject.Orbit._parent = null;
 								}
 							}
 							else //Else if the selected object is the SAME as the camera's object, 
 							{
-								if (Camera.TargetObject.Orbit._parent != null)
+								if (Engine.camera.TargetObject.Orbit._parent != null)
 								{
 									//Deorbit the camera's object
-									Camera.TargetObject.Orbit._parent = null;
+									Engine.camera.TargetObject.Orbit._parent = null;
 								}
 								else
 								{
@@ -341,10 +341,10 @@ namespace ExplorationEngine.GUI
 								
 							}
 						}
-						else if (Camera.TargetCanOrbit())
+						else if (Engine.camera.TargetCanOrbit())
 						{
 							//Deorbit the camera's object
-							Camera.TargetObject.Orbit._parent = null;
+							Engine.camera.TargetObject.Orbit._parent = null;
 						}
 					}
 
@@ -409,19 +409,19 @@ namespace ExplorationEngine.GUI
 					//select the camera target for this new solarsystem
 					if (Galaxy.CurrentSolarSystem != null)
 					{
-						Listbox_Entities.Selected = Listbox_Entities.ControlLookup((Camera.TargetObject != null ? Camera.TargetObject.Name : ""));
+						Listbox_Entities.Selected = Listbox_Entities.ControlLookup((Engine.camera.TargetObject != null ? Engine.camera.TargetObject.Name : ""));
 					}
 				}
 
-				//Set Camera button clickability
+				//Set camera button clickability
 				Button_SetCamera.Clickable = Listbox_Entities.Selected != null;
 
 				//Release camera button clickability
-				Button_ReleaseCamera.Clickable = Camera.TargetExists();
+				Button_ReleaseCamera.Clickable = Engine.camera.TargetExists();
 
 
 				//Set orbit button text
-				if (Camera.TargetCanOrbit())
+				if (Engine.camera.TargetCanOrbit())
 				{
 					Button_Orbit.Clickable = true;
 
@@ -429,9 +429,9 @@ namespace ExplorationEngine.GUI
 					{
 
 						//If the selected item is not the same as the camera target
-						if (Listbox_Entities.Selected.name != Camera.TargetObject.Name)
+						if (Listbox_Entities.Selected.name != Engine.camera.TargetObject.Name)
 						{
-							if (Camera.TargetObject.Orbit._parent == null || Listbox_Entities.Selected.name != Camera.TargetObject.Orbit._parent.Name)
+							if (Engine.camera.TargetObject.Orbit._parent == null || Listbox_Entities.Selected.name != Engine.camera.TargetObject.Orbit._parent.Name)
 							{
 								Button_Orbit.Text = "Orbit Entity";
 							}
@@ -444,7 +444,7 @@ namespace ExplorationEngine.GUI
 						}
 						else //Else if the selected object is the SAME as the camera's object, 
 						{
-							if (Camera.TargetObject.Orbit._parent != null)
+							if (Engine.camera.TargetObject.Orbit._parent != null)
 							{
 								//Deorbit the camera's object
 								Button_Orbit.Text = "De-Orbit Target";
@@ -457,7 +457,7 @@ namespace ExplorationEngine.GUI
 					}
 					else
 					{
-						if (Camera.TargetObject.Orbit._parent != null)
+						if (Engine.camera.TargetObject.Orbit._parent != null)
 						{
 							//Deorbit the camera's object
 							Button_Orbit.Text = "De-Orbit Target";

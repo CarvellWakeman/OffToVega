@@ -219,6 +219,10 @@ namespace ExplorationEngine
 
 			//Stellar Classifications
 			public static StellarClassifications stellarClassifications;
+
+            //camera
+            public static Camera camera;
+            public static Camera gameCamera;
 			
 		//Game States
 			public static bool IsPaused;
@@ -290,6 +294,10 @@ namespace ExplorationEngine
 			stellarClassifications = new StellarClassifications();
 			stellarClassifications.Save();
 
+            //Create the game camera
+            gameCamera = new Camera();
+            //Set the camera to the game camera
+            camera = gameCamera;
 
 			//Load options save file
 			saveLoad.LoadOptions();
@@ -764,9 +772,9 @@ namespace ExplorationEngine
 				//Create a ship when U is pressed. [DEBUG]
 				if (UpdateGame && !IsPaused && ActivePage == HUD && Input.KeyReleased(Keys.U))
 				{
-					if (Camera.TargetIsShip())
+					if (camera.TargetIsShip())
 					{
-						Camera.TargetObject.ShipLogic.IsControlled = false;
+						camera.TargetObject.ShipLogic.IsControlled = false;
 					}
 					Galaxy.CreateShip("Serenity_" + Galaxy.Entities.Count.ToString(), Galaxy.CurrentSolarSystem, 128140, 0.0025f, Engine.Ship_Serenity, Vector2d.Zero, 0f, Vector2d.Zero, 0f, true);
 				}
@@ -793,7 +801,7 @@ namespace ExplorationEngine
 				StarBackground.Update();
 
 				//Camera
-				Camera.Update(gameTime);
+				camera.Update(gameTime);
 
 				//Game
 				if (UpdateGame)
@@ -939,14 +947,14 @@ namespace ExplorationEngine
 					//"      Forms:" + GUIManager.Forms.Count,
 					//"      LastClicked:" + GUIManager.LastClickedForm,
 					//"      FormsUnderMouseOnClick:" + GUIManager.ActiveForms.Count.ToString(),
-					"Camera:", 
-					"      ZoomIndex:" + Camera.ZoomIndex,
-					"      ZoomValueTarget:" + Camera.ZoomValues[Camera.ZoomIndex],
-					"      Zoom:" + Camera.Zoom,
-					"      Sensitivity:" + Camera.Sensitivity,
-					"      Camera Target:" + (Camera.TargetExists() ? Camera.TargetObject.Name : "null"),
-					"      Position:" + Camera.Position.ToString(),
-					"      IsEqual:" + (Camera.TargetExists() ? (Camera.Position == Camera.TargetObject.Position).ToString() : ""),
+					"camera:", 
+					//"      ZoomIndex:" + camera.ZoomIndex,
+					"      ZoomTarget:" + camera.GetZoomTarget(),
+					"      ZoomLevel:" + camera.GetZoomLevel(),
+					"      Sensitivity:" + camera.Sensitivity,
+					"      camera Target:" + (camera.TargetExists() ? camera.TargetObject.Name : "null"),
+					"      Position:" + camera.Position.ToString(),
+					"      IsEqual:" + (camera.TargetExists() ? (camera.Position == camera.TargetObject.Position).ToString() : ""),
 					"Entities:" + Galaxy.Entities.Count.ToString(),
 					"SolarSystems: " + (Galaxy.SolarSystems != null ? Galaxy.SolarSystems.Count.ToString() : "null"),
 					"      CurrentSolarSystem: " + (Galaxy.CurrentSolarSystem != null ? Galaxy.CurrentSolarSystem.Name + " (" + Galaxy.CurrentSolarSystem.Entities.Count.ToString() + ")": "null"),
@@ -972,7 +980,7 @@ namespace ExplorationEngine
 				spriteBatch.End();
 
 				//Entities
-				spriteBatch.Begin(SpriteSortMode.FrontToBack, BlendState.AlphaBlend, null, null, null, null, Camera.Transform);
+				spriteBatch.Begin(SpriteSortMode.FrontToBack, BlendState.AlphaBlend, null, null, null, null, camera.Transform);
 					//Animation
 					//animation.Draw(spriteBatch);
 				

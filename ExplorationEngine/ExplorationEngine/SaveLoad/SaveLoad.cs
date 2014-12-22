@@ -462,8 +462,8 @@ namespace ExplorationEngine
 
 						//System.Windows.Forms.MessageBox.Show("CSS:" + Galaxy.CurrentSolarSystem.Name);
 
-						Camera.TargetObject = Galaxy.EntityLookup(SaveFileReturn.CameraTargetObject);
-						//Camera.SetZoom(SaveFileReturn.CameraZoomLevel);
+						Engine.camera.TargetObject = Galaxy.EntityLookup(SaveFileReturn.CameraTargetObject);
+						//Engine.camera.SetZoom(SaveFileReturn.CameraZoomLevel);
 
                     }
                     return true;

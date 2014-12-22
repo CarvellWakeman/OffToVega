@@ -26,7 +26,7 @@ namespace ExplorationEngine
 		public string CurrentSolarSystem;
 
 		public string CameraTargetObject;
-		public int CameraZoomLevel;
+		public double CameraZoomLevel;
 
 
 		public SaveFile(){}
@@ -39,8 +39,8 @@ namespace ExplorationEngine
 			CurrentSolarSystem = (Galaxy.CurrentSolarSystem != null ? Galaxy.CurrentSolarSystem.Name : "");
 			SolarSystemList = Galaxy.SolarSystems;
 
-			CameraTargetObject = (Camera.TargetExists() ? Camera.TargetObject.Name : "");
-			CameraZoomLevel = Camera.ZoomIndex;
+            CameraTargetObject = (Engine.camera.TargetExists() ? Engine.camera.TargetObject.Name : "");
+            CameraZoomLevel = Engine.camera.GetZoomTarget();
 			//ActiveShip = (ShipManager.ActiveShip != null ? ShipManager.ActiveShip.Name : "");
 
 			//Minor changes that must be made to the lists above to avoid extra references

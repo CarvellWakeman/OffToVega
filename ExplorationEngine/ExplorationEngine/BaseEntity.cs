@@ -53,7 +53,7 @@ namespace ExplorationEngine
 		[System.Xml.Serialization.XmlIgnore]
 		public string DebugString = string.Empty;
 		public Color DebugColor = Color.Red;
-		public bool AllowDebug = true;
+		public bool AllowDebug = false;
 
 		//Drawing
 		public Component_Render Renderer = null;
@@ -229,7 +229,7 @@ namespace ExplorationEngine
 				}
 
 				//Update rendered position using Center-Of-Universe idea.
-				Render_Position = (Position - ((Camera.TargetExists() ? Camera.TargetObject.Position : Camera.Position)));
+				Render_Position = (Position - ((Engine.camera.TargetExists() ? Engine.camera.TargetObject.Position : Engine.camera.Position)));
 					
 
 
@@ -248,7 +248,7 @@ namespace ExplorationEngine
 						//(Parent != null ? "At Correct Position: " + (Math.Abs((Parent.Position - (Position - ParentOffset)).X) < 0.0001d && Math.Abs((Parent.Position - (Position - ParentOffset)).Y) < 0.0001d).ToString() + "\n" : "") + 
 						//(Parent != null ? "Real Offset: (" + (Parent.Position.X - Position.X).ToString() + "," + (Parent.Position.Y - Position.Y).ToString() + ")" + "\n" : "") +
 						//(Parent != null ? "Difference: (" + (Parent.Position.X - Position.X).ToString() + "," + (Parent.Position.Y - Position.Y).ToString() + ")" + "\n" : "") +
-						//(Camera.TargetExists() ? "CameraTarget:(" + Camera.TargetObject.Position.X + "," + Camera.TargetObject.Position.Y + ")" + "\n" : "") +
+						//(Engine.camera.TargetExists() ? "CameraTarget:(" + Engine.cameraTargetObject.Position.X + "," + Engine.cameraTargetObject.Position.Y + ")" + "\n" : "") +
 						"Position:(" + Position.X + "," + Position.Y + ")" + "\n" +
 						"Render_Position:(" + Render_Position.X + "," + Render_Position.Y + ")" + "\n" +
 						"Velocity:(" + Math.Round(Velocity.X, 8) + "," + Math.Round(Velocity.Y, 8) + ")" + "\n" +
@@ -270,7 +270,7 @@ namespace ExplorationEngine
 						"";
 
 					//Change debug color if object is the target
-					if (Camera.TargetObject == this)
+					if (Engine.camera.TargetObject == this)
 						DebugColor = Color.Green;
 					else
 						DebugColor = Color.Red;

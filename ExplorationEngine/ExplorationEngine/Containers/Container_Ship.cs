@@ -33,7 +33,7 @@ namespace ExplorationEngine.Containers
 		public float AverageScale = 1;
 
 		//Other
-		private int PreviousEntitiesInSolarSystem = 0;
+		//private int PreviousEntitiesInSolarSystem = 0;
 
 
 		public Container_Ship() { }

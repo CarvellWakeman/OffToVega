@@ -73,7 +73,7 @@ namespace ExplorationEngine.Components
 				//Debug drawing
 				if (Engine.DebugState == true && _entity.AllowDebug)
 				{
-					//if (Camera.TargetObject == _entity)
+					//if (Engine.camera.TargetObject == _entity)
 					//{
 					spritebatch.DrawString(Engine.Font_Small, _entity.DebugString, _entity.Render_Position, _entity.DebugColor, 0f, Vector2.Zero, _entity.Scale, SpriteEffects.None, (_entity.Z + Galaxy.DebugZModifier) / Galaxy.MaxLayer);
 					//}

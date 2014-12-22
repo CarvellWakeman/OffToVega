@@ -55,14 +55,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Off To Vega.exe" size="533504">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Off To Vega.exe" size="532992">
       <assemblyIdentity name="Off To Vega" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>B/TaUJEk2qSX3FzSy5RCm/cwfD0=</dsig:DigestValue>
+        <dsig:DigestValue>Hnn/vrVSpLtunYc/GvfpCcemXLI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

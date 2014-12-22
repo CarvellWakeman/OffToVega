@@ -136,11 +136,11 @@ namespace ExplorationEngine.GUI
 				case "Sensors_Scan":
 					
 					//Scan entity IF
-					if (Camera.TargetIsShip() && Camera.TargetCanOrbit() && Camera.TargetObject.Orbit._parent != null)
+					if (Engine.camera.TargetIsShip() && Engine.camera.TargetCanOrbit() && Engine.camera.TargetObject.Orbit._parent != null)
 					{
 						Engine.Sound_Ping.Play();
 
-						BaseEntity Tar = Camera.TargetObject.Orbit._parent;
+						BaseEntity Tar = Engine.camera.TargetObject.Orbit._parent;
 						LastScanned = Tar;
 
 						int Children = 0;
@@ -152,7 +152,7 @@ namespace ExplorationEngine.GUI
 						}
 
 						Textbox_ScanData.Text =
-							"Ship '" + Camera.TargetObject.Name + "' is orbiting " + (Tar.BodyLogic != null ? Tar.BodyLogic.Class.ToString() : "") + " '" + Tar.Name + "'" + (Tar.BodyLogic != null ? " of type " + Tar.BodyLogic.Type.ToString() : "") + "." + "\n" +
+							"Ship '" + Engine.camera.TargetObject.Name + "' is orbiting " + (Tar.BodyLogic != null ? Tar.BodyLogic.Class.ToString() : "") + " '" + Tar.Name + "'" + (Tar.BodyLogic != null ? " of type " + Tar.BodyLogic.Type.ToString() : "") + "." + "\n" +
 							"\n" +
 
 							(Tar.Orbit != null && Tar.Orbit._parent != null ? "The " + (Tar.BodyLogic != null ? Tar.BodyLogic.Class.ToString() : "") + " '" + Tar.Name + "' is orbiting " + (Tar.Orbit._parent.BodyLogic != null ? Tar.Orbit._parent.BodyLogic.Class.ToString() : "") + " '" + Tar.Orbit._parent.Name + "\n" : "") +
@@ -184,7 +184,7 @@ namespace ExplorationEngine.GUI
 			base.Show(lastform, quick);
 
 			//If our target is a ship, it can orbit, it has a parent, and the last scanned entity is not equal to the current one, change the text back to "waiting..."
-			if (Camera.TargetIsShip() && Camera.TargetCanOrbit() && Camera.TargetObject.Orbit._parent != null && LastScanned != Camera.TargetObject.Orbit._parent)
+			if (Engine.camera.TargetIsShip() && Engine.camera.TargetCanOrbit() && Engine.camera.TargetObject.Orbit._parent != null && LastScanned != Engine.camera.TargetObject.Orbit._parent)
 			{
 				Textbox_ScanData.Text = "Waiting...";
 			}
@@ -209,10 +209,10 @@ namespace ExplorationEngine.GUI
 			base.Update();
 
 			//Can we set scan
-			Button_Scan.Clickable = Camera.TargetIsShip() && Camera.TargetCanOrbit() && Camera.TargetObject.Orbit._parent != null;
+			Button_Scan.Clickable = Engine.camera.TargetIsShip() && Engine.camera.TargetCanOrbit() && Engine.camera.TargetObject.Orbit._parent != null;
 
-			//Camera target isn't a ship
-			if (!Camera.TargetIsShip())
+			//Engine.camera target isn't a ship
+			if (!Engine.camera.TargetIsShip())
 			{
 				if (!Listbox_Warnings.Items.Contains(Label_NoShip))
 				{
@@ -226,8 +226,8 @@ namespace ExplorationEngine.GUI
 				Label_NoShip.SetActive(false, false, true);
 			}
 
-			//Camera target isn't a ship
-			if (Camera.TargetCanOrbit() && Camera.TargetObject.Orbit._parent == null)
+			//Engine.camera target isn't a ship
+			if (Engine.camera.TargetCanOrbit() && Engine.camera.TargetObject.Orbit._parent == null)
 			{
 				if (!Listbox_Warnings.Items.Contains(Label_NotInOrbit))
 				{

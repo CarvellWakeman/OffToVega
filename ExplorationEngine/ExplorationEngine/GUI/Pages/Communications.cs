@@ -180,7 +180,7 @@ namespace ExplorationEngine.GUI
 					//Find the target
 					BaseEntity Target = Galaxy.EntityLookup(Listbox_CommSystems.Selected.name);
 
-					string SendingSystem = (Camera.TargetObject != null ? Camera.TargetObject.Name : "");
+					string SendingSystem = (Engine.camera.TargetObject != null ? Engine.camera.TargetObject.Name : "");
 					string ReceivingSystem = Listbox_CommSystems.Selected.name;
 
 					//Show the data as received if our target can receive it
@@ -231,7 +231,7 @@ namespace ExplorationEngine.GUI
 			{
 				//dLabel lbl = new dLabel(Galaxy.CurrentSolarSystem.Entities[ii], Listbox_SolarBodies.position, Listbox_SolarBodies, Engine.Font_Medium, Galaxy.CurrentSolarSystem.Entities[ii], Color.White, false, false, false);
 				BaseEntity ent = Galaxy.CurrentSolarSystem.Entities[ii];
-				if (Camera.TargetObject != null && ent != Camera.TargetObject && (ent.Parent!= null ? ent.Parent != Camera.TargetObject : true) && ent.Communication != null) //If we are controlling a ship, and the other entity has a communication system
+				if (Engine.camera.TargetObject != null && ent != Engine.camera.TargetObject && (ent.Parent!= null ? ent.Parent != Engine.camera.TargetObject : true) && ent.Communication != null) //If we are controlling a ship, and the other entity has a communication system
 				{
 					dImage img = new dImage(Galaxy.CurrentSolarSystem.Entities[ii].Name, Listbox_CommSystems.position, (ent.Renderer != null ? ent.Renderer._texture : Engine.CreateTexture(1, 1, Color.Red)), Listbox_CommSystems, false, false);
 					img.size = new Vector2d(Listbox_CommSystems.size.X - 10, Listbox_CommSystems.size.X - 10);
@@ -252,11 +252,11 @@ namespace ExplorationEngine.GUI
 			base.Update();
 
 			//Can we send the data?
-			Button_Send.Clickable = Camera.TargetObject != null && Listbox_CommSystems.Selected != null && Textbox_Send.Text.Length > 0;
+			Button_Send.Clickable = Engine.camera.TargetObject != null && Listbox_CommSystems.Selected != null && Textbox_Send.Text.Length > 0;
 
 
-			//Camera target isn't a ship
-			if (!Camera.TargetIsShip())
+			//Engine.camera target isn't a ship
+			if (!Engine.camera.TargetIsShip())
 			{
 				if (!Listbox_Warnings.Items.Contains(Label_NoShip))
 				{

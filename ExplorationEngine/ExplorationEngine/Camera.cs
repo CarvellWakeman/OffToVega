@@ -14,61 +14,58 @@ using Microsoft.Xna.Framework.Media;
 
 namespace ExplorationEngine
 {
-	public static class Camera
+	public class Camera
 	{
-		public static Matrix Transform = Matrix.CreateTranslation(Engine.CurrentGameResolution.X * 0.5f, Engine.CurrentGameResolution.Y * 0.5f, 0);
-		//public static Matrix GameTransform = Matrix.CreateTranslation(Engine.CurrentScreenResolution.X * 0.5f, Engine.CurrentScreenResolution.Y * 0.5f, 0);
-		//public static Matrix MapTransform = Matrix.CreateTranslation(Engine.CurrentScreenResolution.X * 0.5f, Engine.CurrentScreenResolution.Y * 0.5f, 0);
+		public Matrix Transform = Matrix.CreateTranslation(Engine.CurrentGameResolution.X * 0.5f, Engine.CurrentGameResolution.Y * 0.5f, 0);
+		//public Matrix GameTransform = Matrix.CreateTranslation(Engine.CurrentScreenResolution.X * 0.5f, Engine.CurrentScreenResolution.Y * 0.5f, 0);
+		//public Matrix MapTransform = Matrix.CreateTranslation(Engine.CurrentScreenResolution.X * 0.5f, Engine.CurrentScreenResolution.Y * 0.5f, 0);
 
-		public static BaseEntity TargetObject;
-		public static BaseEntity PrevTargetObject;
+		public BaseEntity TargetObject;
+		public BaseEntity PrevTargetObject;
 
-		public static Vector2d Position = Vector2d.Zero;
-		public static Vector2d PositionDifference = Vector2d.Zero;
-		public static Vector2d PositionVelocity = Vector2d.Zero;
-		public static Vector2d PrevPosition = Vector2d.Zero;
+		public Vector2d Position = Vector2d.Zero;
+		public Vector2d PositionDifference = Vector2d.Zero;
+		public Vector2d PositionVelocity = Vector2d.Zero;
+		public Vector2d PrevPosition = Vector2d.Zero;
 
-		public static float Rotation = 0.0f;
-		public static float Sensitivity;
+		public float Rotation = 0.0f;
+		public float Sensitivity;
 
-		public static double Zoom;
-		public static int ZoomMax;
-		public static int ZoomMin;
-		public static int ZoomIndex;
-		public static double ZoomSmooth;
-		public static int ScrollValueChange;
+		double ZoomLevel;
+        double ZoomTarget;
+
+        public int ZoomSmoothing = 40;
+
+        double ZoomMax = 2048d;
+        double ZoomMin = 0.000001220703125d;
 
 		//State Previous zoom
-		public static int PrevGameZoom;
-		public static int PrevMapZoom;
+		public double PrevZoom;
 
-		public static bool TrapMouse = false;
+		bool TrapMouse = false;
 
-		public static List<double> ZoomValues = new List<double>() { 2048.0d, 1024.0d, 512.0d, 300.0d, 256.0d, 200.0d, 128.0d, 64.0d, 32.0d, 16.0d, 12.0d, 8.0d, 6.0d, 4.0d, 3.0d, 2.0d, 1.0d, 
-																0.9d, 0.8d, 0.7d, 0.6d, 0.5d, 0.4d, 0.3d, 0.2d, 0.15d, 0.1d, 0.09d, 0.08d, 0.07d, 0.06d, 
-																0.05d, 0.04d, 0.03d, 0.02d, 0.015d, 0.01d, 0.0075d, 0.005d, 0.0025d, 0.00125d, 0.000625d, 
-																0.0003125d, 0.00015625d, 0.000078125d, 0.0000390625d, 0.00001953125d, 0.000009765625d, 0.0000048828125d,
-																0.00000244140625d, 0.000001220703125d};
+		//public List<double> ZoomValues = new List<double>() { 2048.0d, 1024.0d, 512.0d, 300.0d, 256.0d, 200.0d, 128.0d, 64.0d, 32.0d, 16.0d, 12.0d, 8.0d, 6.0d, 4.0d, 3.0d, 2.0d, 1.0d, 
+		//														0.9d, 0.8d, 0.7d, 0.6d, 0.5d, 0.4d, 0.3d, 0.2d, 0.15d, 0.1d, 0.09d, 0.08d, 0.07d, 0.06d, 
+		//														0.05d, 0.04d, 0.03d, 0.02d, 0.015d, 0.01d, 0.0075d, 0.005d, 0.0025d, 0.00125d, 0.000625d, 
+		//														0.0003125d, 0.00015625d, 0.000078125d, 0.0000390625d, 0.00001953125d, 0.000009765625d, 0.0000048828125d,
+		//														0.00000244140625d, 0.000001220703125d};
 
 
 		//Mouse
-		public static MouseState previousMouseState;
+		public MouseState previousMouseState;
 
-		static Camera()
+		public Camera()
         {
 			//Mouse.SetPosition((int)Engine.CurrentScreenResolution.X / 2, (int)Engine.CurrentScreenResolution.Y / 2);
 			previousMouseState = Mouse.GetState();
 
-			ZoomMax = ZoomValues.Count - 1;
-			ZoomMin = 0;
 
-			PrevMapZoom = ZoomValues.IndexOf(0.06d);
-			PrevGameZoom = ZoomValues.IndexOf(0.06d);
-			ZoomIndex = ZoomValues.IndexOf(256.0d);
+            PrevZoom = 0.06d;
+            ZoomTarget = 256.0d;
         }
 
 
-		public static void ResetMouse()
+		public void ResetMouse()
 		{
 			if (TrapMouse)
 			{
@@ -76,38 +73,54 @@ namespace ExplorationEngine
 				previousMouseState = Mouse.GetState();
 			}
 
-			ZoomMax = ZoomValues.Count - 1;
-			ZoomMin = 0;
 		}
 
+        public void ZoomTo(double zoom)
+        {
+            ZoomTarget = Math.Max(ZoomMin, Math.Min(ZoomMax, zoom));
+        }
 
-		public static void SetZoom(int index)
-		{
-			ZoomIndex = index;
-			ZoomSmooth = ZoomValues[index];
-			Zoom = ZoomValues[index];
-		}
+        public double GetZoomTarget()
+        {
+            return ZoomTarget;
+        }
+        public double GetZoomLevel()
+        {
+            return ZoomLevel;
+        }
+		//public void SetZoom(int index)
+		//{
+		//	ZoomTarget = ZoomValues[index];
+        //    ZoomLevel = ZoomTarget;
+		//}
+        public void SetZoom(double zoom)
+        {
+            ZoomTarget = zoom;
+            ZoomLevel = zoom;
+        }
+
+
 
 		//Target information
-		public static bool TargetExists()
+		public bool TargetExists()
 		{
 			return TargetObject != null;
 		}
-		public static bool TargetIsShip()
+		public bool TargetIsShip()
 		{
 			return TargetObject != null && TargetObject.ShipLogic != null;
 		}
-		public static bool TargetIsSolarBody()
+		public bool TargetIsSolarBody()
 		{
 			return TargetObject != null && TargetObject.BodyLogic != null;
 		}
-		public static bool TargetCanOrbit()
+		public bool TargetCanOrbit()
 		{
 			return TargetObject != null && TargetObject.Orbit != null;
 		}
 
 
-		public static void Update(GameTime gt)
+		public void Update(GameTime gt)
 		{
 			//Target management
 			//if (EntityManager.ContainsEntity(TargetObject) == false)
@@ -125,21 +138,18 @@ namespace ExplorationEngine
 			//	}
 			//}
 
-
-			
-
-			//Everything about this is wrong.
-			if (Engine.ActivePage == Engine.HUD || Engine.ActivePage == Engine.GalaxyMap)
-			{
-				ZoomIndex -= Input.ScrollValueChange;
-				ZoomIndex = Math.Max(Math.Min(ZoomIndex, ZoomValues.Count - 1), 0); //Clamp zoom index value
-				ZoomIndex = Math.Max(Math.Min(ZoomIndex, ZoomMax), ZoomMin);
-
-				ZoomSmooth += (ZoomValues[ZoomIndex] - Zoom) / 40;
-				Zoom = ZoomSmooth;
-			}
+            if (Input.ScrollValueChange != 0)
+            {
+                ZoomTarget = (Input.ScrollValueChange > 0 ? ZoomTarget * 2 : ZoomTarget / 2);
+                ZoomTarget = Math.Max(ZoomMin, Math.Min(ZoomMax, ZoomTarget));
+            }
 
 
+            //Smoothly move the zoom level to match the zoom target
+            ZoomLevel += (ZoomTarget - ZoomLevel) / ZoomSmoothing; ;
+
+
+            //Engine.camera positioning
 			if (TargetObject != null)
 			{
 				Position = TargetObject.Position;
@@ -164,7 +174,7 @@ namespace ExplorationEngine
 
 
 			
-			Transform = Matrix.CreateScale(new Vector3((float)Zoom, (float)Zoom, 1)) *
+			Transform = Matrix.CreateScale(new Vector3((float)ZoomLevel, (float)ZoomLevel, 1)) *
 				//Matrix.CreateTranslation(new Vector3((float)-Position.X, (float)-Position.Y, 0)) *
 				Matrix.CreateTranslation(new Vector3(Engine.CurrentGameResolution.X * 0.5f, Engine.CurrentGameResolution.Y * 0.5f, 0));
 

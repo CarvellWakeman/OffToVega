@@ -14,7 +14,7 @@ namespace ExplorationEngine.GUI
 {
 	public class Options : GUIPage
 	{
-		public dButton Button_Back;
+		public dLabel Button_Back;
 
 		public dLabel Label_Logo;
 
@@ -44,7 +44,8 @@ namespace ExplorationEngine.GUI
 				Form_Main.AddControl(Label_Logo);
 
 			//Back button
-				Button_Back = new dButton("Options_Back", new Vector2d(50, 50), Engine.ButtonsTexture, new Rectangle(2, 221, 116, 41), Form_Main, false, false);
+                Button_Back = new dLabel("Options_Back", new Vector2d(50, 50), null, Form_Main, Engine.Font_Large, "BACK", Color.White, false, false, false);
+				//Button_Back = new dButton("Options_Back", new Vector2d(50, 50), Engine.ButtonsTexture, new Rectangle(2, 221, 116, 41), Form_Main, false, false);
 				Button_Back.HoverColor = Color.Purple;
 				Button_Back.PressColor = Color.Red;
 				Button_Back.PlaySound = true;

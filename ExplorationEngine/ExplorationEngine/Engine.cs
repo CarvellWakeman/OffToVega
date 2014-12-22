@@ -83,7 +83,7 @@ namespace ExplorationEngine
 			public static Texture2D MainMenuBackground;
 			
 			public static Texture2D MainMenuLogo;
-			public static Texture2D ButtonsTexture;
+			//public static Texture2D ButtonsTexture;
 			public static Texture2D ButtonUnderlay;
 			public static Texture2D ButtonUnderlay2;
 			public static Texture2D ButtonUnderlay3;
@@ -361,7 +361,7 @@ namespace ExplorationEngine
 			Font_Small = Content.Load<SpriteFont>("Fonts/Dolce_Small");
 			Font_Medium = Content.Load<SpriteFont>("Fonts/Dolce_Medium");
 			Font_MediumSmall = Content.Load<SpriteFont>("Fonts/Dolce_MediumSmall");
-			Font_Large = Content.Load<SpriteFont>("Fonts/Dolce_Large");
+			Font_Large = Content.Load<SpriteFont>("Fonts/Dolce_Medium");
 
 
 			//GUI
@@ -377,7 +377,7 @@ namespace ExplorationEngine
 				Checkmark = Content.Load<Texture2D>("GUI/Checkmark");
 				MainMenuLogo = Content.Load<Texture2D>("GUI/MainMenu");
 
-				ButtonsTexture = Content.Load<Texture2D>("GUI/Buttons");
+				//ButtonsTexture = Content.Load<Texture2D>("GUI/Buttons");
 
 				ButtonUnderlay = Content.Load<Texture2D>("GUI/Underlay");
 				ButtonUnderlay2 = Content.Load<Texture2D>("GUI/Underlay2");

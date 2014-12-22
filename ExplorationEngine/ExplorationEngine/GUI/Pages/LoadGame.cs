@@ -14,7 +14,7 @@ namespace ExplorationEngine.GUI
 {
 	public class LoadGame : GUIPage
 	{
-		public dButton Button_Back;
+		public dLabel Button_Back;
 		public dLabel Button_Play;
 		public dLabel Button_Delete;
 
@@ -38,8 +38,8 @@ namespace ExplorationEngine.GUI
 				Form_Main.AddControl(Label_Logo);
 
 			//Back button
-				Button_Back = new dButton("LoadGame_Back", new Vector2(50, 50), Engine.ButtonsTexture, new Rectangle(2, 221, 116, 41), Form_Main, false, false);
-				Button_Back.HoverColor = Color.Purple;
+                Button_Back = new dLabel("LoadGame_Back", new Vector2d(50, 50), null, Form_Main, Engine.Font_Large, "BACK", Color.White, false, false, false);
+                Button_Back.HoverColor = Color.Purple;
 				Button_Back.ReleaseColor = Color.Red;
 				Button_Back.PlaySound = true;
 				Form_Main.AddControl(Button_Back);

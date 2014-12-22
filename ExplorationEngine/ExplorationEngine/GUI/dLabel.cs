@@ -43,7 +43,7 @@ namespace ExplorationEngine.GUI
 		//	base.Color = color;
 		//}
 		public dLabel(string name, Vector2 position, Texture2D texture, dControl parent, SpriteFont font, string text, Color color, bool centeredX, bool centeredY, bool updateSize)
-			: base(name, position, (texture != null ? new Vector2(texture.Width, texture.Height) : (font != null ? font.MeasureString(text) : Vector2.Zero)), texture, parent, centeredX, centeredY)
+			: base(name, position, (texture != null ? new Vector2(texture.Width, texture.Height) : (font != null ? new Vector2(font.MeasureString(text).X, font.MeasureString(text).Y/1.2f) : Vector2.Zero)), texture, parent, centeredX, centeredY)
 		{
 			//Label specific variables
 			Font = font;

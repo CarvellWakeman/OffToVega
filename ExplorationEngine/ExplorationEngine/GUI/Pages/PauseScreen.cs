@@ -21,9 +21,9 @@ namespace ExplorationEngine.GUI
 
 		public dGroupbox Groupbox_Buttons;
 
-		public dButton Button_Resume;
-		public dButton Button_Options;
-		public dButton Button_ExitToMainMenu;
+		public dLabel Button_Resume;
+		public dLabel Button_Options;
+		public dLabel Button_ExitToMainMenu;
 
 		public dImage Image_Resume;
 		public dImage Image_Options;
@@ -51,7 +51,8 @@ namespace ExplorationEngine.GUI
 				Form_Main.AddControl(Groupbox_Buttons);
 
 			//Resume button
-				Button_Resume = new dButton("PauseScreen_Resume", new Vector2(0, 0), Engine.ButtonsTexture, new Rectangle(2, 265, 172, 41), Groupbox_Buttons, false, false);
+                Button_Resume = new dLabel("PauseScreen_Resume", new Vector2d(0, 0), null, Groupbox_Buttons, Engine.Font_Large, "RESUME", Color.White, false, false, false);
+				//Button_Resume = new dButton("PauseScreen_Resume", new Vector2(0, 0), Engine.ButtonsTexture, new Rectangle(2, 265, 172, 41), Groupbox_Buttons, false, false);
 				Button_Resume.PressColor = Color.Purple;
 				Button_Resume.ReleaseColor = Color.Red;
 				Button_Resume.PlaySound = true;
@@ -63,7 +64,8 @@ namespace ExplorationEngine.GUI
 				//Button_Resume.EmulationKey = Input.Pause;
 
 			//Options button
-				Button_Options = new dButton("PauseScreen_Options", new Vector2(0, 50), Engine.ButtonsTexture, new Rectangle(2, 132, 199, 41), Groupbox_Buttons, false, false);
+                Button_Options = new dLabel("PauseScreen_Options", new Vector2d(0, 50), null, Groupbox_Buttons, Engine.Font_Large, "OPTIONS", Color.White, false, false, false);
+				//Button_Options = new dButton("PauseScreen_Options", new Vector2(0, 50), Engine.ButtonsTexture, new Rectangle(2, 132, 199, 41), Groupbox_Buttons, false, false);
 				Button_Options.PressColor = Color.Purple;
 				Button_Options.ReleaseColor = Color.Red;
 				Button_Options.PlaySound = true;
@@ -74,7 +76,8 @@ namespace ExplorationEngine.GUI
 				Button_Options.OnMouseRelease += new Engine.Handler(ButtonRelease);
 
 			//ExitToMainMenu button
-				Button_ExitToMainMenu = new dButton("PauseScreen_ExitToMainMenu", new Vector2(0, 100), Engine.ButtonsTexture, new Rectangle(2, 309, 409, 41), Groupbox_Buttons, false, false);
+                Button_ExitToMainMenu = new dLabel("PauseScreen_ExitToMainMenu", new Vector2d(0, 100), null, Groupbox_Buttons, Engine.Font_Large, "EXIT TO MAINMENU", Color.White, false, false, false);
+				//Button_ExitToMainMenu = new dButton("PauseScreen_ExitToMainMenu", new Vector2(0, 100), Engine.ButtonsTexture, new Rectangle(2, 309, 409, 41), Groupbox_Buttons, false, false);
 				Button_ExitToMainMenu.PressColor = Color.Purple;
 				Button_ExitToMainMenu.ReleaseColor = Color.Red;
 				Button_ExitToMainMenu.PlaySound = true;

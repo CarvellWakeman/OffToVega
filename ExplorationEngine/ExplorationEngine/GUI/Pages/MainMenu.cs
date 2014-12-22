@@ -18,10 +18,10 @@ namespace ExplorationEngine.GUI
 
 		public dGroupbox Groupbox_Buttons;
 
-		public dButton Button_NewGame;
-		public dButton Button_LoadGame;
-		public dButton Button_Options;
-		public dButton Button_Exit;
+		public dLabel Button_NewGame;
+		public dLabel Button_LoadGame;
+		public dLabel Button_Options;
+		public dLabel Button_Exit;
 
 		public dImage Image_NewGame;
 		public dImage Image_LoadGame;
@@ -53,7 +53,8 @@ namespace ExplorationEngine.GUI
 				Form_Main.AddControl(Groupbox_Buttons);
 
 			//New game button
-				Button_NewGame = new dButton("MainMenu_NewGame", new Vector2(0, 0), Engine.ButtonsTexture, new Rectangle(2, 2, 248, 41), Groupbox_Buttons, false, false);
+                Button_NewGame = new dLabel("MainMenu_NewGame", new Vector2d(0, 0), null, Groupbox_Buttons, Engine.Font_Large, "NEW GAME", Color.White, false, false, false);
+				//Button_NewGame = new dButton("MainMenu_NewGame", new Vector2(0, 0), Engine.ButtonsTexture, new Rectangle(2, 2, 248, 41), Groupbox_Buttons, false, false);
 				Button_NewGame.PressColor = Color.Purple;
 				Button_NewGame.ReleaseColor = Color.Red;
 				Button_NewGame.PlaySound = true;
@@ -64,7 +65,8 @@ namespace ExplorationEngine.GUI
 				Button_NewGame.OnMouseRelease += new Engine.Handler(ButtonRelease);
 
 			//Load game button
-				Button_LoadGame = new dButton("MainMenu_LoadGame", new Vector2(0, 50), Engine.ButtonsTexture, new Rectangle(2, 46, 268, 41), Groupbox_Buttons, false, false);
+                Button_LoadGame = new dLabel("MainMenu_LoadGame", new Vector2d(0, 50), null, Groupbox_Buttons, Engine.Font_Large, "LOAD GAME", Color.White, false, false, false);
+				//Button_LoadGame = new dButton("MainMenu_LoadGame", new Vector2(0, 50), Engine.ButtonsTexture, new Rectangle(2, 46, 268, 41), Groupbox_Buttons, false, false);
 				Button_LoadGame.PressColor = Color.Purple;
 				Button_LoadGame.ReleaseColor = Color.Red;
 				Button_LoadGame.PlaySound = true;
@@ -75,7 +77,8 @@ namespace ExplorationEngine.GUI
 				Button_LoadGame.OnMouseRelease += new Engine.Handler(ButtonRelease);
 
 			//Options button
-				Button_Options = new dButton("MainMenu_Options", new Vector2(0, 100), Engine.ButtonsTexture, new Rectangle(2, 132, 199, 41), Groupbox_Buttons, false, false);
+                Button_Options = new dLabel("MainMenu_Options", new Vector2d(0, 100), null, Groupbox_Buttons, Engine.Font_Large, "OPTIONS", Color.White, false, false, false);
+				//Button_Options = new dButton("MainMenu_Options", new Vector2(0, 100), Engine.ButtonsTexture, new Rectangle(2, 132, 199, 41), Groupbox_Buttons, false, false);
 				Button_Options.PressColor = Color.Purple;
 				Button_Options.ReleaseColor = Color.Red;
 				Button_Options.PlaySound = true;
@@ -86,7 +89,8 @@ namespace ExplorationEngine.GUI
 				Button_Options.OnMouseRelease += new Engine.Handler(ButtonRelease);
 
 			//Exit button
-				Button_Exit = new dButton("MainMenu_Exit", new Vector2(0, 150), Engine.ButtonsTexture, new Rectangle(2, 176, 80, 39), Groupbox_Buttons, false, false);
+                Button_Exit = new dLabel("MainMenu_Exit", new Vector2d(0, 150), null, Groupbox_Buttons, Engine.Font_Large, "EXIT", Color.White, false, false, false);
+				//Button_Exit = new dButton("MainMenu_Exit", new Vector2(0, 150), Engine.ButtonsTexture, new Rectangle(2, 176, 80, 39), Groupbox_Buttons, false, false);
 				Button_Exit.PressColor = Color.Purple;
 				Button_Exit.ReleaseColor = Color.Red;
 				Button_Exit.PlaySound = true;

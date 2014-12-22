@@ -19,7 +19,7 @@ namespace ExplorationEngine.GUI
 
 		public dLabel Label_GalaxyName;
 
-		public dButton Button_Back;
+		public dLabel Button_Back;
 
 
         //Position and zoom
@@ -57,7 +57,8 @@ namespace ExplorationEngine.GUI
 				Image_Galaxy.AddControl(Label_GalaxyName);
 
 			//Back Button
-				Button_Back = new dButton("Map_Back", new Vector2(50, 50), Engine.ButtonsTexture, new Rectangle(2, 221, 116, 41), Form_Main, false, false);
+                Button_Back = new dLabel("Map_Back", new Vector2d(50, 50), null, Form_Main, Engine.Font_Large, "BACK", Color.White, false, false, false);
+				//Button_Back = new dButton("Map_Back", new Vector2(50, 50), Engine.ButtonsTexture, new Rectangle(2, 221, 116, 41), Form_Main, false, false);
 				Button_Back.HoverColor = Color.Purple;
 				Button_Back.ReleaseColor = Color.Red;
 				Button_Back.PlaySound = true;

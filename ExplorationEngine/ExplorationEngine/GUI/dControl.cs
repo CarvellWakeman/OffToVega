@@ -384,7 +384,7 @@ namespace ExplorationEngine.GUI
 				//Debug drawing
 				if (Engine.DebugGUI && DrawOnDebug)
 				{
-					spritebatch.Draw(Engine.Square, new Rectangle((int)(position.X), (int)(position.Y), (int)_size.X, (int)_size.Y), source, debugColor * 0.2f, 0f, Vector2.Zero, SpriteEffects.None, layer);
+					//spritebatch.Draw(Engine.Square, new Rectangle((int)(position.X), (int)(position.Y), (int)_size.X, (int)_size.Y), source, debugColor * 0.2f, 0f, Vector2.Zero, SpriteEffects.None, layer);
 					spritebatch.Draw(Engine.Square, interactPositionSize, source, Color.Yellow * 0.2f, 0f, Vector2.Zero, SpriteEffects.None, layer);
 
 					spritebatch.DrawString(Engine.Font_Small, DebugString, new Vector2(position.X + _size.X, position.Y), debugColor, 0f, Vector2.Zero, 1f, SpriteEffects.None, layer);

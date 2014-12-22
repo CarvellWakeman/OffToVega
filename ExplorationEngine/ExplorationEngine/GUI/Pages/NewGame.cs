@@ -16,8 +16,8 @@ namespace ExplorationEngine.GUI
 	{
 		public dLabel Label_Logo;
 
-		public dButton Button_Back;
-		public dButton Button_Create;
+		public dLabel Button_Back;
+		public dLabel Button_Create;
 
 		public dTextbox Textbox_Name;
 
@@ -34,7 +34,8 @@ namespace ExplorationEngine.GUI
 				Form_Main.AddControl(Label_Logo);
 
 			//Back button
-				Button_Back = new dButton("NewGame_Back", new Vector2d(50, 50), Engine.ButtonsTexture, new Rectangle(2, 221, 116, 41), Form_Main, false, false);
+                Button_Back = new dLabel("NewGame_Back", new Vector2d(50, 50), null, Form_Main, Engine.Font_Large, "BACK", Color.White, false, false, false);
+				//Button_Back = new dButton("NewGame_Back", new Vector2d(50, 50), Engine.ButtonsTexture, new Rectangle(2, 221, 116, 41), Form_Main, false, false);
 				Button_Back.HoverColor = Color.Purple;
 				Button_Back.ReleaseColor = Color.Red;
 				Button_Back.PlaySound = true;
@@ -51,7 +52,8 @@ namespace ExplorationEngine.GUI
 				Textbox_Name.Text = "Universe" + Engine.saveLoad.Saves.Count.ToString();
 			
 			//Create button
-				Button_Create = new dButton("NewGame_Create", new Vector2d(Engine.VirtualScreenResolution.X / 2, 300), Engine.ButtonsTexture, new Rectangle(2, 353, 162, 41), Form_Main, true, true);
+                Button_Create = new dLabel("NewGame_Create", new Vector2d(Engine.VirtualScreenResolution.X / 2, 300), null, Form_Main, Engine.Font_Large, "CREATE", Color.White, true, true, false);
+				//Button_Create = new dButton("NewGame_Create", new Vector2d(Engine.VirtualScreenResolution.X / 2, 300), Engine.ButtonsTexture, new Rectangle(2, 353, 162, 41), Form_Main, true, true);
 				Button_Create.HoverColor = Color.Purple;
 				Button_Create.ReleaseColor = Color.Red;
 				Button_Create.PlaySound = true;

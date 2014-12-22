@@ -174,6 +174,11 @@ namespace ExplorationEngine.GUI
 		{
 			base.SetUserInteract(interact, setchildren);
 
+            if (Up != null)
+                Up.SetUserInteract(interact, setchildren);
+            if (Down != null)
+                Down.SetUserInteract(interact, setchildren);
+
 			if (setchildren)
 			{
 				for (int ii = 0; ii < Items.Count; ii++)
@@ -184,7 +189,22 @@ namespace ExplorationEngine.GUI
 			}
 		}
 
-		public dControl ControlLookup(string name)
+        public override Color Color
+        {
+            get { return base._color; }
+			set 
+			{
+				//if (value != null)
+				//{
+					_color = value;
+                    for (int i = 0; i < Items.Count; i++) { Items[i].Color = value; }
+                    Up.Color = value;
+                    Down.Color = value;
+				//}
+			}
+        }
+
+        public dControl ControlLookup(string name)
 		{
 			dControl control = null;
 

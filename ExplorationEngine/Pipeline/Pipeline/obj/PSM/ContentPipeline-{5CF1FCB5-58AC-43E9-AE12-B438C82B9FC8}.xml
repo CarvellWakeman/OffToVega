@@ -191,15 +191,6 @@
       <Time>2014-11-30T22:26:21.3269006-08:00</Time>
     </Item>
     <Item>
-      <Source>GUI\Buttons.png</Source>
-      <Name>GUI\Buttons</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\GUI\Buttons.xnb</Output>
-      <Time>2014-11-30T22:26:35.7119259-08:00</Time>
-    </Item>
-    <Item>
       <Source>GUI\Checkmark.png</Source>
       <Name>GUI\Checkmark</Name>
       <Importer>TextureImporter</Importer>
@@ -575,7 +566,7 @@
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\Fonts\Dolce_Large.xnb</Output>
-      <Time>0001-01-01T00:00:00</Time>
+      <Time>2014-11-30T22:25:58.6690107-08:00</Time>
     </Item>
     <Item>
       <Source>Fonts\Dolce_Medium.spritefont</Source>
@@ -584,7 +575,7 @@
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\Fonts\Dolce_Medium.xnb</Output>
-      <Time>0001-01-01T00:00:00</Time>
+      <Time>2014-11-30T22:25:58.6690107-08:00</Time>
     </Item>
     <Item>
       <Source>Fonts\Dolce_MediumSmall.spritefont</Source>
@@ -593,7 +584,7 @@
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\Fonts\Dolce_MediumSmall.xnb</Output>
-      <Time>0001-01-01T00:00:00</Time>
+      <Time>2014-11-30T22:25:58.6846333-08:00</Time>
     </Item>
     <Item>
       <Source>Fonts\Dolce_Small.spritefont</Source>
@@ -602,7 +593,7 @@
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\Fonts\Dolce_Small.xnb</Output>
-      <Time>0001-01-01T00:00:00</Time>
+      <Time>2014-11-30T22:25:58.6846333-08:00</Time>
     </Item>
     <Item>
       <Source>Fonts\Dolce_VerySmall.spritefont</Source>
@@ -611,7 +602,7 @@
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\Fonts\Dolce_VerySmall.xnb</Output>
-      <Time>0001-01-01T00:00:00</Time>
+      <Time>2014-11-30T22:25:58.6846333-08:00</Time>
     </Item>
     <Item>
       <Source>Fonts\MainFont.spritefont</Source>
@@ -620,7 +611,7 @@
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\Fonts\MainFont.xnb</Output>
-      <Time>0001-01-01T00:00:00</Time>
+      <Time>2014-11-30T22:25:58.6846333-08:00</Time>
     </Item>
     <Item>
       <Source>FX\BlackHole.fx</Source>
@@ -629,9 +620,9 @@
       <Processor>EffectProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\Pipeline\Pipeline\bin\PSM\Content\FX\BlackHole.xnb</Output>
-      <Time>0001-01-01T00:00:00</Time>
+      <Time>2014-11-30T22:26:06.0933037-08:00</Time>
     </Item>
-    <BuildSuccessful>false</BuildSuccessful>
+    <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{5CF1FCB5-58AC-43E9-AE12-B438C82B9FC8}</ContentProjectGUID>
       <TargetPlatform>Windows</TargetPlatform>
@@ -646,7 +637,7 @@
     <Assemblies>
       <Assembly>
         <Key>C:\Program Files (x86)\MSBuild\MonoGame\v3.0\MonoGameContentProcessors.dll</Key>
-        <Value>2014-04-05T14:56:18-07:00</Value>
+        <Value>2014-12-20T13:00:50-08:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>

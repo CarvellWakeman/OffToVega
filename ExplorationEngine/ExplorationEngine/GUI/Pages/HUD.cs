@@ -49,7 +49,7 @@ namespace ExplorationEngine.GUI
 				//Form_Main.CanFocus = false;
 				//Form_Main.DrawOnDebug = false;
 				Form_Main.ActiveToWork = false;
-				Form_Main.UserInteract = false;
+                Form_Main.SetUserInteract(false, false);
 				Form_Main.BackgroundForm = true;
 				//Form_Main.IsDragable = true;
 

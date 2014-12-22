@@ -177,6 +177,10 @@ namespace ExplorationEngine.GUI
 						int y = Convert.ToInt32(split[1]);
 						Engine.SetResolution(x, y, Checkbox_Fullscreen.Checked);
 					}
+                    else if (Checkbox_Fullscreen.Checked)
+                    {
+                        Engine.SetResolution(Engine.CurrentScreenResolution.X, Engine.CurrentScreenResolution.Y, Checkbox_Fullscreen.Checked);
+                    }
 					break;
 			}
 		}
@@ -205,13 +209,14 @@ namespace ExplorationEngine.GUI
 		{
 			base.Update();
 
-
+            Listbox_Resolutions.Color = (Checkbox_Fullscreen.Checked ? Listbox_Resolutions.DisabledColor : Listbox_Resolutions.OriginalColor);
+            Listbox_Resolutions.SetUserInteract(!Checkbox_Fullscreen.Checked, false);
             //PROBLEM: Listbox_Resolutions.Selected.name != Engine.CurrentGameResolution.X + " X " + Engine.CurrentGameResolution.Y)  <- Returns false after the first time apply is clicked when
             //Coming out of fullscreen.
-            //Button_Apply.Clickable = (Engine.IsFullscreen() ?
-            //                          Engine.IsFullscreen() != Checkbox_Fullscreen.Checked :
-            //                          (Checkbox_Fullscreen.Checked ? true : 
-            //                                Listbox_Resolutions.Selected != null && Listbox_Resolutions.Selected.name != Engine.CurrentGameResolution.X + " X " + Engine.CurrentGameResolution.Y));
+            Button_Apply.Clickable = (Engine.IsFullscreen() ?
+                                      Engine.IsFullscreen() != Checkbox_Fullscreen.Checked :
+                                      (Checkbox_Fullscreen.Checked ? true : 
+                                            Listbox_Resolutions.Selected != null && Listbox_Resolutions.Selected.name != Engine.CurrentGameResolution.X + " X " + Engine.CurrentGameResolution.Y));
 
 		}
 

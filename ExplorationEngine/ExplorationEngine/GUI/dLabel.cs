@@ -73,7 +73,7 @@ namespace ExplorationEngine.GUI
 				}
 			}
 
-			UserInteract = (parent == null || parent.UserInteract ? Clickable : parent.UserInteract);
+            UserInteract = Clickable;// (parent == null || parent.UserInteract ? Clickable : parent.UserInteract);
 			if (!Clickable)
 			{
 				Color = DisabledColor;

@@ -170,9 +170,6 @@
     <Content Include="Content\GUI\Background\MapBackground.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\GUI\Buttons.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="Content\GUI\Checkmark.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

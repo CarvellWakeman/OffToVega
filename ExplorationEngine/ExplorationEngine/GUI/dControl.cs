@@ -64,8 +64,8 @@ namespace ExplorationEngine.GUI
 		public Color ReleaseColor = Color.White;
 		public Color DisabledColor = Color.DimGray;
 
-		private Color _color;
-		public Color Color
+		protected Color _color;
+		public virtual Color Color
 		{
 			get { return _color; }
 			set 
@@ -90,7 +90,7 @@ namespace ExplorationEngine.GUI
 
 		public bool PlaySound = false;
 		public bool Active = false;
-		public bool UserInteract = true;
+        public bool UserInteract = true;
 
 		public bool DrawOnDebug = true;
 		public bool BlocksParentInteraction = true;
@@ -281,6 +281,8 @@ namespace ExplorationEngine.GUI
 				//Debug
 				DebugString = "Name:" + name + "\n" +
 					//"Layer:" + layer.ToString() + "\n" +
+                    "Active:" + Active.ToString() + "\n" +
+                    "UserInteract:" + UserInteract.ToString() + "\n" +
 					"Alpha:" + alpha.ToString() + "\n" +
 					"Size:" + size.X.ToString() + "," + size.Y.ToString() + "\n" +
 					"Scale:" + scale.X.ToString() + "," + scale.Y.ToString() + "\n" +

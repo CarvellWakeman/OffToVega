@@ -55,14 +55,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Off To Vega.exe" size="532992">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Off To Vega.exe" size="533504">
       <assemblyIdentity name="Off To Vega" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>QQw9VH/0s+CfBcUH+6pMlEFrMU4=</dsig:DigestValue>
+        <dsig:DigestValue>DdoWiLlZHNxXoc8lsy2DzoqRztk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -460,15 +460,6 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
       <dsig:DigestValue>i7rpFKBKV1CjHyPF81OoPJ5O66g=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Content\GUI\Buttons.png" size="20447">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>pRQ4H6h3sdjuc5pr8sUWkfK5cvM=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\GUI\Checkmark.png" size="350">

@@ -118,7 +118,6 @@ C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\E
 C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\Galaxies\Spiral\1.png
 C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\GUI\Background\MainMenuBackground.jpg
 C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\GUI\Background\MapBackground.png
-C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\GUI\Buttons.png
 C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\GUI\Checkmark.png
 C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\GUI\Circle.png
 C:\Users\Arctures-user\Desktop\Off To Vega Project\OffToVega\ExplorationEngine\ExplorationEngine\bin\Windows\Debug\Content\GUI\DropDownArrow.png

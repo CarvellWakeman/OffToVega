@@ -209,11 +209,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GUI\Buttons.png">
-      <Name>Buttons</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
     <Compile Include="GUI\Checkmark.png">
       <Name>Checkmark</Name>
       <Importer>TextureImporter</Importer>

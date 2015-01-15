@@ -40,14 +40,16 @@ namespace ExplorationEngine.GUI
 		private int PrevSolarsystemEntities;
 
 
+
 		public Communications()
 			: base()
 		{
-			Engine.Pages.Add(this);
+			Engine.guiManager.Pages.Add(this);
 
 			//Main form
 				Form_Main = new dForm("Communications", new Rectangle(0, 0, 0, 0), Engine.CreateTexture(1100, 500, 1099, 499, Color.Yellow, new Color(0,0,0,200)), null, false, false);
 				Form_Main.IsDragable = true;
+				Form_Main.IsFullscreen = false;
 
 			//Title
 				Title = new dLabel("Communications_Title", Vector2.Zero, null, Form_Main, Engine.Font_Large, "Communications", Color.White, false, false, false);
@@ -145,7 +147,7 @@ namespace ExplorationEngine.GUI
 
 
 			//Lastly, move the form to the center of the screen
-			Form_Main.position = Engine.CurrentGameResolution / 2 - Form_Main.size / 2;
+			Form_Main.position = (Vector2)Engine.CurrentGameResolution / 2 - Form_Main.size / 2;
 		}
 
 
@@ -212,9 +214,9 @@ namespace ExplorationEngine.GUI
 		}
 
 
-		public override void Reset()
+		public override void Refresh()
 		{
-			base.Reset();
+			base.Refresh();
 		}
 
 

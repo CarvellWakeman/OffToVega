@@ -25,7 +25,8 @@ namespace ExplorationEngine
 		public static GraphicsDeviceManager GraphicsManager;
 		public SpriteBatch spriteBatch;
 		public static ContentManager content;
-		public static Vector2 CurrentGameResolution;
+
+		public static Vector2I CurrentGameResolution;
         public static Vector2I CurrentScreenResolution;
 		public static Vector2 VirtualScreenResolution = new Vector2(1280, 720);
         public static Vector2 MinimumSupportedResolution = new Vector2(800, 600);
@@ -46,28 +47,19 @@ namespace ExplorationEngine
 			//Ship
 			public static SoundEffect Sound_Ping;
 			public static SoundEffect Sound_Warp;
-
+			
 		//Audio Instances
 			public static SoundEffectInstance MainMenuMusic;
 
-		//GUI Pages
-		public static MainMenu MainMenu;
-		public static NewGame NewGame;
-		public static LoadGame LoadGame;
-		public static Options Options;
-		public static PauseScreen PauseScreen;
-		public static StarBackground StarBackground;
-		public static GalaxyMap GalaxyMap;
-		public static LocalMap LocalMap;
-		public static HUD HUD;
-		public static Navigation Navigation;
-		public static Sensors Sensors;
-		public static ShipBuilding ShipBuilding;
+		//Background
+		public static Texture2D Background;
+		//public static GalaxyMap GalaxyMap;
+		//public static LocalMap LocalMap;
+		//public static HUD HUD;
+		//public static Navigation Navigation;
+		//public static Sensors Sensors;
+		//public static ShipBuilding ShipBuilding;
 
-		public static List<GUIPage> Pages = new List<GUIPage>();
-		public static List<GUIPage> OpenPages = new List<GUIPage>();
-		public static List<GUIPage> ActivePages = new List<GUIPage>();
-		public static GUIPage ActivePage;
 
 		//Textures
 			//GUI
@@ -192,7 +184,7 @@ namespace ExplorationEngine
 
 		//Debug
 		private List<string> DebugItems;
-		private string ActivePagesString = "";
+		//private string ActivePagesString = "";
 		private string OpenPagesString = "";
 		public static bool DebugState = false;
 		public static bool DebugGUI = false;
@@ -211,6 +203,9 @@ namespace ExplorationEngine
 
 
 		//Instances
+			//GUIManager
+			public static GUIManager guiManager;
+			
 			//Animation
 			public static Animation animation;
 			
@@ -262,7 +257,7 @@ namespace ExplorationEngine
 
 			//Set Resolution
 			SetResolution(1280, 720, false);
-			//this.Window.AllowUserResizing = false;
+			//this.Window.AllowUserResizing = true;
 			MouseVisible = true;
 
 			//Assign the X button to the form closing function
@@ -283,9 +278,6 @@ namespace ExplorationEngine
 			//Initialize the Input
 			Input.Initialize();
 
-			//Create the GUI
-			//gui = new GUI(this.Content);
-
 
 			//Create save load system
 			saveLoad = new SaveLoad();
@@ -303,30 +295,20 @@ namespace ExplorationEngine
 			saveLoad.LoadOptions();
 
 
-			//GUI creation
-				//Define pages
-				MainMenu = new MainMenu();
-				NewGame = new NewGame();
-				LoadGame = new LoadGame();
-				Options = new Options();
-				PauseScreen = new PauseScreen();
-				StarBackground = new StarBackground();
-				GalaxyMap = new GalaxyMap();
-				LocalMap = new LocalMap();
-				HUD = new HUD();
-				Navigation = new Navigation();
-				Sensors = new Sensors();
-				ShipBuilding = new ShipBuilding();
+			//Background
+			Background = Engine.StarField;
 
-				MainMenuMusic.Pitch = -0.3f;
-				MainMenuMusic.IsLooped = true;
 
-				//Show MainMenu
-				MainMenu.Show(null, true);
-				StarBackground.Show(null, true);
-				
+			//Create the GUIManager
+			guiManager = new GUIManager();
+			guiManager.Initialize();
 
-				//MainMenuMusic.Play();
+
+			//Music
+			MainMenuMusic.Pitch = -0.3f;
+			MainMenuMusic.IsLooped = true;
+
+			//MainMenuMusic.Play();
 				
 		}
 		#endregion
@@ -544,32 +526,32 @@ namespace ExplorationEngine
             GraphicsManager.ApplyChanges();
 
 
-			//Make menus fullscreen
-			if (MainMenu != null) MainMenu.Reset();
-			if (NewGame != null) NewGame.Reset();
-			if (LoadGame != null) LoadGame.Reset();
-			if (Options != null) Options.Reset();
-			if (PauseScreen != null) PauseScreen.Reset();
-			if (StarBackground != null) StarBackground.Reset();
-			if (GalaxyMap != null) GalaxyMap.Reset();
+			//Make menus refresh
+			if (guiManager != null) { guiManager.Refresh(); }
+
+			//if (MainMenu != null) MainMenu.Refresh();
+			//if (NewGame != null) NewGame.Refresh();
+			//if (LoadGame != null) LoadGame.Refresh();
+			//if (Options != null) Options.Refresh();
+			//if (PauseScreen != null) PauseScreen.Refresh();
+			//if (StarBackground != null) StarBackground.Refresh();
+			//if (GalaxyMap != null) GalaxyMap.Refresh();
 			//if (LocalMap != null) LocalMap.Reset(); //This GUI page is not a fullscreen page, so it does not need to be reset when the resolution changes
-			if (HUD != null) HUD.Reset();
-			if (ShipBuilding != null) ShipBuilding.Reset();
+			//if (HUD != null) HUD.Refresh();
+			//if (ShipBuilding != null) ShipBuilding.Refresh();
 		}
-		public static bool IsFullscreen()
-		{
-			return static_this.Window.IsBorderless;
-		}
+		public static bool IsFullscreen() { return static_this.Window.IsBorderless; }
 
 
-		public static void ClearEntities()
+		public static void Reset()
 		{
 			//Clear the old stuff
 			Galaxy.DestroyAllSolarSystems();
 			//ShipManager.DestroyAll();
 			Galaxy.DestroyAllEntities();
 			//ParticleManager.DestroyAll();
-			GalaxyMap.Dots.Clear();
+			//GalaxyMap.Dots.Clear();
+			guiManager.Reset();
 		}
 
 		//Override default X button
@@ -581,26 +563,6 @@ namespace ExplorationEngine
 		{
 			saveLoad.SaveOptions();
 			static_this.Exit();
-		}
-
-		public static void ExitToMainMenu()
-		{
-			saveLoad.CurrentSaveFile = new SaveFile((saveLoad.CurrentSaveFile != null ? saveLoad.CurrentSaveFile.SaveFileName : (Engine.NewGame.Textbox_Name.Text != null ? Engine.NewGame.Textbox_Name.Text : "ERROR")));
-
-			saveLoad.Save(saveLoad.CurrentSaveFile);
-			saveLoad.ReloadSaveFiles();
-
-			Engine.UpdateGame = false;
-			Engine.DrawGame = false;
-
-			Engine.ClearEntities();
-
-			Engine.MainMenu.Show(null, true);
-			Engine.PauseScreen.Hide(true);
-			Engine.HUD.Hide(true);
-			Engine.GalaxyMap.Hide(true);
-			Engine.LocalMap.Hide(true);
-			Engine.Navigation.Hide(true);
 		}
 
 
@@ -699,68 +661,26 @@ namespace ExplorationEngine
 		{
 			//Things to update
 			this.IsMouseVisible = MouseVisible;
-			CurrentGameResolution = new Vector2(GraphicsManager.PreferredBackBufferWidth, GraphicsManager.PreferredBackBufferHeight);
-            CurrentScreenResolution = new Vector2I(System.Windows.Forms.Screen.FromControl(System.Windows.Forms.Control.FromHandle(static_this.Window.Handle)).Bounds.Width,
-                    System.Windows.Forms.Screen.FromControl(System.Windows.Forms.Control.FromHandle(static_this.Window.Handle)).Bounds.Height);
+			//CurrentGameResolution = new Vector2(GraphicsManager.PreferredBackBufferWidth, GraphicsManager.PreferredBackBufferHeight);
+            //CurrentScreenResolution = new Vector2I(System.Windows.Forms.Screen.FromControl(System.Windows.Forms.Control.FromHandle(static_this.Window.Handle)).Bounds.Width,
+            //        System.Windows.Forms.Screen.FromControl(System.Windows.Forms.Control.FromHandle(static_this.Window.Handle)).Bounds.Height);
 
 			//Only update things when the program is active
 			if (this.IsActive)
 			{
 				//Input
-
 				Input.Update();
-				
-
-				//Pause Toggle
-				if (Input.KeyReleased(Input.Pause) && DrawGame)
-				{
-					if (IsPaused)
-					{
-						if (ActivePage == Engine.PauseScreen || UpdateGame)
-						{
-							IsPaused = false;
-							UpdateGame = true;
-
-							Engine.PauseScreen.Hide(false);
-						}
-					}
-					else
-					{
-						IsPaused = true;
-						UpdateGame = false;
 
 
-						Engine.PauseScreen.Show(null, false);
-					}
-				}
-
-				//GalaxyMap Toggle
-				if (GalaxyMap != null)
-				{
-					if (!IsPaused && DrawGame)
-					{
-						if (Input.KeyReleased(Input.MapToggle) && (UpdateGame || DrawGame) || GalaxyMap.Visible && Input.KeyReleased(Input.Pause))
-						{
-							if (!GalaxyMap.Visible)
-							{
-								GalaxyMap.Show(null, true);
-							}
-							else if (GalaxyMap.Visible)
-							{
-								GalaxyMap.Hide(false);
-							}
-						}
-					}
-				}
-
-
+				// && ActivePage == HUD
+				#region "Debug Keys"
 				//Create a system when Q is pressed. [DEBUG]
-				if (UpdateGame && !IsPaused && ActivePage == HUD && Input.KeyReleased(Keys.Q))
+				if (UpdateGame && !IsPaused && Input.KeyReleased(Keys.Q))
 				{
 					Galaxy.SetSolarSystem(Galaxy.CreateSolarSystem());
 				}
 				//Create 100 systems when Y is pressed. [DEBUG]
-				if (UpdateGame && !IsPaused && ActivePage == HUD && Input.KeyReleased(Keys.Y))
+				if (UpdateGame && !IsPaused && Input.KeyReleased(Keys.Y))
 				{
 					for (int ii = 0; ii < 100; ii++)
 					{
@@ -770,7 +690,7 @@ namespace ExplorationEngine
 					//Galaxy.CurrentSolarSystem = Galaxy.SolarSystems[Galaxy.SolarSystems.Count - 1];
 				}
 				//Create a ship when U is pressed. [DEBUG]
-				if (UpdateGame && !IsPaused && ActivePage == HUD && Input.KeyReleased(Keys.U))
+				if (UpdateGame && !IsPaused && Input.KeyReleased(Keys.U))
 				{
 					if (camera.TargetIsShip())
 					{
@@ -779,26 +699,24 @@ namespace ExplorationEngine
 					Galaxy.CreateShip("Serenity_" + Galaxy.Entities.Count.ToString(), Galaxy.CurrentSolarSystem, 128140, 0.0025f, Engine.Ship_Serenity, Vector2d.Zero, 0f, Vector2d.Zero, 0f, true);
 				}
 				//Delete the last entity when Z is pressed [DEBUG]
-				if (UpdateGame && !IsPaused && ActivePage == HUD && Input.KeyReleased(Keys.Z))
+				if (UpdateGame && !IsPaused && Input.KeyReleased(Keys.Z))
 				{
 					Galaxy.DestroyEntity(Galaxy.Entities.Count - 1);
 				}
 				//Open the ship building menu when V is pressed [DEBUG]
 				if (UpdateGame && !IsPaused && Input.KeyReleased(Keys.V))
 				{
-					if (!ShipBuilding.Visible)
-					{
-						ShipBuilding.Show(null, true);
-					}
-					else if (ShipBuilding.Visible)
-					{
-						ShipBuilding.Hide(false);
-					}
+					//if (!ShipBuilding.Visible)
+					//{
+					//	ShipBuilding.Show(null, true);
+					//}
+					//else if (ShipBuilding.Visible)
+					//{
+					//	ShipBuilding.Hide(false);
+					//}
 				}
-
-
-				//Star background
-				StarBackground.Update();
+				#endregion
+				
 
 				//Camera
 				camera.Update(gameTime);
@@ -824,100 +742,8 @@ namespace ExplorationEngine
 					//EntityManager.Update(gameTime);
 				}
 
-
-				OpenPagesString = "";
-				for (int ii = 0; ii < OpenPages.Count; ii++)
-				{
-					OpenPagesString += OpenPages[ii].Form_Main.name + ", ";
-				}
-
-				//GUI
-				if (Input.MouseLeftPressed) //Active Page
-				{
-					ActivePagesString = "";
-					
-					//Cycle through all of the open pages
-					for (int ii = 0; ii < OpenPages.Count; ii++)
-					{
-						//If the page can be focused by the user and the mouse was clicked within it
-						if (OpenPages[ii].Form_Main.CanFocus && OpenPages[ii].Form_Main.ContainsMouse)
-						{
-							//Add that window to a list, essentially like a needle stabbing through a pile of offset papers, and only stabbing the ones it goes through
-							ActivePages.Add(OpenPages[ii]);
-							ActivePagesString += OpenPages[ii].Form_Main.name + ", ";
-						}
-					}
-
-					//If any windows were clicked
-					if (ActivePages.Count > 1)
-					{
-						GUIPage toBeActive = ActivePages[0];
-						for (int ii = 0; ii < ActivePages.Count; ii++)
-						{
-							//Find all clicked windows that are also open (shouldn't be necessary, more of a "just in case")
-							if (OpenPages.Contains(ActivePages[ii]))
-							{
-								//If the current form is not a background form (IE: HUD) and the current form is higher in the OpenedPages list than the previous one
-								if (ActivePages[ii].Form_Main.BackgroundForm == false && OpenPages.IndexOf(ActivePages[ii]) > OpenPages.IndexOf(toBeActive))
-								{
-									//Set the "form to be active" to this higher up form
-									toBeActive = ActivePages[ii];
-								}
-							}
-						}
-						//If the form to be active is not the current one,
-						if (toBeActive != ActivePage)
-						{
-							//Add the newly active form to the top of the OpenPages list
-							OpenPages.Remove(toBeActive);
-							OpenPages.Add(toBeActive);
-						}
-
-						//Set it to active and reset
-						ActivePage = toBeActive;
-						ActivePages.Clear();
-					}
-					//else if (ActivePages.Count == 1)
-					//{
-					//	ActivePage = ActivePages[0];
-					//	ActivePages.Clear();
-					//}
-
-					//for (int ii = 0; ii < OpenPages.Count; ii++)
-					//{
-					//	if (OpenPages[ii].Form_Main.CanFocus && OpenPages[ii].Form_Main.ContainsMouse)
-					//	{
-					//		ActivePages.Add(OpenPages[ii]);
-					//	}
-					//}
-
-					//if (ActivePages.Count > 0)
-					//{
-					//	if (ActivePage != null && !ActivePages.Contains(ActivePage))
-					//	{
-					//		ActivePage = ActivePages[ActivePages.Count - 1];
-					//	}
-					//	else if (ActivePage == null)
-					//	{
-					//		ActivePage = ActivePages[ActivePages.Count - 1];
-					//	}
-					//}
-
-				}					
-				//else if (ActivePages.Count > 0) //Clear active pages if they exist
-				//{
-				//	ActivePages.Clear();
-				//}
-				//else if (OpenPages.Count == 1) //Set the last open form to active if none exist
-				//{
-				//	ActivePage = OpenPages[0];
-				//}
-
-				//Update GUI pages (Should I only update GUI pages inside of "OpenPages"?)
-				for (int ii = 0; ii < Pages.Count; ii++)
-				{
-					Pages[ii].Update();
-				}
+				//GUI Update
+				guiManager.Update();
 
 
 				//FPS
@@ -929,7 +755,13 @@ namespace ExplorationEngine
 					FPS_ElapsedTime = 0;
 				}
 
-				
+				//Open pages [DEBUG]
+				OpenPagesString = "";
+				for (int ii = 0; ii < guiManager.OpenPages.Count; ii++)
+				{
+					OpenPagesString += guiManager.OpenPages[ii].Form_Main.name + ", ";
+				}
+
 
 				//DEBUG
 				DebugItems = new List<string>()
@@ -939,11 +771,13 @@ namespace ExplorationEngine
 					"      UpdateGame:" + UpdateGame.ToString(),
 					"      DrawGame:" + DrawGame.ToString(),
 					"      IsPaused:" + IsPaused.ToString(),
+					"      ScreenResolution:" + CurrentScreenResolution.ToString(),
+					"      GameResolution:" + CurrentGameResolution.ToString(),
 					"Input:",
 					"GUI:",
-					"      ActiveForm:" + (ActivePage.Form_Main != null ? ActivePage.Form_Main.name : "null"),
-					"      ActivePages(" + ActivePages.Count.ToString() + "):" + ActivePagesString,
-					"      OpenPages(" + OpenPages.Count.ToString() + "):" + OpenPagesString,
+					"      ActiveForm:" + (guiManager.ActivePage.Form_Main != null ? guiManager.ActivePage.Form_Main.name : "null"),
+					//"      ActivePages(" + guiManager.ActivePages.Count.ToString() + "):", //+ ActivePagesString,
+					"      OpenPages(" + guiManager.OpenPages.Count.ToString() + "):" + OpenPagesString,
 					//"      Forms:" + GUIManager.Forms.Count,
 					//"      LastClicked:" + GUIManager.LastClickedForm,
 					//"      FormsUnderMouseOnClick:" + GUIManager.ActiveForms.Count.ToString(),
@@ -974,12 +808,12 @@ namespace ExplorationEngine
 			//Game Drawing
 			if (DrawGame)
 			{
-				//Star background
+				//background
 				spriteBatch.Begin();
-					StarBackground.Draw(spriteBatch);
+					spriteBatch.Draw(Background, new Rectangle(0, 0, Engine.CurrentGameResolution.X, Engine.CurrentGameResolution.Y), Color.White);
 				spriteBatch.End();
 
-				//Entities
+				//EntitiesF
 				spriteBatch.Begin(SpriteSortMode.FrontToBack, BlendState.AlphaBlend, null, null, null, null, camera.Transform);
 					//Animation
 					//animation.Draw(spriteBatch);
@@ -1007,16 +841,7 @@ namespace ExplorationEngine
 			//Other drawable things
 			spriteBatch.Begin();
 				//GUI
-					for (int ii = 0; ii < OpenPages.Count; ii++)
-					{
-						//if (Pages[ii] != ActivePage)
-						OpenPages[ii].Draw(spriteBatch);
-					}
-					//if (ActivePage != null)
-					//{
-					//	ActivePage.Draw(spriteBatch);
-					//}
-
+				guiManager.Draw(spriteBatch);
 
 				//FPS / Debug drawing
 					spriteBatch.DrawString(Font_Small, FPS.ToString(), new Vector2(CurrentGameResolution.X - 40, 15), Color.Green);

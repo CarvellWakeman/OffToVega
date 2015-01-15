@@ -359,7 +359,7 @@ namespace ExplorationEngine
                     }
                     else
                     {
-						Engine.ClearEntities();
+						Engine.Reset();
 
 
 						//Replicate SolarSystems

@@ -17,6 +17,8 @@ namespace ExplorationEngine.GUI
 	{
 		public bool Visible;
 
+		public bool UserInteract = true;
+
 		public GUIPage LastForm = null;
 
 		public dForm Form_Main = new dForm("Form", new Rectangle(0,0,500,300), Engine.CreateTexture(1,1,Color.White),null, false, false);
@@ -44,10 +46,10 @@ namespace ExplorationEngine.GUI
 			}
 
 			//Add me to the list of open pages
-			Engine.OpenPages.Add(this);
+			Engine.guiManager.OpenPages.Add(this);
 
 			//Set this page to active since it just opened
-			Engine.ActivePage = this;
+			Engine.guiManager.ActivePage = this;
 		}
 		public virtual void Hide(bool quick)
 		{
@@ -60,41 +62,66 @@ namespace ExplorationEngine.GUI
 				//Set the last form to active
 				if (LastForm != null && LastForm.Visible)
 				{
-					Engine.ActivePage = LastForm;
+					Engine.guiManager.ActivePage = LastForm;
 				}
 
 				Form_Main.alpha = 0;
 				Visible = false;
-				Engine.OpenPages.Remove(this);
+				Engine.guiManager.OpenPages.Remove(this);
 			}
 
 		}
 
+		public virtual void Refresh()
+		{
+			if (Form_Main.IsFullscreen)
+			{
+				Form_Main.size = Engine.CurrentGameResolution;
+			}
+		}
+
 		public virtual void Reset()
 		{
-			Form_Main.size = Engine.CurrentGameResolution;
+			
 		}
+		
 
 		public virtual void Update()
 		{
+			if (Form_Main.IsFullscreen) { Form_Main.size = Engine.CurrentGameResolution; }
 
 			if (Form_Main != null)
 			{
 				Form_Main.Update();
 
+
+				//Can we interact?
+				if (this.Form_Main.ActiveToWork)
+				{
+					if (Engine.guiManager.ActivePage == this && this.UserInteract == false)
+					{
+						Form_Main.SetUserInteract(true, true);
+					}
+					else if (Engine.guiManager.ActivePage != this && this.UserInteract == true)
+					{
+						Form_Main.SetUserInteract(false, true);
+					}
+				}
+
+
 				//Remove from open pages when alpha is 0
-				if (Form_Main.alpha <= 0 && Engine.OpenPages.Contains(this))
+				if (Form_Main.alpha <= 0 && Engine.guiManager.OpenPages.Contains(this))
 				{
 					//Set the last form to active
 					if (LastForm != null && LastForm.Visible)
 					{
-						Engine.ActivePage = LastForm;
+						Engine.guiManager.ActivePage = LastForm;
 					}
 
 					Visible = false; //*Poof* gone
 
 					//We're closed for business
-					Engine.OpenPages.Remove(this);
+					Engine.guiManager.OpenPages.Remove(this);
 				}
 			}
 		}

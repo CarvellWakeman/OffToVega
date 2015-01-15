@@ -39,7 +39,7 @@ namespace ExplorationEngine.GUI
 
 		public GalaxyMap() : base()
 		{
-			Engine.Pages.Add(this);
+			Engine.guiManager.Pages.Add(this);
 
 			//Main Form
 			Form_Main = new dForm("Galaxy_Map", new Rectangle(0, 0, (int)Engine.CurrentGameResolution.X, (int)Engine.CurrentGameResolution.Y), Engine.MapBackground, null, false, false);
@@ -142,9 +142,9 @@ namespace ExplorationEngine.GUI
 		}
 
 
-		public override void Reset()
+		public override void Refresh()
 		{
-			base.Reset();
+			base.Refresh();
 
 			//Engine.camera.PrevGamePosition = Vector2.Zero;
 			//Engine.camera.Position = Vector2.Zero;
@@ -152,10 +152,26 @@ namespace ExplorationEngine.GUI
 
 		public override void Update()
 		{
-
 			//Update base
 			base.Update();
 
+			//Displaying Map
+			if (!Engine.IsPaused && Engine.DrawGame)
+			{
+				if (Input.KeyReleased(Input.MapToggle) && (Engine.UpdateGame || Engine.DrawGame) || Visible && Input.KeyReleased(Input.Pause))
+				{
+					if (!Visible)
+					{
+						Show(null, true);
+					}
+					else if (Visible)
+					{
+						Hide(false);
+					}
+				}
+			}
+
+			//Visible
 			if (Visible)
 			{
 				//Click and drag
@@ -176,7 +192,7 @@ namespace ExplorationEngine.GUI
 
 				//Update Galaxy Image location
                 Image_Galaxy.scale = new Vector2d(Engine.camera.GetZoomLevel(), Engine.camera.GetZoomLevel());
-				ZoomOffset = (MapPosition - (Engine.CurrentGameResolution / 2f));// *Image_Galaxy.scale;
+				ZoomOffset = (MapPosition - ((Vector2)Engine.CurrentGameResolution / 2f));// *Image_Galaxy.scale;
 				Image_Galaxy.position = Form_Main.position + MapPosition - (Image_Galaxy.size * Image_Galaxy._scale)/2;
 
 				Label_GalaxyName.scale = Image_Galaxy.scale;
@@ -278,18 +294,18 @@ namespace ExplorationEngine.GUI
 				color = Color.Red;
 			}
 
-			_Position = Engine.GalaxyMap.Image_Galaxy.position + Position;
+			_Position = Engine.guiManager.GalaxyMap.Image_Galaxy.position + Position;
 			_Scale = Scale;
 
 			//Clicking on the dot
 			if (IsHover && Name != Galaxy.CurrentSolarSystem.Name && Input.MouseLeftReleased)
 			{
-				Engine.GalaxyMap.Reset();
+				Engine.guiManager.GalaxyMap.Reset();
 
-				Engine.GalaxyMap.Hide(true);
-				Engine.Navigation.Hide(true);
-				Engine.Sensors.Hide(true);
-				Engine.LocalMap.Hide(true);
+				Engine.guiManager.GalaxyMap.Hide(true);
+				Engine.guiManager.Navigation.Hide(true);
+				Engine.guiManager.Sensors.Hide(true);
+				Engine.guiManager.LocalMap.Hide(true);
 				
 
 				Engine.camera.ResetMouse();
@@ -299,11 +315,11 @@ namespace ExplorationEngine.GUI
 
 				//Dot angle stuff
 				Dot CurrentDot = null;
-				for (int ii = 0; ii < Engine.GalaxyMap.Dots.Count; ii++)
+				for (int ii = 0; ii < Engine.guiManager.GalaxyMap.Dots.Count; ii++)
 				{
-					if (Engine.GalaxyMap.Dots[ii].Name == Galaxy.CurrentSolarSystem.Name)
+					if (Engine.guiManager.GalaxyMap.Dots[ii].Name == Galaxy.CurrentSolarSystem.Name)
 					{
-						CurrentDot = Engine.GalaxyMap.Dots[ii];
+						CurrentDot = Engine.guiManager.GalaxyMap.Dots[ii];
 					}
 				}
 

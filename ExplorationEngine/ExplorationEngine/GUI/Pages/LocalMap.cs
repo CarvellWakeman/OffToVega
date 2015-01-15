@@ -39,11 +39,12 @@ namespace ExplorationEngine.GUI
 
 		public LocalMap() : base()
 		{
-			Engine.Pages.Add(this);
+			Engine.guiManager.Pages.Add(this);
 
 			//Main form
 				Form_Main = new dForm("LocalMap", new Rectangle(0, 0, 0, 0), Engine.CreateTexture(950, 500, 949, 499, new Color(98, 238, 255), new Color(0, 0, 0, 255)), null, false, false);
 				Form_Main.IsDragable = false;
+				Form_Main.IsFullscreen = false;
 
 			//Title
 				Title = new dLabel("LocalMap_Title", Vector2.Zero, null, Form_Main, Engine.Font_Large, "Local System", Color.White, false, false, false);
@@ -71,7 +72,7 @@ namespace ExplorationEngine.GUI
 				Button_Close.OnMouseRelease += new Engine.Handler(ButtonRelease);
 
 			//Lastly, move the form to the center of the screen
-			Form_Main.position = Engine.CurrentGameResolution / 2 - Form_Main.size / 2;
+			Form_Main.position = (Vector2)Engine.CurrentGameResolution / 2 - Form_Main.size / 2;
 		}
 
 
@@ -114,9 +115,9 @@ namespace ExplorationEngine.GUI
 		}
 
 
-		public override void Reset()
+		public override void Refresh()
 		{
-			base.Reset();
+			base.Refresh();
 
 		}
 

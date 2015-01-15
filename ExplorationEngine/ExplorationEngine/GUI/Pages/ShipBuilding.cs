@@ -21,7 +21,7 @@ namespace ExplorationEngine.GUI
 
 		public ShipBuilding() : base()
 		{
-			Engine.Pages.Add(this);
+			Engine.guiManager.Pages.Add(this);
 
 			//Main Form
 			Form_Main = new dForm("ShipBuilding", new Rectangle(0, 0, (int)Engine.CurrentGameResolution.X, (int)Engine.CurrentGameResolution.Y), Engine.MapBackground, null, false, false);
@@ -98,9 +98,9 @@ namespace ExplorationEngine.GUI
 		}
 
 
-		public override void Reset()
+		public override void Refresh()
 		{
-			base.Reset();
+			base.Refresh();
 		}
 
 		public override void Update()

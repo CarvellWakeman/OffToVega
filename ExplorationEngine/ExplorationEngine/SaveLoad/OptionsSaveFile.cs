@@ -20,7 +20,7 @@ namespace ExplorationEngine
         public bool DebugState;
 		public bool DebugGUI;
 
-		public Vector2d ScreenResolution;
+		public Vector2I ScreenResolution;
 		public bool FullScreen;
 
 

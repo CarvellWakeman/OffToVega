@@ -31,7 +31,7 @@ namespace ExplorationEngine.GUI
 			Parent = parent;
 			Intrusive = intrusive;
 
-			Engine.Pages.Add(this);
+			Engine.guiManager.Pages.Add(this);
 
 			//Main form
 			Form_Main = new dForm("MessageBox", new Rectangle(0, 0, 400, 400), Engine.CreateTexture(300, 300, 299, 299, new Color(0, 24, 255), Color.Black), null, false, false);
@@ -63,7 +63,7 @@ namespace ExplorationEngine.GUI
 
 
 			//Lastly, move the form to the center of the screen
-			Form_Main.position = Engine.CurrentGameResolution / 2 - Form_Main.size / 2;
+			Form_Main.position = (Vector2)Engine.CurrentGameResolution / 2 - Form_Main.size / 2;
 		}
 
 
@@ -107,9 +107,9 @@ namespace ExplorationEngine.GUI
 		}
 
 
-		public override void Reset()
+		public override void Refresh()
 		{
-			base.Reset();
+			base.Refresh();
 		}
 
 
@@ -126,9 +126,9 @@ namespace ExplorationEngine.GUI
 			//Keep us active if we're set to be intrusive
 			if (Intrusive)
 			{
-				if (Engine.ActivePage != this)
+				if (Engine.guiManager.ActivePage != this)
 				{
-					Engine.ActivePage = this;
+					Engine.guiManager.ActivePage = this;
 				}
 			}
 		}

@@ -32,10 +32,10 @@ namespace ExplorationEngine.Components
 		public float AngleTarget = 0f;
 
 		//Warp Image
-		[System.Xml.Serialization.XmlIgnore]
-		int r = 0;
-		[System.Xml.Serialization.XmlIgnore]
-		public List<dControl> WarpStars = new List<dControl>();
+		//[System.Xml.Serialization.XmlIgnore]
+		//int r = 0;
+		//[System.Xml.Serialization.XmlIgnore]
+		//public List<dControl> WarpStars = new List<dControl>();
 
 		public Component_ShipLogic() { }
 		public Component_ShipLogic(BaseEntity entity)
@@ -141,6 +141,7 @@ namespace ExplorationEngine.Components
 					}
 
 					//Make a warp effect if we're going fast
+					/*
 					if (_entity.Orbit != null && _entity.Orbit.EnRoute == true && _entity.Orbit.Distance > 1000f)
 					{
 
@@ -182,6 +183,8 @@ namespace ExplorationEngine.Components
 
 						}
 					}
+					*/
+
 					//Debug
 					if (Engine.DebugState)
 					{
@@ -207,6 +210,7 @@ namespace ExplorationEngine.Components
 			}
 			else
 			{
+				/*
 				if (WarpStars.Count > 0)
 				{
 					for (int ii = 0; ii < Engine.StarBackground.Form_Main.children.Count; ii++)
@@ -217,6 +221,7 @@ namespace ExplorationEngine.Components
 						}
 					}
 				}
+				 * */
 			}
 		}
 

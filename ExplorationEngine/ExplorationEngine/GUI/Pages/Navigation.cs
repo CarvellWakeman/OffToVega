@@ -37,11 +37,12 @@ namespace ExplorationEngine.GUI
 		public Navigation()
 			: base()
 		{
-			Engine.Pages.Add(this);
+			Engine.guiManager.Pages.Add(this);
 
 			//Main form
 				Form_Main = new dForm("Navigation", new Rectangle(0, 0, 0, 0), Engine.CreateTexture(950, 500, 949, 499, new Color(0, 24, 255), new Color(0,0,0,200)), null, false, false);
 				Form_Main.IsDragable = true;
+				Form_Main.IsFullscreen = false;
 
 			//Title
 				Title = new dLabel("Navigation_Title", Vector2.Zero, null, Form_Main, Engine.Font_Large, "Navigation", Color.White, false, false, false);
@@ -119,7 +120,7 @@ namespace ExplorationEngine.GUI
 
 
 			//Lastly, move the form to the center of the screen
-			Form_Main.position = Engine.CurrentGameResolution / 2 - Form_Main.size / 2;
+			Form_Main.position = (Vector2)Engine.CurrentGameResolution / 2 - Form_Main.size / 2;
 		}
 
 
@@ -204,9 +205,9 @@ namespace ExplorationEngine.GUI
 		}
 
 
-		public override void Reset()
+		public override void Refresh()
 		{
-			base.Reset();
+			base.Refresh();
 		}
 
 

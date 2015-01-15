@@ -33,11 +33,11 @@ namespace ExplorationEngine.GUI
 
 		public Options() : base()
 		{
-			Engine.Pages.Add(this);
+			Engine.guiManager.Pages.Add(this);
 
 			//Main Form
 			Form_Main = new dForm("Options", new Rectangle(0, 0, (int)Engine.CurrentGameResolution.X, (int)Engine.CurrentGameResolution.Y), Engine.StarField, null, false, false);
-				//Form_Main.IsDragable = true;
+				Form_Main.IsDragable = true;
 
 			//Form logo
 			Label_Logo = new dLabel("Options_Logo", new Vector2d(Engine.VirtualScreenResolution.X / 2, 0), null, Form_Main, Engine.Font_Large, "OPTIONS", Color.White, true, false, false);
@@ -199,9 +199,9 @@ namespace ExplorationEngine.GUI
 		}
 
 
-		public override void Reset()
+		public override void Refresh()
 		{
-			base.Reset();
+			base.Refresh();
 		}
 
 

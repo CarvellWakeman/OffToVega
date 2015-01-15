@@ -27,11 +27,11 @@ namespace ExplorationEngine.GUI
 
 		public LoadGame() : base()
 		{
-			Engine.Pages.Add(this);
+			Engine.guiManager.Pages.Add(this);
 
 			//Main Form
 			Form_Main = new dForm("LoadGame", new Rectangle(0, 0, (int)Engine.CurrentGameResolution.X, (int)Engine.CurrentGameResolution.Y), Engine.StarField, null, false, false);
-				//Form_Main.IsDragable = true;
+				Form_Main.IsDragable = true;
 			
 			//LoadGame logo
 			Label_Logo = new dLabel("LoadGame_Logo", new Vector2(Engine.VirtualScreenResolution.X / 2, 0), null, Form_Main, Engine.Font_Large, "LOAD GAME", Color.White, true, false, false);
@@ -121,14 +121,14 @@ namespace ExplorationEngine.GUI
 							Engine.UpdateGame = true;
 							Engine.DrawGame = true;
 							Engine.IsPaused = false;
-							Engine.HUD.Show(this, true);
+							Engine.guiManager.HUD.Show(this, true);
 
 							Listbox_Saves.Selected = null;
 
 							//Hide other menus
-							Engine.MainMenu.Hide(true);
-							Engine.LoadGame.Hide(true);
-							Engine.Options.Hide(true);
+							Engine.guiManager.MainMenu.Hide(true);
+							Engine.guiManager.LoadGame.Hide(true);
+							Engine.guiManager.Options.Hide(true);
 							Hide(true);
 						}
 						else
@@ -165,9 +165,9 @@ namespace ExplorationEngine.GUI
 		}
 
 
-		public override void Reset()
+		public override void Refresh()
 		{
-			base.Reset();
+			base.Refresh();
 		}
 
 

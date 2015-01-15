@@ -45,15 +45,15 @@ namespace ExplorationEngine.GUI
 		}
 
 
-		//public override void Reset()
-		//{
-		//	base.Reset();
-		//}
+		public override void Refresh()
+		{
+			base.Refresh();
+			Form_Main.size = Engine.CurrentGameResolution;
+		}
 
 
 		public override void Update()
 		{
-			Form_Main.size = Engine.CurrentGameResolution;
 			base.Update();
 		}
 

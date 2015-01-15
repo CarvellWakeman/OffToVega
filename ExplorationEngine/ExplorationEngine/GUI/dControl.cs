@@ -240,7 +240,7 @@ namespace ExplorationEngine.GUI
 		{
 			//Update scale resolution change
 			WindowScale = offset / new Vector2(1280, 720);
-			_offset = (parent != null ? (parent.parent != null ? offset : parent.size * WindowScale) : Engine.CurrentGameResolution * WindowScale);
+			_offset = (parent != null ? (parent.parent != null ? offset : parent.size * WindowScale) : (Vector2)Engine.CurrentGameResolution * WindowScale);
 
 			//Fade windows in or out
 			alpha += (alpha < 1f && !IsClosing && Active ? 0.01f : (IsClosing || !Active ? -0.01f : 0f));
@@ -285,6 +285,7 @@ namespace ExplorationEngine.GUI
                     "UserInteract:" + UserInteract.ToString() + "\n" +
 					"Alpha:" + alpha.ToString() + "\n" +
 					"Size:" + size.X.ToString() + "," + size.Y.ToString() + "\n" +
+					"_size:" + _size.X.ToString() + "," + _size.Y.ToString() + "\n" +
 					"Scale:" + scale.X.ToString() + "," + scale.Y.ToString() + "\n" +
 					"Source:" + source.X.ToString() + "," + source.Y.ToString() + "," + source.Width.ToString() + "," + source.Height.ToString() + "\n" +
 					//"_offset:" + _offset.X.ToString() + "," + _offset.Y.ToString() + "\n" +
@@ -292,7 +293,7 @@ namespace ExplorationEngine.GUI
 					"Position:" + position.X.ToString() + "," + position.Y.ToString() + "\n" +
 					"Children:" + children.Count.ToString() + "\n" +
 					"CenteredX/Y:" + CenteredX.ToString() + "/" + CenteredY.ToString() + "\n" +
-					"MouseWithin:" + ContainsMouse.ToString() + "\n" +
+					"ContainsMouse:" + ContainsMouse.ToString() + "\n" +
 					"MousePress:" + MouseWasPressedWithin.ToString() + "\n" +
 					"MouseRelease:" + MouseWasReleasedWithin.ToString() + "\n" +
 					"MouseDown:" + MouseIsPressedWithin.ToString();

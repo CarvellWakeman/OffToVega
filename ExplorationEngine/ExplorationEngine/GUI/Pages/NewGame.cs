@@ -23,11 +23,11 @@ namespace ExplorationEngine.GUI
 
 		public NewGame() : base()
 		{
-			Engine.Pages.Add(this);
+			Engine.guiManager.Pages.Add(this);
 
 			//Main form
 			Form_Main = new dForm("NewGame", new Rectangle(0, 0, (int)Engine.CurrentGameResolution.X, (int)Engine.CurrentGameResolution.Y), Engine.StarField, null, false, false);
-				//Form_Main.IsDragable = true;
+				Form_Main.IsDragable = true;
 			
 			//Create new game logo
 			Label_Logo = new dLabel("NewGame_Logo", new Vector2d(Engine.VirtualScreenResolution.X / 2, 0), null, Form_Main, Engine.Font_Large, "CREATE NEW GAME", Color.White, true, false, false);
@@ -91,7 +91,7 @@ namespace ExplorationEngine.GUI
 				case "NewGame_Create":
 				if (Textbox_Name.Text.Length > 0 && !Engine.saveLoad.Saves.ContainsKey(Textbox_Name.Text))//&& Textbox_Name.Text != "options")
 				{
-					Engine.ClearEntities();
+					Engine.Reset();
 
 					//Create 9 solar systems
 					for (int ii = 0; ii < 9; ii++)
@@ -105,16 +105,16 @@ namespace ExplorationEngine.GUI
 					Galaxy.CreateShip("Serenity_" + Galaxy.Entities.Count.ToString(), Galaxy.CurrentSolarSystem, 128140, 0.0025f, Engine.Ship_Serenity, Vector2d.Zero, 0f, Vector2d.Zero, 0f, true);
 
 					//Hide other menus
-					Engine.MainMenu.Hide(true);
-					Engine.LoadGame.Hide(true);
-					Engine.Options.Hide(true);
+					Engine.guiManager.MainMenu.Hide(true);
+					Engine.guiManager.LoadGame.Hide(true);
+					Engine.guiManager.Options.Hide(true);
 					Hide(true);
 
 					//Engine
 					Engine.UpdateGame = true;
 					Engine.DrawGame = true;
 					Engine.IsPaused = false;
-					Engine.HUD.Show(this, true);
+					Engine.guiManager.HUD.Show(this, true);
 
 				}
 				else
@@ -148,9 +148,9 @@ namespace ExplorationEngine.GUI
 		}
 
 
-		public override void Reset()
+		public override void Refresh()
 		{
-			base.Reset();
+			base.Refresh();
 		}
 
 

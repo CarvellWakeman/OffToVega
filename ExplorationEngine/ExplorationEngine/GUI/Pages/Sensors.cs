@@ -34,11 +34,12 @@ namespace ExplorationEngine.GUI
 		public Sensors()
 			: base()
 		{
-			Engine.Pages.Add(this);
+			Engine.guiManager.Pages.Add(this);
 
 			//Main form
 				Form_Main = new dForm("Sensors", new Rectangle(0, 0, 0, 0), Engine.CreateTexture(950, 500, 949, 499, new Color(200, 30, 30), new Color(0,0,0,200)), null, false, false);
 				Form_Main.IsDragable = true;
+				Form_Main.IsFullscreen = false;
 
 			//Page logo
 				Title = new dLabel("Sensors_Title", Vector2.Zero, null, Form_Main, Engine.Font_Large, "Sensors", Color.White, false, false, false);
@@ -102,7 +103,7 @@ namespace ExplorationEngine.GUI
 				Label_NotInOrbit = new dLabel("Sensors_NotInOrbit", Vector2.Zero, null, Listbox_Warnings, Engine.Font_Small, "Not In Orbit", Color.Red, false, false, false);
 
 			//Lastly, move the form to the center of the screen
-			Form_Main.position = Engine.CurrentGameResolution / 2 - Form_Main.size / 2;
+				Form_Main.position = (Vector2)Engine.CurrentGameResolution / 2 - Form_Main.size / 2;
 		}
 
 
@@ -198,9 +199,9 @@ namespace ExplorationEngine.GUI
 		}
 
 
-		public override void Reset()
+		public override void Refresh()
 		{
-			base.Reset();
+			base.Refresh();
 		}
 
 

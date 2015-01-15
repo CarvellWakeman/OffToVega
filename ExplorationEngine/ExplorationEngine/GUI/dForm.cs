@@ -16,12 +16,14 @@ namespace ExplorationEngine.GUI
 	{
 		//Form specific variables
 		public Vector2 ClickOffset;
+		public bool IsFullscreen = true;
 
-		public bool IsBeingDragged;
-		public bool IsDragable = false;
-		public bool ActiveToWork = true;
-		public bool CanFocus = true;
-		public bool BackgroundForm = false;
+		public bool IsBeingDragged;             //Is the form being dragged
+		public bool IsDragable = false;         //Can the form be dragged by the user's mouse
+		public bool ActiveToWork = true;        //Does the form have to be active in order to be interacted with
+		public bool CanFocus = true;            //Can the user focus on the form and make it active?
+		//public bool AlwaysOnTop = false;
+		//public bool BackgroundForm = false;
 
 
 		public dForm(string name, Rectangle positionSize, Texture2D texture, dControl parent, bool centeredX, bool centeredY)
@@ -44,7 +46,7 @@ namespace ExplorationEngine.GUI
 					IsBeingDragged = false;
 					ClickOffset = Vector2.Zero;
 				}
-				if (MouseWasPressedWithin && (ActiveToWork && Engine.ActivePage.Form_Main == this || !ActiveToWork))
+				if (MouseWasPressedWithin && (ActiveToWork && Engine.guiManager.ActivePage.Form_Main == this || !ActiveToWork))
 				{
 					bool ChildrenUnder = false;
 
@@ -81,16 +83,6 @@ namespace ExplorationEngine.GUI
 
 			//position += new Vector2((Convert.ToInt32(Input.KeyDown(Input.Arrow_Right)) - Convert.ToInt32(Input.KeyDown(Input.Arrow_Left))), (Convert.ToInt32(Input.KeyDown(Input.Arrow_Down)) - Convert.ToInt32(Input.KeyDown(Input.Arrow_Up)))) * (Input.KeyDown(Input.Shift) ? 1f : 0.1f);
 
-
-			//Can we interact?
-			if (Engine.ActivePage.Form_Main == this && this.UserInteract == false)
-			{
-				base.SetUserInteract(true, true);
-			}
-			else if (Engine.ActivePage.Form_Main != this && this.UserInteract == true)
-			{
-				base.SetUserInteract(false, true);
-			}
 
 			//Update base
 			base.Update();

@@ -31,7 +31,7 @@ namespace ExplorationEngine.GUI
 
 		public PauseScreen() : base()
 		{
-			Engine.Pages.Add(this);
+			Engine.guiManager.Pages.Add(this);
 
 			//Main Form
 			Form_Main = new dForm("PauseScreen", new Rectangle(0, 0, (int)Engine.CurrentGameResolution.X, (int)Engine.CurrentGameResolution.Y), Engine.Square, null, false, false);
@@ -126,10 +126,21 @@ namespace ExplorationEngine.GUI
 					Hide(false);
 					break;
 				case "PauseScreen_Options":
-					Engine.Options.Show(this, false);
+					Engine.guiManager.Options.Show(this, false);
 					break;
 				case "PauseScreen_ExitToMainMenu":
-					Engine.ExitToMainMenu();
+					Engine.saveLoad.CurrentSaveFile = new SaveFile((Engine.saveLoad.CurrentSaveFile != null ? Engine.saveLoad.CurrentSaveFile.SaveFileName : (Engine.guiManager.NewGame.Textbox_Name.Text != null ? Engine.guiManager.NewGame.Textbox_Name.Text : "ERROR")));
+
+					Engine.saveLoad.Save(Engine.saveLoad.CurrentSaveFile);
+					Engine.saveLoad.ReloadSaveFiles();
+
+					Engine.UpdateGame = false;
+					Engine.DrawGame = false;
+
+					Engine.Reset();
+
+					Engine.guiManager.Hide(true);
+					Engine.guiManager.MainMenu.Show(null, true);
 					break;
 			}
 		}
@@ -146,9 +157,9 @@ namespace ExplorationEngine.GUI
 		}
 
 
-		public override void Reset()
+		public override void Refresh()
 		{
-			base.Reset();
+			base.Refresh();
 		}
 
 
@@ -160,6 +171,13 @@ namespace ExplorationEngine.GUI
 			//{
 				base.Update();
 			//}
+
+			if (Input.KeyReleased(Input.Pause) && Engine.DrawGame)
+			{
+				Engine.IsPaused = !Engine.IsPaused;
+				Engine.UpdateGame = !Engine.IsPaused;
+				if (!Engine.IsPaused) { Hide(false); } else { Show(null, false); }
+			}
 		}
 
 		public override void Draw(SpriteBatch spritebatch)

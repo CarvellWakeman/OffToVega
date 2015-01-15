@@ -33,11 +33,11 @@ namespace ExplorationEngine.GUI
 
 		public MainMenu() : base()
 		{
-			Engine.Pages.Add(this);
+			Engine.guiManager.Pages.Add(this);
 
 			//Main form
 			Form_Main = new dForm("MainMenu", new Rectangle(0, 0, (int)Engine.CurrentGameResolution.X, (int)Engine.CurrentGameResolution.Y), Engine.MainMenuBackground, null, false, false);
-				//Form_Main.IsDragable = true;
+				Form_Main.IsDragable = true;
 
 			//My Name
 			Label_ZachLerew = new dLabel("MainMenu_ZachLerew", Vector2.Zero, null, Form_Main, Engine.Font_Small, "By Zach Lerew 2013-2015", Color.White, false, false, true);
@@ -142,13 +142,13 @@ namespace ExplorationEngine.GUI
 			switch (sender.name)
 			{
 				case "MainMenu_NewGame":
-					Engine.NewGame.Show(this, false);
+					Engine.guiManager.NewGame.Show(this, false);
 					break;
 				case "MainMenu_LoadGame":
-					Engine.LoadGame.Show(this, false);
+					Engine.guiManager.LoadGame.Show(this, false);
 					break;
 				case "MainMenu_Options":
-					Engine.Options.Show(this, false);
+					Engine.guiManager.Options.Show(this, false);
 					break;
 				case "MainMenu_Exit":
 					Engine.CustomExit();
@@ -173,9 +173,9 @@ namespace ExplorationEngine.GUI
 		}
 
 
-		public override void Reset()
+		public override void Refresh()
 		{
-			base.Reset();
+			base.Refresh();
 		}
 
 

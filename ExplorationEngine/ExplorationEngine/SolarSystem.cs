@@ -33,10 +33,10 @@ namespace ExplorationEngine
 
 			//MapDot creation
 			double angle = Engine.Rand.NextDouble() * (double)MathHelper.TwoPi;
-			double r = Math.Sqrt(Engine.Rand.NextDouble()) * (Engine.GalaxyMap.Image_Galaxy.source.Width / 2 - 20);
+			double r = Math.Sqrt(Engine.Rand.NextDouble()) * (Engine.guiManager.GalaxyMap.Image_Galaxy.source.Width / 2 - 20);
 			MapDotPosition = new Vector2d((float)(r * Math.Cos(angle)), (float)(r * Math.Sin(angle)));
 
-			Engine.GalaxyMap.AddDot(name, MapDotPosition);
+			Engine.guiManager.GalaxyMap.AddDot(name, MapDotPosition);
 		}
 		public SolarSystem(string name, Vector2d mapdotpos)
 		{
@@ -44,7 +44,7 @@ namespace ExplorationEngine
 
 			//MapDot creation
 			MapDotPosition = mapdotpos;
-			Engine.GalaxyMap.AddDot(name, mapdotpos);
+			Engine.guiManager.GalaxyMap.AddDot(name, mapdotpos);
 		}
 
 		public void AddEntity(BaseEntity entity)

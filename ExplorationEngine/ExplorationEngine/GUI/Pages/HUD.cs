@@ -40,7 +40,7 @@ namespace ExplorationEngine.GUI
 
 		public HUD() : base()
 		{
-			Engine.Pages.Add(this);
+			Engine.guiManager.Pages.Add(this);
 
 			//Main Form
 				Form_Main = new dForm("HUD", new Rectangle(0, 0, 0, 0), null, null, false, false);
@@ -49,8 +49,9 @@ namespace ExplorationEngine.GUI
 				//Form_Main.CanFocus = false;
 				//Form_Main.DrawOnDebug = false;
 				Form_Main.ActiveToWork = false;
+				
                 Form_Main.SetUserInteract(false, false);
-				Form_Main.BackgroundForm = true;
+				//Form_Main.BackgroundForm = true;
 				//Form_Main.IsDragable = true;
 
 			//Entities groupbox
@@ -219,14 +220,14 @@ namespace ExplorationEngine.GUI
 					//Mkay.Show(false);
 
 					//Hide/Show navigation
-					if (Engine.Navigation.Visible)
+					if (Engine.guiManager.Navigation.Visible)
 					{
-						Engine.Navigation.Hide(false);
+						Engine.guiManager.Navigation.Hide(false);
 					}
 					else
 					{
-						Engine.Navigation.Show(this, false);
-						Engine.Navigation.Form_Main.position = Engine.CurrentGameResolution / 2 - Engine.Navigation.Form_Main.size / 2;
+						Engine.guiManager.Navigation.Show(this, false);
+						Engine.guiManager.Navigation.Form_Main.position = (Vector2)Engine.CurrentGameResolution / 2 - Engine.guiManager.Navigation.Form_Main.size / 2;
 					}
 					break;
 				case "HUD_Sense":
@@ -234,29 +235,29 @@ namespace ExplorationEngine.GUI
 					//Mkay.Show(this, false);
 
 					//Hide/Show sensors
-					if (Engine.Sensors.Visible)
+					if (Engine.guiManager.Sensors.Visible)
 					{
-						Engine.Sensors.Hide(false);
+						Engine.guiManager.Sensors.Hide(false);
 					}
 					else
 					{
-						Engine.Sensors.Show(this, false);
-						Engine.Sensors.Form_Main.position = Engine.CurrentGameResolution / 2 - Engine.Sensors.Form_Main.size / 2;
+						Engine.guiManager.Sensors.Show(this, false);
+						Engine.guiManager.Sensors.Form_Main.position = (Vector2)Engine.CurrentGameResolution / 2 - Engine.guiManager.Sensors.Form_Main.size / 2;
 					}
 					break;
 				case "HUD_GalaxyMap":
-					Engine.GalaxyMap.Show(this, true);
+					Engine.guiManager.GalaxyMap.Show(this, true);
 					break;
 				case "HUD_LocalMap":
 					//Hide/Show Local Map
-					if (Engine.LocalMap.Visible)
+					if (Engine.guiManager.LocalMap.Visible)
 					{
-						Engine.LocalMap.Hide(false);
+						Engine.guiManager.LocalMap.Hide(false);
 					}
 					else
 					{
-						Engine.LocalMap.Show(this, false);
-						Engine.LocalMap.Form_Main.position = Engine.CurrentGameResolution / 2 - Engine.LocalMap.Form_Main.size / 2;
+						Engine.guiManager.LocalMap.Show(this, false);
+						Engine.guiManager.LocalMap.Form_Main.position = (Vector2)Engine.CurrentGameResolution / 2 - Engine.guiManager.LocalMap.Form_Main.size / 2;
 					}
 					break;
 
@@ -372,9 +373,9 @@ namespace ExplorationEngine.GUI
 		}
 
 
-		public override void Reset()
+		public override void Refresh()
 		{
-			base.Reset();
+			base.Refresh();
 		}
 
 
@@ -382,7 +383,6 @@ namespace ExplorationEngine.GUI
 		{
 			if (!Engine.IsPaused)
 			{
-				Form_Main.size = Engine.CurrentGameResolution;
 
 				//Set entities list position
 				Groupbox_Entities.offset = new Vector2(1280, 0);

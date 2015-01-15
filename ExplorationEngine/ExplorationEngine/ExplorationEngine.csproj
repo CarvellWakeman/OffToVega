@@ -94,6 +94,7 @@
     <Compile Include="GUI\MessageBox.cs" />
     <Compile Include="GUI\Pages\Communications.cs" />
     <Compile Include="GUI\Pages\GalaxyMap.cs" />
+    <Compile Include="GUI\GUIManager.cs" />
     <Compile Include="GUI\Pages\GUIPage.cs" />
     <Compile Include="GUI\Pages\HUD.cs" />
     <Compile Include="GUI\Pages\LoadGame.cs" />
@@ -105,7 +106,6 @@
     <Compile Include="GUI\Pages\PauseScreen.cs" />
     <Compile Include="GUI\Pages\Sensors.cs" />
     <Compile Include="GUI\Pages\ShipBuilding.cs" />
-    <Compile Include="GUI\Pages\StarBackground.cs" />
     <Compile Include="Input.cs" />
     <Compile Include="Particle.cs" />
     <Compile Include="ParticleEmitter.cs" />

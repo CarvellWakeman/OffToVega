@@ -696,7 +696,7 @@ namespace ExplorationEngine
 					{
 						camera.TargetObject.ShipLogic.IsControlled = false;
 					}
-					Galaxy.CreateShip("Serenity_" + Galaxy.Entities.Count.ToString(), Galaxy.CurrentSolarSystem, 128140, 0.0025f, Engine.Ship_Serenity, Vector2d.Zero, 0f, Vector2d.Zero, 0f, true);
+					Galaxy.CreateShip("Ship_" + Galaxy.Entities.Count.ToString(), Galaxy.CurrentSolarSystem, 128140, 0.0025f, Engine.Ship_Serenity, Vector2d.Zero, 0f, Vector2d.Zero, 0f, true);
 				}
 				//Delete the last entity when Z is pressed [DEBUG]
 				if (UpdateGame && !IsPaused && Input.KeyReleased(Keys.Z))

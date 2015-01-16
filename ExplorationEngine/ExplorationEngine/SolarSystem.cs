@@ -114,7 +114,7 @@ namespace ExplorationEngine
 			}
 		}
 
-		public void Update(GameTime gameTime)
+		public void Update()
 		{
 
 			//while(ii < Entities.Count && UpdateNow)
@@ -125,7 +125,7 @@ namespace ExplorationEngine
 
 				if (Ent != null && Ent.IsActive && Ent.Parent == null)
 				{
-					Ent.Update(gameTime);
+					Ent.Update();
 				}
 				else if (Ent == null)
 				{

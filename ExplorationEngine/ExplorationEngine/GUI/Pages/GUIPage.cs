@@ -19,6 +19,8 @@ namespace ExplorationEngine.GUI
 
 		public bool UserInteract = true;
 
+		public GUIPage LastActive = null;
+
 		public GUIPage LastForm = null;
 
 		public dForm Form_Main = new dForm("Form", new Rectangle(0,0,500,300), Engine.CreateTexture(1,1,Color.White),null, false, false);
@@ -96,18 +98,18 @@ namespace ExplorationEngine.GUI
 
 
 				//Can we interact?
-				if (this.Form_Main.ActiveToWork)
+				if (Form_Main.ActiveToWork)
 				{
-					if (Engine.guiManager.ActivePage == this && this.UserInteract == false)
+					if (LastActive != this && Engine.guiManager.ActivePage == this)
 					{
 						Form_Main.SetUserInteract(true, true);
 					}
-					else if (Engine.guiManager.ActivePage != this && this.UserInteract == true)
+					else if (LastActive != this && Engine.guiManager.ActivePage != this)
 					{
 						Form_Main.SetUserInteract(false, true);
 					}
 				}
-
+				LastActive = Engine.guiManager.ActivePage;
 
 				//Remove from open pages when alpha is 0
 				if (Form_Main.alpha <= 0 && Engine.guiManager.OpenPages.Contains(this))

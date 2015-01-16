@@ -69,13 +69,14 @@ namespace ExplorationEngine.Components
 			if (_entity.SolarSystem.Name == Galaxy.CurrentSolarSystem.Name)
 			{
 
-                if (Engine.camera.TargetObject == _entity) //_entity.Renderer.IsVisible
+                if (IsControlled)//Engine.camera.TargetObject == _entity) //_entity.Renderer.IsVisible
 				{
 					//Is the ship being told to move at all
 					//MoveKeyDown = ((Input.KeyDown(Input.Move_Forward) || Input.KeyDown(Input.Move_Backward)));
 
 					//Toggle the velocity damper
-					InertiaDamper = (Input.KeyReleased(Input.InertiaDamper) ? !InertiaDamper : InertiaDamper);
+					InertiaDamper = ( Input.KeyReleased(Input.InertiaDamper) ? !InertiaDamper : InertiaDamper);					
+					//if (Input.KeyReleased(Input.InertiaDamper)) { System.Windows.Forms.MessageBox.Show("hi"); }
 
 					//Direction
 					Direction = new Vector2d((float)Math.Sin(_entity.Angle), -(float)Math.Cos(_entity.Angle));
@@ -83,11 +84,11 @@ namespace ExplorationEngine.Components
 					//Add velocity based on move keys
 					if (Input.KeyDown(Input.Move_Forward))
 					{
-						//_entity.ApplyForce(Direction / _entity.Mass * 10000);
+						_entity.ApplyForce(Direction / _entity.Mass * 10000);
 					}
 					if (Input.KeyDown(Input.Move_Backward))
 					{
-						//_entity.ApplyForce(-Direction / _entity.Mass * 10000);
+						_entity.ApplyForce(-Direction / _entity.Mass * 10000);
 					}
 
 					//Subtract velocity if damper is on and no move keys are pressed
@@ -95,7 +96,7 @@ namespace ExplorationEngine.Components
 					{
 						if (InertiaDamper)
 						{
-							//_entity.ApplyForce(-(_entity.Velocity / _entity.Mass) * 200);
+							_entity.ApplyForce(-(_entity.Velocity / _entity.Mass) * 200);
 						}
 					}
 

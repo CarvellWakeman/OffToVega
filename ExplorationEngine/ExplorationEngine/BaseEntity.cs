@@ -140,10 +140,13 @@ namespace ExplorationEngine
 
 		public void SetParent(BaseEntity parent)
 		{
-			Parent = parent;
-			ParentOffset = Position - parent.Position;
+			if (parent != null)
+			{
+				Parent = parent;
+				ParentOffset = Position - parent.Position;
 
-			parent.AddChild(this);
+				parent.AddChild(this);
+			}
 		}
 		public void RemoveParent()
 		{
@@ -153,8 +156,12 @@ namespace ExplorationEngine
 
 		public void AddChild(BaseEntity child)
 		{
-			if (!Children.Contains(child))
-				Children.Add(child);
+			if (child != null)
+			{
+				if (!Children.Contains(child))
+					Children.Add(child);
+				child.Parent = this;
+			}
 		}
 		public void RemoveChild(BaseEntity child)
 		{
@@ -177,7 +184,7 @@ namespace ExplorationEngine
 		}
 
 
-		public void Update(GameTime gameTime)
+		public void Update()
 		{
 			if (IsActive)
 			{
@@ -190,7 +197,7 @@ namespace ExplorationEngine
 
 
 				//Time
-				float DeltaT = (float)gameTime.ElapsedGameTime.TotalMilliseconds;
+				//float DeltaT = (float)gameTime.ElapsedGameTime.TotalMilliseconds;
 
 				//Set Forces and Torques equal to that of the parent if this entity is a child.
 				if (Parent != null)
@@ -225,7 +232,7 @@ namespace ExplorationEngine
 				//Update children's positions for parenting reasons
 				for (int ii = 0; ii < Children.Count; ii++)
 				{
-					Children[ii].Update(gameTime);
+					Children[ii].Update();
 				}
 
 				//Update rendered position using Center-Of-Universe idea.
@@ -292,6 +299,10 @@ namespace ExplorationEngine
 				if (Particle != null) { Particle.Draw(spritebatch); }
 				if (Renderer != null) { Renderer.Draw(spritebatch); }
 
+				if (AllowDebug)
+				{
+					spritebatch.DrawString(Engine.Font_VerySmall, DebugString, Position, DebugColor);
+				}
 				//foreach (KeyValuePair<int, IDrawableComponent> e in _drawableComponents)
 				//{
 				//	e.Value.Draw(spritebatch);

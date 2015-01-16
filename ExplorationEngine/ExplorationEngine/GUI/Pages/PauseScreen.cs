@@ -146,21 +146,21 @@ namespace ExplorationEngine.GUI
 		}
 
 
-		public override void Show(GUIPage lastform, bool quick)
-		{
-			base.Show(lastform, quick);
-		}
+		//public override void Show(GUIPage lastform, bool quick)
+		//{
+		//	base.Show(lastform, quick);
+		//}
 
-		public override void Hide(bool quick)
-		{
-			base.Hide(quick);
-		}
+		//public override void Hide(bool quick)
+		//{
+		//	base.Hide(quick);
+		//}
 
 
-		public override void Refresh()
-		{
-			base.Refresh();
-		}
+		//public override void Refresh()
+		//{
+		//	base.Refresh();
+		//}
 
 
 		public override void Update()

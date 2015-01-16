@@ -37,7 +37,7 @@ namespace ExplorationEngine.GUI
 
 			//Main Form
 			Form_Main = new dForm("Options", new Rectangle(0, 0, (int)Engine.CurrentGameResolution.X, (int)Engine.CurrentGameResolution.Y), Engine.StarField, null, false, false);
-				Form_Main.IsDragable = true;
+				//Form_Main.IsDragable = true;
 
 			//Form logo
 			Label_Logo = new dLabel("Options_Logo", new Vector2d(Engine.VirtualScreenResolution.X / 2, 0), null, Form_Main, Engine.Font_Large, "OPTIONS", Color.White, true, false, false);
@@ -45,7 +45,6 @@ namespace ExplorationEngine.GUI
 
 			//Back button
                 Button_Back = new dLabel("Options_Back", new Vector2d(50, 50), null, Form_Main, Engine.Font_Large, "BACK", Color.White, false, false, false);
-				//Button_Back = new dButton("Options_Back", new Vector2d(50, 50), Engine.ButtonsTexture, new Rectangle(2, 221, 116, 41), Form_Main, false, false);
 				Button_Back.HoverColor = Color.Purple;
 				Button_Back.PressColor = Color.Red;
 				Button_Back.PlaySound = true;
@@ -188,21 +187,21 @@ namespace ExplorationEngine.GUI
 
 
 
-		public override void Show(GUIPage lastform, bool quick)
-		{
-			base.Show(lastform, quick);
-		}
+		//public override void Show(GUIPage lastform, bool quick)
+		//{
+		//	base.Show(lastform, quick);
+		//}
 
-		public override void Hide(bool quick)
-		{
-			base.Hide(quick);
-		}
+		//public override void Hide(bool quick)
+		//{
+		//	base.Hide(quick);
+		//}
 
 
-		public override void Refresh()
-		{
-			base.Refresh();
-		}
+		//public override void Refresh()
+		//{
+		//	base.Refresh();
+		//}
 
 
 		public override void Update()

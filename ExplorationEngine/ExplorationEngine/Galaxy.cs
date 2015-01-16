@@ -76,6 +76,24 @@ namespace ExplorationEngine
 			//Return the entity
 			return ent;
 		}
+		public static Container_Ship CreateEntityShip(SolarSystem parentsolarsystem, string name)
+		{
+			//Create the entity
+			Container_Ship ent = new Container_Ship(name, Vector2d.Zero, 0f, 1f);
+
+			ent.IsActive = true;
+
+			//Add the entity to our list of entities
+			Entities.Add(ent);
+			EntitiesString.Add(name, ent);
+
+			//Add the entity to its parent solarsystem for updating
+			parentsolarsystem.Entities.Add(ent);
+			ent.SolarSystem = parentsolarsystem;
+
+			//Return the entity
+			return ent;
+		}
 
 		public static void Destroy(BaseEntity entity)
 		{
@@ -134,11 +152,14 @@ namespace ExplorationEngine
 			}
 			else
 			{
-				//Queue our entity to be made
-				BaseEntity ent = Galaxy.CreateEntity(parentSolarSystem, name);
+				//Ship container
+				Container_Ship ent = CreateEntityShip(parentSolarSystem, name);
+				Ships.Add(ent);
+				ent.Initialize();
+				ent.AllowDebug = true;
 
 				//Create a renderer
-				ent.Renderer = new Component_Render(ent, Engine.Thruster);
+				ent.Renderer = new Component_Render(ent, Engine.Radiator);
 				ent.Z = 1;
 
 				//Set properties
@@ -167,13 +188,41 @@ namespace ExplorationEngine
 
 
 
+				//Small ship
+				if (false)
+				{
+					BaseEntity ent2 = CreateEntity(parentSolarSystem, name + "2");
+					ent.AddEntity(ent2);
+					ent2.Scale = scale;
+					ent2.Renderer = new Component_Render(ent2, Engine.Generator);
+					ent2.Z = 3;
+					ent2.SetParent(ent);
+					ent2.ParentOffset = new Vector2d(0, -200) * scale;
+					ent2.Communication = new ShipSystem_Communication(ent2);
 
+					BaseEntity ent3 = CreateEntity(parentSolarSystem, name + "3");
+					ent.AddEntity(ent3);
+					ent3.Scale = scale;
+					ent3.Renderer = new Component_Render(ent3, Engine.Cargo);
+					ent3.Z = 4;
+					ent3.SetParent(ent2);
+					ent3.ParentOffset = new Vector2d(0, 128) * scale;
 
+					BaseEntity ent4 = CreateEntity(parentSolarSystem, name + "4");
+					ent.AddEntity(ent4);
+					ent4.Scale = scale;
+					ent4.Renderer = new Component_Render(ent4, Engine.Thruster);
+					ent4.Z = 2;
+					ent4.SetParent(ent2);
+					ent4.ParentOffset = new Vector2d(0, 256) * scale;
+				}
 
+				//Large ship
 				if (true)
 				{
 					//Create a temporary ship.
 					BaseEntity ent2 = CreateEntity(parentSolarSystem, name + "2_Communications");
+					ent.AddEntity(ent2);
 					ent2.Scale = scale;
 					ent2.Renderer = new Component_Render(ent2, Engine.LifeSupport);
 					ent2.Z = 3;
@@ -182,6 +231,7 @@ namespace ExplorationEngine
 					ent2.Communication = new ShipSystem_Communication(ent2);
 
 					BaseEntity ent3 = CreateEntity(parentSolarSystem, name + "3");
+					ent.AddEntity(ent3);
 					ent3.Scale = scale;
 					ent3.Renderer = new Component_Render(ent3, Engine.Generator);
 					ent3.Z = 4;
@@ -189,6 +239,7 @@ namespace ExplorationEngine
 					ent3.ParentOffset = new Vector2d(0, -230) * scale;
 
 					BaseEntity ent4 = CreateEntity(parentSolarSystem, name + "4");
+					ent.AddEntity(ent4);
 					ent4.Scale = scale;
 					ent4.Renderer = new Component_Render(ent4, Engine.Cargo);
 					ent4.Z = 2;
@@ -196,6 +247,7 @@ namespace ExplorationEngine
 					ent4.ParentOffset = new Vector2d(64, 0) * scale;
 
 					BaseEntity ent5 = CreateEntity(parentSolarSystem, name + "5");
+					ent.AddEntity(ent5);
 					ent5.Scale = scale;
 					ent5.Renderer = new Component_Render(ent5, Engine.Cargo);
 					ent5.Z = 2;
@@ -203,6 +255,7 @@ namespace ExplorationEngine
 					ent5.ParentOffset = new Vector2d(-64, 0) * scale;
 
 					BaseEntity ent6 = CreateEntity(parentSolarSystem, name + "6");
+					ent.AddEntity(ent6);
 					ent6.Scale = scale;
 					ent6.Renderer = new Component_Render(ent6, Engine.Chassis1);
 					ent6.Z = 6;
@@ -210,6 +263,7 @@ namespace ExplorationEngine
 					ent6.ParentOffset = new Vector2d(0, -128) * scale;
 
 					BaseEntity ent7 = CreateEntity(parentSolarSystem, name + "7");
+					ent.AddEntity(ent7);
 					ent7.Scale = scale;
 					ent7.Renderer = new Component_Render(ent7, Engine.Chassis1);
 					ent7.Z = 6;
@@ -217,6 +271,7 @@ namespace ExplorationEngine
 					ent7.ParentOffset = new Vector2d(0, 128) * scale;
 
 					BaseEntity ent8 = CreateEntity(parentSolarSystem, name + "8");
+					ent.AddEntity(ent8);
 					ent8.Scale = scale;
 					ent8.Renderer = new Component_Render(ent8, Engine.Radiator);
 					ent8.Z = 7;
@@ -224,6 +279,7 @@ namespace ExplorationEngine
 					ent8.ParentOffset = new Vector2d(-64, 192) * scale;
 
 					BaseEntity ent9 = CreateEntity(parentSolarSystem, name + "9");
+					ent.AddEntity(ent9);
 					ent9.Scale = scale;
 					ent9.Renderer = new Component_Render(ent9, Engine.Radiator);
 					ent9.Z = 7;
@@ -231,6 +287,7 @@ namespace ExplorationEngine
 					ent9.ParentOffset = new Vector2d(64, 192) * scale;
 
 					BaseEntity ent10 = CreateEntity(parentSolarSystem, name + "10");
+					ent.AddEntity(ent10);
 					ent10.Scale = scale;
 					ent10.Renderer = new Component_Render(ent10, Engine.Chassis1);
 					ent10.Z = 6;
@@ -238,6 +295,7 @@ namespace ExplorationEngine
 					ent10.ParentOffset = new Vector2d(0, 386) * scale;
 
 					BaseEntity ent11 = CreateEntity(parentSolarSystem, name + "11");
+					ent.AddEntity(ent11);
 					ent11.Scale = scale;
 					ent11.Renderer = new Component_Render(ent11, Engine.Chassis2);
 					ent11.Z = 6;
@@ -245,6 +303,7 @@ namespace ExplorationEngine
 					ent11.ParentOffset = new Vector2d(-40, 192) * scale;
 
 					BaseEntity ent12 = CreateEntity(parentSolarSystem, name + "12");
+					ent.AddEntity(ent12);
 					ent12.Scale = scale;
 					ent12.Renderer = new Component_Render(ent12, Engine.Chassis2);
 					ent12.Z = 6;
@@ -252,6 +311,7 @@ namespace ExplorationEngine
 					ent12.ParentOffset = new Vector2d(40, 192) * scale;
 
 					BaseEntity ent13 = CreateEntity(parentSolarSystem, name + "13");
+					ent.AddEntity(ent13);
 					ent13.Scale = scale;
 					ent13.Renderer = new Component_Render(ent13, Engine.Radiator);
 					ent13.Z = 7;
@@ -259,6 +319,7 @@ namespace ExplorationEngine
 					ent13.ParentOffset = new Vector2d(40, 192) * scale;
 
 					BaseEntity ent14 = CreateEntity(parentSolarSystem, name + "14");
+					ent.AddEntity(ent14);
 					ent14.Scale = scale;
 					ent14.Renderer = new Component_Render(ent14, Engine.Radiator);
 					ent14.Z = 7;
@@ -266,6 +327,7 @@ namespace ExplorationEngine
 					ent14.ParentOffset = new Vector2d(-40, 192) * scale;
 
 					BaseEntity ent15 = CreateEntity(parentSolarSystem, name + "15");
+					ent.AddEntity(ent15);
 					ent15.Scale = scale;
 					ent15.Renderer = new Component_Render(ent15, Engine.LifeSupport);
 					ent15.Z = 3;
@@ -273,6 +335,7 @@ namespace ExplorationEngine
 					ent15.ParentOffset = new Vector2d(0, 370) * scale;
 
 					BaseEntity ent16 = CreateEntity(parentSolarSystem, name + "16");
+					ent.AddEntity(ent16);
 					ent16.Scale = scale;
 					ent16.Renderer = new Component_Render(ent16, Engine.Cargo);
 					ent16.Z = 2;
@@ -280,6 +343,7 @@ namespace ExplorationEngine
 					ent16.ParentOffset = new Vector2d(128, -32) * scale;
 
 					BaseEntity ent17 = CreateEntity(parentSolarSystem, name + "17");
+					ent.AddEntity(ent17);
 					ent17.Scale = scale;
 					ent17.Renderer = new Component_Render(ent17, Engine.Cargo);
 					ent17.Z = 2;
@@ -287,6 +351,7 @@ namespace ExplorationEngine
 					ent17.ParentOffset = new Vector2d(-128, -32) * scale;
 
 					BaseEntity ent18 = CreateEntity(parentSolarSystem, name + "18");
+					ent.AddEntity(ent18);
 					ent18.Scale = scale;
 					ent18.Renderer = new Component_Render(ent18, Engine.Cargo);
 					ent18.Z = 2;
@@ -294,6 +359,7 @@ namespace ExplorationEngine
 					ent18.ParentOffset = new Vector2d(128, 32) * scale;
 
 					BaseEntity ent19 = CreateEntity(parentSolarSystem, name + "19");
+					ent.AddEntity(ent19);
 					ent19.Scale = scale;
 					ent19.Renderer = new Component_Render(ent19, Engine.Cargo);
 					ent19.Z = 2;
@@ -301,6 +367,7 @@ namespace ExplorationEngine
 					ent19.ParentOffset = new Vector2d(-128, 32) * scale;
 
 					BaseEntity ent20 = CreateEntity(parentSolarSystem, name + "20");
+					ent.AddEntity(ent20);
 					ent20.Scale = scale;
 					ent20.OffsetAngle = MathHelper.Pi;
 					ent20.Renderer = new Component_Render(ent20, Engine.Capasitor);
@@ -309,6 +376,7 @@ namespace ExplorationEngine
 					ent20.ParentOffset = new Vector2d(-128, 0) * scale;
 
 					BaseEntity ent21 = CreateEntity(parentSolarSystem, name + "21");
+					ent.AddEntity(ent21);
 					ent21.Scale = scale;
 					ent21.Renderer = new Component_Render(ent21, Engine.Capasitor);
 					ent21.Z = 4;
@@ -316,6 +384,7 @@ namespace ExplorationEngine
 					ent21.ParentOffset = new Vector2d(128, 0) * scale;
 
 					BaseEntity ent22 = CreateEntity(parentSolarSystem, name + "22");
+					ent.AddEntity(ent22);
 					ent22.Scale = scale;
 					ent22.Renderer = new Component_Render(ent22, Engine.Chassis2);
 					ent22.Z = 6;
@@ -323,6 +392,7 @@ namespace ExplorationEngine
 					ent22.ParentOffset = new Vector2d(48, -96) * scale;
 
 					BaseEntity ent23 = CreateEntity(parentSolarSystem, name + "23");
+					ent.AddEntity(ent23);
 					ent23.Scale = scale;
 					ent23.Renderer = new Component_Render(ent23, Engine.Chassis2);
 					ent23.Z = 6;
@@ -330,6 +400,7 @@ namespace ExplorationEngine
 					ent23.ParentOffset = new Vector2d(-48, -96) * scale;
 
 					BaseEntity ent24 = CreateEntity(parentSolarSystem, name + "24");
+					ent.AddEntity(ent24);
 					ent24.Scale = scale;
 					ent24.Renderer = new Component_Render(ent24, Engine.Chassis2);
 					ent24.Z = 6;
@@ -337,6 +408,7 @@ namespace ExplorationEngine
 					ent24.ParentOffset = new Vector2d(0, 256) * scale;
 
 					BaseEntity ent25 = CreateEntity(parentSolarSystem, name + "25");
+					ent.AddEntity(ent25);
 					ent25.Scale = scale;
 					ent25.Renderer = new Component_Render(ent25, Engine.Chassis2);
 					ent25.Z = 6;
@@ -344,6 +416,7 @@ namespace ExplorationEngine
 					ent25.ParentOffset = new Vector2d(0, 256) * scale;
 
 					BaseEntity ent26 = CreateEntity(parentSolarSystem, name + "26");
+					ent.AddEntity(ent26);
 					ent26.Scale = scale;
 					ent26.Renderer = new Component_Render(ent26, Engine.Chassis2);
 					ent26.Z = 6;
@@ -351,6 +424,7 @@ namespace ExplorationEngine
 					ent26.ParentOffset = new Vector2d(0, 256) * scale;
 
 					BaseEntity ent27 = CreateEntity(parentSolarSystem, name + "27");
+					ent.AddEntity(ent27);
 					ent27.Scale = scale;
 					ent27.Renderer = new Component_Render(ent27, Engine.Chassis2);
 					ent27.Z = 6;
@@ -358,6 +432,7 @@ namespace ExplorationEngine
 					ent27.ParentOffset = new Vector2d(0, 256) * scale;
 
 					BaseEntity ent28 = CreateEntity(parentSolarSystem, name + "28");
+					ent.AddEntity(ent28);
 					ent28.Scale = scale;
 					ent28.Renderer = new Component_Render(ent28, Engine.Chassis2);
 					ent28.Z = 6;
@@ -365,6 +440,7 @@ namespace ExplorationEngine
 					ent28.ParentOffset = new Vector2d(0, 256) * scale;
 
 					BaseEntity ent29 = CreateEntity(parentSolarSystem, name + "29");
+					ent.AddEntity(ent29);
 					ent29.Scale = scale;
 					ent29.Renderer = new Component_Render(ent29, Engine.Chassis2);
 					ent29.Z = 6;
@@ -373,40 +449,13 @@ namespace ExplorationEngine
 
 				}
 
+				//Calculate centers for ship
+				ent.CalculateCenters();
 
-				//Ship container
-				Container_Ship Ship = new Container_Ship(ent, parentSolarSystem);
-				Ships.Add(Ship);
-
-
-				//Add Children
-				for (int ii = 0; ii < 0; ii++)
-				{
-					//Add child entity
-					//Queue our entity to be made
-					//BaseEntity ent1 = EntityManager.CreateEntity(name + "_child" + ii.ToString());
-
-					//ent1.Scale = scale;
-					//ent1.Position = position + new Vector2d(((Engine.Rand.NextDouble() * 2) - 1) * 10, ((Engine.Rand.NextDouble() * 2) - 1) * 10);
-					//ent1.Angle = Engine.Rand.NextDouble() * MathHelper.TwoPi;
-
-					//Create a renderer
-					//ent1.Renderer = new RenderComponent(ent1, Engine.Ship_Serenity);
-					//ent1.Renderer._debugTexture = Engine.Ship_Debug;
-					//ent1.Renderer.Layer = EntityManager.Layers.Ships;
-
-					//ent1.SetParent(ent);
-
-					//Add ship to solarsystem
-					//SolarSystemLookup(parentSolarSystem).Entities.Add(ent1.Name);
-				}
-
-
-				Engine.camera.TargetObject = Ship.PositionalCenter;
+				Engine.camera.TargetObject = ent;
 
 				Galaxy.TotalMass += mass;
 
-				Ship.Update();
 
 				return ent;
 			}
@@ -630,7 +679,7 @@ namespace ExplorationEngine
 		public static void Update(GameTime gameTime)
 		{
 			if (CurrentSolarSystem != null)
-				CurrentSolarSystem.Update(gameTime);
+				CurrentSolarSystem.Update();
 
 			//Update ships
 			for (int ii = 0; ii < Ships.Count; ii++)

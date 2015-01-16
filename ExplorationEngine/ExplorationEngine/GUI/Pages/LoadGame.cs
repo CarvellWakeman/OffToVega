@@ -31,7 +31,7 @@ namespace ExplorationEngine.GUI
 
 			//Main Form
 			Form_Main = new dForm("LoadGame", new Rectangle(0, 0, (int)Engine.CurrentGameResolution.X, (int)Engine.CurrentGameResolution.Y), Engine.StarField, null, false, false);
-				Form_Main.IsDragable = true;
+				//Form_Main.IsDragable = true;
 			
 			//LoadGame logo
 			Label_Logo = new dLabel("LoadGame_Logo", new Vector2(Engine.VirtualScreenResolution.X / 2, 0), null, Form_Main, Engine.Font_Large, "LOAD GAME", Color.White, true, false, false);
@@ -159,16 +159,16 @@ namespace ExplorationEngine.GUI
 			base.Show(lastform, quick);
 		}
 
-		public override void Hide(bool quick)
-		{
-			base.Hide(quick);
-		}
+		//public override void Hide(bool quick)
+		//{
+		//	base.Hide(quick);
+		//}
 
 
-		public override void Refresh()
-		{
-			base.Refresh();
-		}
+		//public override void Refresh()
+		//{
+		//	base.Refresh();
+		//}
 
 
 		public override void Update()

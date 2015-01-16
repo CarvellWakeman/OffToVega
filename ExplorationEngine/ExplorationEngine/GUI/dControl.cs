@@ -215,7 +215,7 @@ namespace ExplorationEngine.GUI
 		}
 
 
-		//Simulate a click
+		//Simulate a click within the control
 		public virtual void Click()
 		{
 			if (UserInteract)
@@ -245,10 +245,7 @@ namespace ExplorationEngine.GUI
 			//Fade windows in or out
 			alpha += (alpha < 1f && !IsClosing && Active ? 0.01f : (IsClosing || !Active ? -0.01f : 0f));
 			alpha = Math.Max(Math.Min(1, alpha), 0);
-			if (alpha <= 0 && IsClosing) Close();
-
-			//Layer
-			//layer = (parent == null ? (Engine.ActiveForms.Count > 0 ? Engine.ActiveForms.IndexOf(this) / Engine.ActiveForms.Count : 0) : parent.layer + 0.001f);
+			if (alpha <= 0 && IsClosing) { Close(); }
 
 			//Active statement
 			if (Active || alpha > 0 && !IsClosing)

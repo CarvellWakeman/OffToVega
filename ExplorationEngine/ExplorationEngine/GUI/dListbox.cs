@@ -62,11 +62,14 @@ namespace ExplorationEngine.GUI
 
 		public void Initialize()
 		{
+			PlaySound = true;
+			PressSound = null;
+			ReleaseSound = null;
+
 			if (size.X	> 0 && size.Y > 0)
 			{
 				//Select texture
 				SelectTexture = Engine.CreateTexture(1, 1, Color.Purple);
-
 			}
 
 			PrevResolution = Engine.CurrentGameResolution;

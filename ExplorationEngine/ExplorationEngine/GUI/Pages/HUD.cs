@@ -367,23 +367,23 @@ namespace ExplorationEngine.GUI
 			//}
 		}
 
-		public override void Hide(bool quick)
-		{
-			base.Hide(quick);
-		}
+		//public override void Hide(bool quick)
+		//{
+		//	base.Hide(quick);
+		//}
 
 
-		public override void Refresh()
-		{
-			base.Refresh();
-		}
+		//public override void Refresh()
+		//{
+		//	base.Refresh();
+		//}
 
 
 		public override void Update()
 		{
+
 			if (!Engine.IsPaused)
 			{
-
 				//Set entities list position
 				Groupbox_Entities.offset = new Vector2(1280, 0);
 

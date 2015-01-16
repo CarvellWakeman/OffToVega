@@ -27,7 +27,7 @@ namespace ExplorationEngine.GUI
 
 			//Main form
 			Form_Main = new dForm("NewGame", new Rectangle(0, 0, (int)Engine.CurrentGameResolution.X, (int)Engine.CurrentGameResolution.Y), Engine.StarField, null, false, false);
-				Form_Main.IsDragable = true;
+				//Form_Main.IsDragable = true;
 			
 			//Create new game logo
 			Label_Logo = new dLabel("NewGame_Logo", new Vector2d(Engine.VirtualScreenResolution.X / 2, 0), null, Form_Main, Engine.Font_Large, "CREATE NEW GAME", Color.White, true, false, false);
@@ -35,7 +35,6 @@ namespace ExplorationEngine.GUI
 
 			//Back button
                 Button_Back = new dLabel("NewGame_Back", new Vector2d(50, 50), null, Form_Main, Engine.Font_Large, "BACK", Color.White, false, false, false);
-				//Button_Back = new dButton("NewGame_Back", new Vector2d(50, 50), Engine.ButtonsTexture, new Rectangle(2, 221, 116, 41), Form_Main, false, false);
 				Button_Back.HoverColor = Color.Purple;
 				Button_Back.ReleaseColor = Color.Red;
 				Button_Back.PlaySound = true;
@@ -102,7 +101,7 @@ namespace ExplorationEngine.GUI
 					//Create a 10th system and set it to active
 					Galaxy.SetSolarSystem(Galaxy.CreateSolarSystem());
 
-					Galaxy.CreateShip("Serenity_" + Galaxy.Entities.Count.ToString(), Galaxy.CurrentSolarSystem, 128140, 0.0025f, Engine.Ship_Serenity, Vector2d.Zero, 0f, Vector2d.Zero, 0f, true);
+					Galaxy.CreateShip("Ship_" + Galaxy.Entities.Count.ToString(), Galaxy.CurrentSolarSystem, 128140, 0.0025f, Engine.Ship_Serenity, Vector2d.Zero, 0f, Vector2d.Zero, 0f, true);
 
 					//Hide other menus
 					Engine.guiManager.MainMenu.Hide(true);
@@ -142,16 +141,16 @@ namespace ExplorationEngine.GUI
 			Textbox_Name.Text = "Universe" + (Engine.saveLoad.Saves.Count + 1).ToString();
 		}
 
-		public override void Hide(bool quick)
-		{
-			base.Hide(quick);
-		}
+		//public override void Hide(bool quick)
+		//{
+		//	base.Hide(quick);
+		//}
 
 
-		public override void Refresh()
-		{
-			base.Refresh();
-		}
+		//public override void Refresh()
+		//{
+		//	base.Refresh();
+		//}
 
 
 		public override void Update()

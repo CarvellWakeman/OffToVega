@@ -37,7 +37,7 @@ namespace ExplorationEngine.GUI
 
 			//Main form
 			Form_Main = new dForm("MainMenu", new Rectangle(0, 0, (int)Engine.CurrentGameResolution.X, (int)Engine.CurrentGameResolution.Y), Engine.MainMenuBackground, null, false, false);
-				Form_Main.IsDragable = true;
+				//Form_Main.IsDragable = true;
 
 			//My Name
 			Label_ZachLerew = new dLabel("MainMenu_ZachLerew", Vector2.Zero, null, Form_Main, Engine.Font_Small, "By Zach Lerew 2013-2015", Color.White, false, false, true);
@@ -90,7 +90,6 @@ namespace ExplorationEngine.GUI
 
 			//Exit button
                 Button_Exit = new dLabel("MainMenu_Exit", new Vector2d(0, 150), null, Groupbox_Buttons, Engine.Font_Large, "EXIT", Color.White, false, false, false);
-				//Button_Exit = new dButton("MainMenu_Exit", new Vector2(0, 150), Engine.ButtonsTexture, new Rectangle(2, 176, 80, 39), Groupbox_Buttons, false, false);
 				Button_Exit.PressColor = Color.Purple;
 				Button_Exit.ReleaseColor = Color.Red;
 				Button_Exit.PlaySound = true;

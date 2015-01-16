@@ -18,12 +18,15 @@ namespace ExplorationEngine.Containers
 	{
 		//Entities
 		public List<BaseEntity> Entities = new List<BaseEntity>();
-		private List<Vector2d> Points = new List<Vector2d>();
+		//private List<Vector2d> Points = new List<Vector2d>();
+		//public BaseEntity Base = null;
 
+		//Galaxy relations
+		//public SolarSystem ParentSolarSystem;
 
 		//Positional entities
-		public BaseEntity CenterOfMass = null;
-		public BaseEntity PositionalCenter = null;
+		//public BaseEntity CenterOfMass = null;
+		//public BaseEntity PositionalCenter = null;
 
 		//Properties
 		public double TotalMass = 1;
@@ -37,42 +40,36 @@ namespace ExplorationEngine.Containers
 		public Container_Ship(string name, Vector2d initialPosition, float initialAngle, float initialScale)
 			: base(name, initialPosition, initialAngle, initialScale)
 		{
+			//Base = BaseEnt;
 
-			
-		}
-
-		public void Initialize()
-		{
-			CenterOfMass = Galaxy.CreateEntity(SolarSystem, Name + "_CenterOfMass");
-			PositionalCenter = Galaxy.CreateEntity(SolarSystem, Name + "_PositionalCenter");
-
-			CenterOfMass.SetParent(this);
-			PositionalCenter.SetParent(this);
+			//CenterOfMass = Galaxy.CreateEntity(solarsystem, Base.Name + "_CenterOfMass");
+			//PositionalCenter = Galaxy.CreateEntity(solarsystem, Base.Name + "_PositionalCenter");
 
 			//Parent markers to base entity
-			//AddChild(CenterOfMass);
-			//AddChild(PositionalCenter);
-			//AddEntity(CenterOfMass);
-			//AddEntity(PositionalCenter);
+			//CenterOfMass.Parent = Base;
+			//PositionalCenter.Parent = Base;
+			//Base.AddChild(CenterOfMass);
+			//Base.AddChild(PositionalCenter);
 
 			//Don't allow debug
 			//CenterOfMass.AllowDebug = false;
-			//PositionalCenter.AllowDebug = true;
+			//PositionalCenter.AllowDebug = false;
 
 
-			CenterOfMass.Z = Galaxy.MaxZ - 1;
-			PositionalCenter.Z = Galaxy.MaxZ - 1;
+			//CenterOfMass.Z = Galaxy.MaxZ - 1;
+			//PositionalCenter.Z = Galaxy.MaxZ - 1;
 
-			CenterOfMass.Renderer = new Component_Render(CenterOfMass, null);
-			PositionalCenter.Renderer = new Component_Render(PositionalCenter, null);
+			//CenterOfMass.Renderer = new Component_Render(CenterOfMass, null);
+			//PositionalCenter.Renderer = new Component_Render(PositionalCenter, null);
 
-			CenterOfMass.Renderer._debugTexture = Engine.Debug_MarkerBY;
-			PositionalCenter.Renderer._debugTexture = Engine.Debug_MarkerBP;
+			//CenterOfMass.Renderer._debugTexture = Engine.Debug_MarkerBY;
+			//PositionalCenter.Renderer._debugTexture = Engine.Debug_MarkerBP;
 
 
-			//Update Centers
-			CalculateCenters();
+			//Update things
+			ShipRefresh();
 		}
+
 
 		//Add and remove entities
 		public void AddEntity(BaseEntity ent)
@@ -87,7 +84,7 @@ namespace ExplorationEngine.Containers
 		{
 			for (int ii = 0; ii < entities.Count; ii++)
 			{
-				if (!Entities.Contains(entities[ii]))// && entities[ii] != CenterOfMass && entities[ii] != PositionalCenter)
+				if (!Entities.Contains(entities[ii]) && entities[ii] != CenterOfMass && entities[ii] != PositionalCenter)
 				{
 					Entities.Add(entities[ii]);
 
@@ -116,17 +113,27 @@ namespace ExplorationEngine.Containers
 		}
 		
 
-		
+		//Ship information refreshing
+		public void ShipRefresh()
+		{
+			//Entities.Clear();
+
+			//AddEntities(Base.Children);
+
+			//CalculateCenters();
+		}
+
+
 		//Calculate center of mass and positional center (as well as total mass)
 		public void CalculateCenters()
 		{
-			
+
 			//Reset total mass
-			TotalMass = base.Mass;
-			AverageScale = base.Scale;
+			//TotalMass = Base.Mass;
+			//AverageScale = Base.Scale;
 			//CenterOfMass.ParentOffset = Vector2d.Zero;
 			//PositionalCenter.ParentOffset = Vector2d.Zero;
-			Points.Clear();
+			//Points.Clear();
 
 			double x = 0;
 			double y = 0;
@@ -153,7 +160,7 @@ namespace ExplorationEngine.Containers
 					//y += Entities[ii].ParentOffset.Y;
 
 					
-					Points.Add(new Vector2d(x, y));
+					//Points.Add(new Vector2d(x, y));
 
 					PositionalCenter.ParentOffset.X = x;
 					PositionalCenter.ParentOffset.Y = y;
@@ -170,18 +177,18 @@ namespace ExplorationEngine.Containers
 				}
 
 				//Add all the points to the positional center
-				int num = 0;
-				for (int ii = 0; ii < Points.Count; ii++)
-				{
-					for (int iii = 0; iii < Points.Count; iii++)
-					{
-						if (Points[iii] == Points[ii] && iii != ii)
-						{
-							num++;
-							Points.RemoveAt(iii);
-						}
-					}
-				}
+				//int num = 0;
+				//for (int ii = 0; ii < Points.Count; ii++)
+				//{
+				//	for (int iii = 0; iii < Points.Count; iii++)
+				//	{
+				//		if (Points[iii] == Points[ii] && iii != ii)
+				//		{
+				//			num++;
+				//			Points.RemoveAt(iii);
+				//		}
+				//	}
+				//}
 				//System.Windows.Forms.MessageBox.Show((Points.Count + 1).ToString());
 				//Find Average scale for scaling COM and PC markers
 				AverageScale /= (Entities.Count > 0 ? Entities.Count : 1);
@@ -189,10 +196,10 @@ namespace ExplorationEngine.Containers
 				PositionalCenter.Scale = AverageScale;
 
 				//Divide by total mass to scale the position, but account for the possibility of a ship with 0 mass
-				CenterOfMass.ParentOffset.X /= (TotalMass == 0 ? 1 : TotalMass);
-				CenterOfMass.ParentOffset.Y /= (TotalMass == 0 ? 1 : TotalMass);
-				PositionalCenter.ParentOffset.X /= (Entities.Count + 1 - num);
-				PositionalCenter.ParentOffset.Y /= (Entities.Count + 1 - num);
+				//CenterOfMass.ParentOffset.X /= (TotalMass == 0 ? 1 : TotalMass);
+				//CenterOfMass.ParentOffset.Y /= (TotalMass == 0 ? 1 : TotalMass);
+				//PositionalCenter.ParentOffset.X /= (Entities.Count + 1 - num);
+				//PositionalCenter.ParentOffset.Y /= (Entities.Count + 1 - num);
 
 				//Offset the position based on what entity in the ship the markers is parented to
 				CenterOfMass.ParentOffset = CenterOfMass.Parent.Position + CenterOfMass.ParentOffset;
@@ -200,7 +207,6 @@ namespace ExplorationEngine.Containers
 
 			}
 		}
-		
 
 	}
 }

@@ -1,0 +1,121 @@
+
+
+ENGINE:
+X-Resolution scaling still doesn't work for buttons or textboxes quite right
+X-Esc button in options while in pause screen exits all the way to game. (I think it's Input's fault)
+X-Esc key should be able to be used along with the back button in menus
+X-Fade in the transparent black screen on gamepause
+X-Engine pausing based on an IsPaused variable, after GUI is based on panels
+X-Rewrite resolution/fullscreen changing (support monogame fullscreen mode)
+X-Scripting methods moved to separate scriptManager
+X-"SolarSystem" replaced with Engine "Level", collection of entities and scripts that represent a game level
+-Engine separated from game, compiled as .dll
+-Off To Vega game imports ExplorationEngine.dll and uses its methods and members
+-Rewrite Saving and Loading
+
+
+SAVING/LOADING:
+X-Duplicates in saveLoad.Saves causes crash
+X-Move serialization stuff to SaveLoad.
+X-Allow for multiple saves, based on SaveLoad.Saves name.
+X-Save the save files in documents
+X-Reset camera when loading save file.
+X-Doppleganger ship when loading save
+X-Loading saves gives a stackoverflowexception
+X-Saving is completely broken
+X-ObjectNotDisposed Exception when loading saved games without restarting, I imagine it's a texture being null.
+
+
+CAMERA:
+X-Resume on pause menu resets camera position. (PrevGamePosition)
+X-Camera zoom when clamped goes negative
+X-Camera zoom reset for game and map states
+X-Rewrite camera zoom to only add mouse scrolls to it, not set the zoom level to a value dependant on mouse scrolls.
+X-Rewrite camera.cs to be more modular and support the map view.
+X-Smooth zoom in camera.
+X-Camera can track objects (remain centered on objects)
+X-Camera target entity not switching automatically when a previous one is deleted
+X-Exiting map screen sets camera's target to mouse
+X-Camera detaches from target when esc is pressed.
+X-Camera zoom is not required to be set to an index, but can be set to a float.
+
+
+PARTICLES:
+X-Particle Emitters offset with velocity
+X-Particle Emitters aren't dependant on their parent object's existance
+X-Particle emitters don't emit. Check ShipLogicComponent.Move_Forward
+X-Particle system should be replaced by a component
+-Particles use presets as well as custom settings
+-Rate of creation argument, allows particles to be made slowly (think slow drifting bubbles)
+-Particles should be based off of baseEntity if that still allows for good performance. It might not due to particles needing to be lightweight so far as code is concerned
+
+
+GUI:
+X-Delete button in load games menu.
+X-GUI is currently based on gamestate, should be partly based on panels
+X-Messagebox
+-Drop down GUI object
+X-List object in GUI.
+	-Items can be set to fade after X seconds.
+	X-Resolution changing in options
+	-Key binding in options
+-Console and console commands
+X-Buttons should be unique and do unique functions, rather than be combined into types
+
+GUI REBUILD:
+X-Forms that should not be able to be clicked due to overlap sometimes become the active form anyways.
+X-Forms should not be "dragged" when the mouse is over one of their children.
+-dTab GUI object
+-dTextbox doesn't support commas or apostrophes, font is not the source of the problem.
+-GUI objects should be able to gain focus or not, allowing mouse scrolls and clicks to only be on a window that has focus
+-GUI Pause screen page stealing focus
+-ListBoxes selection box on scrolling lists doesn't scroll right
+-Navigation menu doesn't load buttons correctly
+X-Button text should not be based on an image anymore
+-GUI hitboxes not updating with resolution change
+-GUI loaded from scripts, not hard coded
+
+
+SOLASYSTEMS/GALAXY:
+X-Improve random solar system generation
+X-SolarSystems should store the camera's zoom level
+X-Solar system object classifications should be based on an XML file that is read, rather than hard coded.
+
+
+GALAXYMAP:
+X-Map uses click and drag
+X-Current solarsystem in map is Red
+X-Clicking in map screen loads the current solar system again after a switch has been made
+-Map zooms into mouse, not center.
+X-Camera zoom level doesn't reset after map dot click
+
+
+ENTITIES:
+X-Rework entity heirarchy to allow multiple solar systems per save
+X-Object names should be unique, references should be made by name
+X-Entities and Ships should be on a derived system, perhaps component based
+X-Entity render order needs to be established, particle emitters are currently rendering below planets in some cases. Should be initially based on creation order.
+X-New entity creation in EntityManager needs to replace solarsystem bodies (sun, planet) as it does for the "ship" type of entity.
+X-Entities need shadows again
+X-Support for Z position of entities.
+-Entity orbitting is all wrong again
+X-Camera tracking of entities is broken when the entities are moving
+X-Controlled entity is not moving back into place when camera is on another entity, this is due to the inertia damper being inactive when the main entity is not being controlled
+-Children set their position relative to parent (possible?)
+
+SHIPS:
+X-Switching maps doesn't switch which solarsystem your ship is assigned to
+X-Ship velocity has a limit when using damper
+X-Ship navigation
+-Thruster parts attached to ships that apply force to the ship in a realistic manner (Half complete)
+X-Ships made with U key don't have particle effects
+-Ship becomes a container, filled with baseEntity components. The ship object is too complex and needs variables that simply can't be held by any baseEntity object. It must have its own container.
+-Ship computer basic structure, (manages other ship systems?)
+
+
+ASSETS:
+X-Font is too thin for lower case (half fixed)
+
+
+OTHER:
+-Audio module for easily playing sounds (GUI, Ship, ambient, music)

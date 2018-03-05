@@ -75,8 +75,8 @@ namespace ExplorationEngine.Components
 					//MoveKeyDown = ((Input.KeyDown(Input.Move_Forward) || Input.KeyDown(Input.Move_Backward)));
 
 					//Toggle the velocity damper
-					InertiaDamper = ( Input.KeyReleased(Input.InertiaDamper) ? !InertiaDamper : InertiaDamper);					
-					//if (Input.KeyReleased(Input.InertiaDamper)) { System.Windows.Forms.MessageBox.Show("hi"); }
+					//InertiaDamper = ( Input.KeyReleased(Input.InertiaDamper) ? !InertiaDamper : InertiaDamper);					
+					if (Input.KeyReleased(Input.InertiaDamper)) { System.Windows.Forms.MessageBox.Show("hi"); }
 
 					//Direction
 					Direction = new Vector2d((float)Math.Sin(_entity.Angle), -(float)Math.Cos(_entity.Angle));

@@ -220,7 +220,7 @@ namespace ExplorationEngine
             public static Camera gameCamera;
 			
 		//Game States
-			public static bool IsPaused;
+			public static bool IsPaused = false;
 			public static bool DrawGame = false;
 			public static bool UpdateGame = false;
 		#endregion
@@ -242,12 +242,13 @@ namespace ExplorationEngine
 			//Set window title
 			Window.Title = "Off To Vega";
 
-			//Make a static this for access outside of Engine (window.title mostly)
+			//Make a static this for access outside of Engine
 			static_this = this;
 
 
             //Find the resolution of the monitor the window is on.
-            CurrentScreenResolution = new Vector2I(System.Windows.Forms.Screen.FromControl(System.Windows.Forms.Control.FromHandle(static_this.Window.Handle)).Bounds.Width,
+            CurrentScreenResolution = new Vector2I(
+				System.Windows.Forms.Screen.FromControl(System.Windows.Forms.Control.FromHandle(static_this.Window.Handle)).Bounds.Width,
                 System.Windows.Forms.Screen.FromControl(System.Windows.Forms.Control.FromHandle(static_this.Window.Handle)).Bounds.Height);
 
 
@@ -272,7 +273,6 @@ namespace ExplorationEngine
 
 			//Create the galaxy
 			Galaxy.Name = "NGC 1440";
-			//galaxy = new Galaxy("NGC 4414");
 
 
 			//Initialize the Input
@@ -655,6 +655,7 @@ namespace ExplorationEngine
 			return returnval;
 		}
 		#endregion
+
 
 		#region "Updating and Drawing"
 		protected override void Update(GameTime gameTime)
